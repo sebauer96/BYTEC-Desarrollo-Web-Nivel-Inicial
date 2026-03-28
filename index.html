@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Introducción al Diseño Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <!-- Floating pixels decoration -->
+    <div class="pixel-float pixel-1"></div>
+    <div class="pixel-float pixel-2"></div>
+    <div class="pixel-float pixel-3"></div>
+    <div class="pixel-float pixel-4"></div>
+    <div class="pixel-float pixel-5"></div>
+    <div class="pixel-float pixel-6"></div>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="hero">
+            <div class="hero-badge">ACADEMIA</div>
+            <h1 class="hero-title">BYTEC<span class="blink">_</span></h1>
+            <div class="hero-divider">
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-line"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+            </div>
+            <h2 class="hero-subtitle">Introducción al Diseño Web</h2>
+            <p class="hero-desc">Aprendé a crear páginas web desde cero usando solo HTML y CSS. De no saber nada a construir y publicar tu propio sitio web.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Clases</span>
+                </div>
+                <div class="stat-sep">◆</div>
+                <div class="stat">
+                    <span class="stat-number">90</span>
+                    <span class="stat-label">Min / clase</span>
+                </div>
+                <div class="stat-sep">◆</div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Práctica</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- CLASSES GRID -->
+        <section class="classes-section">
+            <h3 class="section-title">
+                <span class="section-icon">▸</span>
+                Seleccioná una clase para comenzar
+            </h3>
+
+            <div class="classes-grid">
+
+                <!-- Clase 1 -->
+                <a href="clase-1/index.html" class="class-card available">
+                    <div class="card-number">01</div>
+                    <div class="card-content">
+                        <h4 class="card-title">¿Cómo Funciona la Web?</h4>
+                        <p class="card-desc">Cómo funciona un navegador, semántico vs sintáctico, qué es HTML, estructura base de una página y tu primer IDE.</p>
+                        <div class="card-tags">
+                            <span class="tag">Navegador</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">IDE</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge active">DISPONIBLE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <!-- Clase 2 -->
+                <a href="clase-2/index.html" class="class-card available">
+                    <div class="card-number">02</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Interactividad & Primer Contacto con CSS</h4>
+                        <p class="card-desc">Formularios para recolectar datos y sintaxis básica de CSS para aplicar estilos visuales.</p>
+                        <div class="card-tags">
+                            <span class="tag">Formularios</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Inputs</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge active">DISPONIBLE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <!-- Clase 3 -->
+                <a href="#" class="class-card locked">
+                    <div class="card-number">03</div>
+                    <div class="card-content">
+                        <h4 class="card-title">El Modelo de Caja</h4>
+                        <p class="card-desc">Box Model: margin, padding, border. Cómo el navegador calcula el tamaño real de cada elemento.</p>
+                        <div class="card-tags">
+                            <span class="tag">CSS</span>
+                            <span class="tag">Box Model</span>
+                            <span class="tag">Espaciado</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <!-- Clase 4 -->
+                <a href="#" class="class-card locked">
+                    <div class="card-number">04</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Layout con Flexbox</h4>
+                        <p class="card-desc">Alinear, distribuir y ordenar elementos con el sistema de diseño flexible de CSS.</p>
+                        <div class="card-tags">
+                            <span class="tag">CSS</span>
+                            <span class="tag">Flexbox</span>
+                            <span class="tag">Layout</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <!-- Clase 5 -->
+                <a href="#" class="class-card locked">
+                    <div class="card-number">05</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Diseño Responsive</h4>
+                        <p class="card-desc">Media queries y diseño adaptable para que tu web se vea bien en celulares, tablets y escritorio.</p>
+                        <div class="card-tags">
+                            <span class="tag">CSS</span>
+                            <span class="tag">Media Queries</span>
+                            <span class="tag">Mobile First</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <!-- Clase 6 -->
+                <a href="#" class="class-card locked">
+                    <div class="card-number">06</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Tipografía, Colores & Diseño Visual</h4>
+                        <p class="card-desc">Google Fonts, paletas de colores, imágenes, fondos y cómo lograr un diseño visual atractivo y consistente.</p>
+                        <div class="card-tags">
+                            <span class="tag">Google Fonts</span>
+                            <span class="tag">Imágenes</span>
+                            <span class="tag">Diseño</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <!-- Clase 7 -->
+                <a href="#" class="class-card locked">
+                    <div class="card-number">07</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Proyecto Final: Maquetación</h4>
+                        <p class="card-desc">Arrancamos tu sitio web completo desde cero aplicando todo lo aprendido: estructura HTML y estilos CSS.</p>
+                        <div class="card-tags">
+                            <span class="tag">Proyecto</span>
+                            <span class="tag">HTML + CSS</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <!-- Clase 8 -->
+                <a href="#" class="class-card locked">
+                    <div class="card-number">08</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Pulido Final & Publicación</h4>
+                        <p class="card-desc">Detalles finales, animaciones CSS simples y publicar tu sitio en internet gratis con GitHub Pages.</p>
+                        <div class="card-tags">
+                            <span class="tag">Animaciones</span>
+                            <span class="tag">Deploy</span>
+                            <span class="tag">GitHub Pages</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-logo">▸ BYTEC<span class="blink">_</span></div>
+            <p class="footer-text">Explorando el universo del código, un pixel a la vez.</p>
+            <div class="footer-line"></div>
+        </footer>
+
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let shootingStars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.documentElement.scrollHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 2500);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.3,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.015 + 0.003
+                });
+            }
+        }
+
+        function spawnShootingStar() {
+            if (Math.random() < 0.003 && shootingStars.length < 2) {
+                shootingStars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height * 0.4,
+                    length: Math.random() * 80 + 40,
+                    speed: Math.random() * 6 + 4,
+                    angle: Math.PI / 4 + Math.random() * 0.3,
+                    opacity: 1
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+
+            spawnShootingStar();
+            shootingStars.forEach((s, i) => {
+                const endX = s.x + Math.cos(s.angle) * s.length;
+                const endY = s.y + Math.sin(s.angle) * s.length;
+                const gradient = ctx.createLinearGradient(s.x, s.y, endX, endY);
+                gradient.addColorStop(0, `rgba(247, 80, 1, ${s.opacity})`);
+                gradient.addColorStop(1, `rgba(247, 80, 1, 0)`);
+                ctx.beginPath();
+                ctx.moveTo(s.x, s.y);
+                ctx.lineTo(endX, endY);
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                s.x += Math.cos(s.angle) * s.speed;
+                s.y += Math.sin(s.angle) * s.speed;
+                s.opacity -= 0.012;
+                if (s.opacity <= 0) shootingStars.splice(i, 1);
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+    </script>
+
+</body>
+</html>

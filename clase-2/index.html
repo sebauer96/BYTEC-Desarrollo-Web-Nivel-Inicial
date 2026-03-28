@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 2: Interactividad y CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 16</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 02</div>
+                <h1 class="title-main">Interactividad<br><span class="title-accent">&amp; tu primer contacto con CSS</span></h1>
+                <p class="title-sub">HTML Avanzado · Formularios · Hojas de Estilo</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">💻 Práctica incluida</span>
+                    <span class="meta-item">🚀 Nivel: Principiante</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Estructurar <strong>formularios</strong> para recolectar datos del usuario y entender la <strong>sintaxis básica de CSS</strong> para aplicar los primeros estilos visuales.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Repaso + Intro</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">25 min</span>
+                        <span class="timeline-label">Formularios HTML</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 1</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Fundamentos CSS</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 2</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Cierre + Tarea</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: REPASO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Repaso Rápido — Clase 1</h2>
+                <p class="slide-text">En la clase anterior aprendimos la estructura base de toda página web:</p>
+                <div class="code-block">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Mi Página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+    &lt;p&gt;Este es mi primer párrafo.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>&lt;html&gt;</code> Raíz del documento</div>
+                    <div class="recap-item"><code>&lt;head&gt;</code> Metadatos (no visible)</div>
+                    <div class="recap-item"><code>&lt;body&gt;</code> Contenido visible</div>
+                    <div class="recap-item"><code>&lt;h1&gt;</code> Título principal</div>
+                    <div class="recap-item"><code>&lt;p&gt;</code> Párrafos de texto</div>
+                    <div class="recap-item"><code>&lt;title&gt;</code> Pestaña del navegador</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: INTERACTIVIDAD ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🚀 El Siguiente Nivel: Interactividad</h2>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Clase 1: Solo lectura</h3>
+                        <p>El usuario solo puede <strong>leer</strong> la información que mostramos.</p>
+                        <div class="comparison-visual">📄 → 👀</div>
+                    </div>
+                    <div class="comparison-arrow">→</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Clase 2: Interactiva</h3>
+                        <p>El usuario puede <strong>enviar información</strong> a nuestra web.</p>
+                        <div class="comparison-visual">📝 ↔ 💻</div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🌐 Ejemplos reales: login de Instagram, registro en Netflix, búsqueda en Google... ¡todos usan <strong>formularios</strong>!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: FORMULARIOS INTRO ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">📋 Formularios: La Puerta de Entrada</h2>
+                <p class="slide-text">Un <strong>formulario</strong> es un bloque de HTML que permite al usuario ingresar datos. Todo formulario empieza con la etiqueta <code>&lt;form&gt;</code>.</p>
+                <div class="code-block">
+<pre><code>&lt;form&gt;
+  &lt;!-- Aquí van todos los campos del formulario --&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>¿Por qué usar <code>&lt;form&gt;</code>?</h4>
+                        <ul>
+                            <li>Agrupa todos los campos relacionados</li>
+                            <li>Permite enviar datos al servidor</li>
+                            <li>Mejora la accesibilidad del sitio</li>
+                            <li>El navegador sabe que es un formulario</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Regla de oro 🏆</h4>
+                        <p><strong>Todos</strong> los campos de entrada deben estar <strong>dentro</strong> de un <code>&lt;form&gt;</code>. Si quedan afuera, no se enviarán.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: LABEL + INPUT ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏷️ La dupla: &lt;label&gt; + &lt;input&gt;</h2>
+                <p class="slide-text">Cada campo necesita dos cosas: un <strong>nombre visible</strong> (label) y una <strong>caja para escribir</strong> (input).</p>
+                <div class="code-block">
+<pre><code>&lt;label for="nombre"&gt;Tu nombre:&lt;/label&gt;
+&lt;input type="text" id="nombre" placeholder="Ej: María"&gt;</code></pre>
+                </div>
+                <div class="anatomy-box">
+                    <h4>Anatomía de la conexión:</h4>
+                    <div class="anatomy-flow">
+                        <div class="anatomy-part">
+                            <code>for="nombre"</code>
+                            <span class="anatomy-desc">en el &lt;label&gt;</span>
+                        </div>
+                        <div class="anatomy-connector">══ se conecta con ══</div>
+                        <div class="anatomy-part">
+                            <code>id="nombre"</code>
+                            <span class="anatomy-desc">en el &lt;input&gt;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>¿Por qué importa?</strong> Al hacer clic en el label, el cursor salta al input. Esto mejora la <strong>accesibilidad</strong> (lectores de pantalla) y la <strong>usabilidad</strong> (más fácil de usar en celulares).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: TIPOS DE INPUT ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">⌨️ Tipos de Input</h2>
+                <p class="slide-text">El atributo <code>type</code> cambia el comportamiento del campo. ¡Probá cada uno en tu celular!</p>
+                <div class="input-types-grid">
+                    <div class="input-type-card">
+                        <code class="input-type-name">type="text"</code>
+                        <p>Texto libre. Para nombres, direcciones, etc.</p>
+                        <div class="input-preview"><input type="text" placeholder="Escribe algo..." readonly></div>
+                    </div>
+                    <div class="input-type-card">
+                        <code class="input-type-name">type="email"</code>
+                        <p>Valida formato de email. El teclado móvil muestra @.</p>
+                        <div class="input-preview"><input type="email" placeholder="correo@ejemplo.com" readonly></div>
+                    </div>
+                    <div class="input-type-card">
+                        <code class="input-type-name">type="password"</code>
+                        <p>Oculta los caracteres con puntos (•••).</p>
+                        <div class="input-preview"><input type="password" value="secreto" readonly></div>
+                    </div>
+                    <div class="input-type-card">
+                        <code class="input-type-name">type="number"</code>
+                        <p>Solo acepta números. Teclado numérico en móvil.</p>
+                        <div class="input-preview"><input type="number" placeholder="42" readonly></div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📱 <strong>Dato:</strong> En celulares, <code>type="email"</code> muestra un teclado con @, y <code>type="number"</code> muestra el teclado numérico. ¡El navegador es inteligente!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: SELECT + BUTTON ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">📦 Select, Option y Button</h2>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Lista desplegable</h3>
+                        <div class="code-block small">
+<pre><code>&lt;label for="pais"&gt;País:&lt;/label&gt;
+&lt;select id="pais"&gt;
+  &lt;option value=""&gt;Elegí...&lt;/option&gt;
+  &lt;option value="ar"&gt;Argentina&lt;/option&gt;
+  &lt;option value="mx"&gt;México&lt;/option&gt;
+  &lt;option value="co"&gt;Colombia&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                        </div>
+                        <p class="slide-text">Usá <code>&lt;select&gt;</code> cuando hay varias opciones predefinidas. Cada <code>&lt;option&gt;</code> tiene un <code>value</code> (dato real) y un texto visible.</p>
+                    </div>
+                    <div class="col">
+                        <h3>El botón de envío</h3>
+                        <div class="code-block small">
+<pre><code>&lt;button type="submit"&gt;
+  Registrarme
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <p class="slide-text"><code>type="submit"</code> dispara el envío del formulario. Es el "botón de acción" que el usuario presiona al terminar.</p>
+                        <div class="highlight-box">
+                            <p>⚡ Sin un botón de tipo submit, el formulario no puede enviarse con un clic.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: ATRIBUTOS EXTRA ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔧 Atributos útiles de los inputs</h2>
+                <p class="slide-text">Estos atributos agregan comportamiento extra a tus campos:</p>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Atributo</span>
+                        <span>¿Qué hace?</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>placeholder</code>
+                        <span>Texto de ayuda dentro del campo</span>
+                        <code>placeholder="Ej: Juan"</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>required</code>
+                        <span>Campo obligatorio, no se puede enviar vacío</span>
+                        <code>required</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>name</code>
+                        <span>Nombre del dato al enviarse</span>
+                        <code>name="email"</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>value</code>
+                        <span>Valor por defecto del campo</span>
+                        <code>value="Argentina"</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>maxlength</code>
+                        <span>Máximo de caracteres permitidos</span>
+                        <code>maxlength="50"</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>min / max</code>
+                        <span>Rango para inputs numéricos</span>
+                        <code>min="1" max="100"</code>
+                    </div>
+                </div>
+                <div class="code-block small">
+<pre><code>&lt;input type="email" id="correo" name="correo"
+       placeholder="tu@email.com" required maxlength="100"&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: PRACTICA 1 ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica Guiada 1: Armá tu Formulario</h2>
+                <p class="slide-text">Vamos a codear juntos. Creá un formulario de registro con estos campos:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">✅ Nombre completo <code>type="text"</code></div>
+                    <div class="check-item">✅ Correo electrónico <code>type="email"</code></div>
+                    <div class="check-item">✅ Contraseña <code>type="password"</code></div>
+                    <div class="check-item">✅ País <code>&lt;select&gt;</code> con al menos 3 opciones</div>
+                    <div class="check-item">✅ Botón "Registrarme" <code>type="submit"</code></div>
+                </div>
+                <div class="code-block">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Registro BYTEC&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Crear Cuenta&lt;/h1&gt;
+  &lt;form&gt;
+    &lt;label for="nombre"&gt;Nombre completo:&lt;/label&gt;
+    &lt;input type="text" id="nombre" placeholder="Ej: María García" required&gt;
+
+    &lt;label for="correo"&gt;Correo electrónico:&lt;/label&gt;
+    &lt;input type="email" id="correo" placeholder="tu@email.com" required&gt;
+
+    &lt;label for="pass"&gt;Contraseña:&lt;/label&gt;
+    &lt;input type="password" id="pass" placeholder="Mínimo 6 caracteres" required&gt;
+
+    &lt;label for="pais"&gt;País:&lt;/label&gt;
+    &lt;select id="pais" required&gt;
+      &lt;option value=""&gt;Seleccioná tu país&lt;/option&gt;
+      &lt;option value="ar"&gt;Argentina&lt;/option&gt;
+      &lt;option value="mx"&gt;México&lt;/option&gt;
+      &lt;option value="co"&gt;Colombia&lt;/option&gt;
+      &lt;option value="cl"&gt;Chile&lt;/option&gt;
+      &lt;option value="pe"&gt;Perú&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;button type="submit"&gt;Registrarme&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí el archivo <code>ejercicios/01-formulario.html</code> y completá el formulario vos mismo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: CSS INTRO ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎨 CSS: Separando Estructura de Diseño</h2>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🦴</div>
+                        <h3>HTML = Esqueleto</h3>
+                        <p>Define <strong>qué</strong> hay en la página: títulos, párrafos, formularios, imágenes.</p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">👕</div>
+                        <h3>CSS = Ropa</h3>
+                        <p>Define <strong>cómo se ve</strong>: colores, tamaños, tipografías, espaciados.</p>
+                    </div>
+                    <div class="metaphor-equals">=</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🌐</div>
+                        <h3>Página Web</h3>
+                        <p>Estructura + diseño = una web completa y profesional.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📏 <strong>Buena práctica:</strong> Nunca mezcles estilos dentro del HTML (evitar <code>style="..."</code>). Siempre usá un archivo <code>.css</code> separado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: VINCULAR CSS ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔗 Conectar CSS con HTML</h2>
+                <p class="slide-text">Creamos un archivo <code>style.css</code> y lo vinculamos en el <code>&lt;head&gt;</code> del HTML:</p>
+                <div class="code-block">
+<pre><code>&lt;!-- Dentro del &lt;head&gt; de tu HTML --&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mi Página&lt;/title&gt;
+  <strong>&lt;link rel="stylesheet" href="style.css"&gt;</strong>
+&lt;/head&gt;</code></pre>
+                </div>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Creá un archivo llamado <code>style.css</code> en la misma carpeta que tu HTML.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Agregá la etiqueta <code>&lt;link&gt;</code> dentro del <code>&lt;head&gt;</code>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>El atributo <code>href</code> apunta a tu archivo CSS.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>¡Listo! Todo lo que escribas en el .css se aplicará al HTML.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: SINTAXIS CSS ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">📐 Sintaxis de CSS</h2>
+                <p class="slide-text">Toda regla CSS sigue esta estructura universal:</p>
+                <div class="syntax-diagram">
+                    <div class="syntax-part selector-part">
+                        <span class="syntax-label">SELECTOR</span>
+                        <code>h1</code>
+                    </div>
+                    <div class="syntax-part brace-part"><code>{</code></div>
+                    <div class="syntax-part property-part">
+                        <div class="syntax-line">
+                            <span class="syntax-label">PROPIEDAD</span>
+                            <code>color</code>
+                            <span>:</span>
+                            <span class="syntax-label">VALOR</span>
+                            <code class="value-code">blue</code>
+                            <span>;</span>
+                        </div>
+                        <div class="syntax-line">
+                            <span class="syntax-label">PROPIEDAD</span>
+                            <code>font-size</code>
+                            <span>:</span>
+                            <span class="syntax-label">VALOR</span>
+                            <code class="value-code">32px</code>
+                            <span>;</span>
+                        </div>
+                    </div>
+                    <div class="syntax-part brace-part"><code>}</code></div>
+                </div>
+                <div class="code-block">
+<pre><code>/* Esto selecciona TODOS los h1 y les cambia el color */
+h1 {
+  color: blue;
+  font-size: 32px;
+}
+
+/* Esto selecciona TODOS los párrafos */
+p {
+  color: gray;
+  font-family: Arial, sans-serif;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: SELECTORES ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Selectores CSS</h2>
+                <p class="slide-text">Los selectores le dicen a CSS <strong>a qué elementos aplicar</strong> los estilos:</p>
+                <div class="selectors-grid">
+                    <div class="selector-card">
+                        <h4>Por etiqueta</h4>
+                        <div class="code-block small">
+<pre><code>body {
+  background-color: #1a1a2e;
+}
+
+h1 {
+  color: orange;
+}</code></pre>
+                        </div>
+                        <p>Aplica a <strong>todas</strong> las etiquetas de ese tipo.</p>
+                    </div>
+                    <div class="selector-card featured">
+                        <h4>Por clase <span class="badge">⭐ MÁS USADO</span></h4>
+                        <div class="code-block small">
+<pre><code>/* En CSS: se escribe con punto */
+.boton-principal {
+  background-color: #f75001;
+  color: white;
+}</code></pre>
+                        </div>
+                        <div class="code-block small">
+<pre><code>&lt;!-- En HTML: se usa el atributo class --&gt;
+&lt;button class="boton-principal"&gt;
+  Enviar
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <p>Reutilizable. Podés aplicar la misma clase a muchos elementos.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Convención:</strong> Los nombres de clase se escriben en <code>kebab-case</code> (todo minúsculas, separado por guiones): <code>boton-principal</code>, <code>texto-grande</code>, <code>card-info</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: PROPIEDADES COMUNES ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎨 Propiedades CSS Comunes</h2>
+                <div class="properties-grid">
+                    <div class="prop-card">
+                        <h4>Colores</h4>
+                        <div class="code-block small">
+<pre><code>color: #f75001;
+background-color: #04589d;
+</code></pre>
+                        </div>
+                        <p>Color de texto y de fondo. Usá códigos hexadecimales (#) o nombres como <code>red</code>, <code>white</code>.</p>
+                    </div>
+                    <div class="prop-card">
+                        <h4>Tipografía</h4>
+                        <div class="code-block small">
+<pre><code>font-family: Arial, sans-serif;
+font-size: 18px;
+font-weight: bold;</code></pre>
+                        </div>
+                        <p>Familia tipográfica, tamaño y peso (grosor) del texto.</p>
+                    </div>
+                    <div class="prop-card">
+                        <h4>Espaciado</h4>
+                        <div class="code-block small">
+<pre><code>padding: 10px;
+margin: 20px;
+</code></pre>
+                        </div>
+                        <p><strong>Padding:</strong> espacio interno. <strong>Margin:</strong> espacio externo.</p>
+                    </div>
+                    <div class="prop-card">
+                        <h4>Bordes y Redondeo</h4>
+                        <div class="code-block small">
+<pre><code>border: 2px solid #f75001;
+border-radius: 8px;
+</code></pre>
+                        </div>
+                        <p>Bordes visibles y esquinas redondeadas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: PRACTICA 2 ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica Guiada 2: Pintando la Web</h2>
+                <p class="slide-text">Vamos a darle vida al formulario de la Práctica 1 con CSS:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">🎨 Color de fondo al <code>body</code> → <code>background-color</code></div>
+                    <div class="check-item">✏️ Cambiar tipografía → <code>font-family</code></div>
+                    <div class="check-item">🔤 Color de texto a los <code>h1</code> y <code>label</code> → <code>color</code></div>
+                    <div class="check-item">🔘 Crear clase <code>.boton-principal</code> para el botón</div>
+                    <div class="check-item">📦 Agregar <code>padding</code> y <code>margin</code> para espaciar</div>
+                </div>
+                <div class="code-block">
+<pre><code>/* style.css */
+body {
+  background-color: #0a0a23;
+  font-family: Arial, sans-serif;
+  color: white;
+  padding: 40px;
+}
+
+h1 {
+  color: #f75001;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #04589d;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.boton-principal {
+  background-color: #f75001;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.boton-principal:hover {
+  background-color: #d44400;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/02-formulario-con-estilos.html</code> y su <code>style.css</code> para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar en tu Máquina</h2>
+                <p class="slide-text">Resolvé estos ejercicios en la carpeta <code>ejercicios/</code>:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Formulario desde cero</h4>
+                            <p>Archivo: <code>01-formulario.html</code> — Completá un formulario de registro solo con HTML.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Formulario + CSS</h4>
+                            <p>Archivos: <code>02-formulario-con-estilos.html</code> + <code>02-style.css</code> — Aplicá estilos al formulario.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Formulario de contacto</h4>
+                            <p>Archivo: <code>03-contacto.html</code> + <code>03-style.css</code> — Creá un formulario de contacto con textarea.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Encuesta</h4>
+                            <p>Archivo: <code>04-encuesta.html</code> + <code>04-style.css</code> — Creá una encuesta completa con múltiples tipos de inputs.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: TAREA ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Creá tu Página de Registro Personal</h3>
+                    <p>Diseñá un formulario de registro para una app inventada por vos (puede ser una red social, un juego, una tienda, etc.) que incluya:</p>
+                    <ul>
+                        <li>Al menos <strong>5 campos</strong> con distintos tipos de input</li>
+                        <li>Un <code>&lt;select&gt;</code> con opciones relevantes</li>
+                        <li>Un botón de envío con una clase CSS personalizada</li>
+                        <li>Un archivo <code>style.css</code> separado con al menos <strong>8 reglas CSS</strong></li>
+                        <li>Uso de <strong>colores, tipografía, padding y margin</strong></li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 02 COMPLETADA</div>
+                    <p>De texto plano → a interfaz con datos y colores. ¡Gran avance!</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+
+    <script>
+        // Stars background canvas
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        // Slide navigation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'slide-exit');
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+        });
+    </script>
+
+</body>
+</html>

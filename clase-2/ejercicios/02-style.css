@@ -1,0 +1,62 @@
+/*
+============================================================
+EJERCICIO 02: Estilos del Formulario
+============================================================
+
+CONSIGNA:
+Completá cada regla CSS siguiendo las instrucciones.
+Donde veas "TU-CODIGO" reemplazalo por el valor correcto.
+
+PISTAS:
+- Los colores de BYTEC son: naranja #f75001 y azul #04589d
+- Usá px para tamaños (ej: 16px, 20px)
+- Recordá: propiedad: valor;
+============================================================
+*/
+
+/* 1. Fondo oscuro para toda la página y texto claro */
+body {
+    background-color: /* TU-CODIGO: poné un color oscuro, ej: #0a0a23 */;
+    color: /* TU-CODIGO: poné blanco o un color claro */;
+    font-family: /* TU-CODIGO: elegí una tipografía, ej: Arial, sans-serif */;
+    padding: 40px;
+}
+
+/* 2. El título principal en color naranja */
+h1 {
+    color: /* TU-CODIGO: usá el naranja de BYTEC */;
+}
+
+/* 3. Cada label en negrita y separado del campo anterior */
+label {
+    display: block;
+    margin-top: /* TU-CODIGO: agregá un margen superior, ej: 15px */;
+    font-weight: /* TU-CODIGO: poné "bold" para negrita */;
+}
+
+/* 4. Los inputs y selects con borde azul y espacio interno */
+input, select {
+    width: 100%;
+    padding: /* TU-CODIGO: espacio interno, ej: 10px */;
+    margin-top: 5px;
+    border: 2px solid /* TU-CODIGO: usá el azul de BYTEC */;
+    border-radius: /* TU-CODIGO: redondeo de esquinas, ej: 5px */;
+    font-size: 16px;
+}
+
+/* 5. El botón principal con fondo naranja y texto blanco */
+.boton-principal {
+    background-color: /* TU-CODIGO: usá el naranja de BYTEC */;
+    color: /* TU-CODIGO: texto blanco */;
+    padding: 12px 30px;
+    border: /* TU-CODIGO: probá "none" para quitar el borde */;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* BONUS: Efecto hover en el botón (cuando pasás el mouse) */
+/* .boton-principal:hover {
+    background-color: TU-CODIGO: un naranja más oscuro;
+} */

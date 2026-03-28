@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Formulario con Estilos</title>
+    <!--
+    PASO 1: Vinculá el archivo CSS.
+    Agregá aquí la etiqueta <link> que conecte con "02-style.css"
+    -->
+
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 02: Formulario con Estilos CSS
+    ============================================================
+
+    CONSIGNA:
+    Tomá el formulario del ejercicio anterior y dale vida con CSS.
+    El HTML ya está armado, vos tenés que:
+
+    1. Vincular el archivo 02-style.css en el <head> (arriba)
+    2. Abrir 02-style.css y completar los estilos indicados
+
+    NO modifiques el HTML (solo agregá la etiqueta <link>).
+    Todo el estilo va en el archivo .css separado.
+    ============================================================
+    -->
+
+    <h1>Crear Cuenta en BYTEC</h1>
+
+    <form>
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" placeholder="Ej: María García" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" placeholder="tu@email.com" required>
+
+        <label for="pass">Contraseña:</label>
+        <input type="password" id="pass" placeholder="Mínimo 6 caracteres" required>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" placeholder="18" min="13" max="120" required>
+
+        <label for="pais">País:</label>
+        <select id="pais" required>
+            <option value="">Seleccioná tu país</option>
+            <option value="ar">Argentina</option>
+            <option value="mx">México</option>
+            <option value="co">Colombia</option>
+            <option value="cl">Chile</option>
+            <option value="pe">Perú</option>
+        </select>
+
+        <button type="submit" class="boton-principal">Registrarme</button>
+    </form>
+
+</body>
+</html>

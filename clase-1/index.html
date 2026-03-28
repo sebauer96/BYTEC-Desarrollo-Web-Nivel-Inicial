@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 1: ¿Cómo Funciona la Web?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 18</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 01</div>
+                <h1 class="title-main">¿Cómo Funciona<br><span class="title-accent">la Web?</span></h1>
+                <p class="title-sub">Navegador · HTML · Semántica · Tu primer IDE</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">💻 Práctica incluida</span>
+                    <span class="meta-item">🚀 Nivel: Desde cero</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Entender <strong>cómo funciona un navegador</strong>, qué es <strong>HTML</strong>, diferenciar entre semántico y sintáctico, y crear tu <strong>primera página web</strong> usando un editor de código.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">¿Cómo funciona la web?</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Semántico vs Sintáctico</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">¿Qué es HTML?</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Tu primer IDE</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Práctica: Tu primera web</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Etiquetas extra + Cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: ¿QUÉ ES LA WEB? ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌐 ¿Qué es la Web?</h2>
+                <p class="slide-text">La <strong>World Wide Web</strong> es un sistema de documentos interconectados que viven en servidores alrededor del mundo. Cuando abrís una página, estás pidiendo un archivo a otra computadora.</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">📱</div>
+                        <h3>Vos (Cliente)</h3>
+                        <p>Tu navegador <strong>pide</strong> una página web.</p>
+                    </div>
+                    <div class="metaphor-plus">⇄</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🖥️</div>
+                        <h3>Servidor</h3>
+                        <p>Una computadora remota <strong>envía</strong> los archivos.</p>
+                    </div>
+                    <div class="metaphor-equals">→</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🌐</div>
+                        <h3>Página Web</h3>
+                        <p>Tu navegador <strong>interpreta</strong> los archivos y los muestra.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 Cuando escribís <strong>www.google.com</strong> estás enviando un pedido a un servidor de Google que responde con archivos HTML, CSS e imágenes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: EL NAVEGADOR ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧭 ¿Cómo Funciona el Navegador?</h2>
+                <p class="slide-text">El navegador (Chrome, Firefox, Safari, Edge) es un <strong>programa que lee archivos</strong> y los convierte en algo visual.</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Escribís una <strong>URL</strong> o hacés clic en un enlace.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>El navegador envía un <strong>pedido</strong> al servidor (request).</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>El servidor responde con los <strong>archivos</strong> (HTML, CSS, imágenes).</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>El navegador <strong>lee el HTML</strong> y lo dibuja en pantalla.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>¿Qué archivos recibe?</h4>
+                        <ul>
+                            <li><strong>HTML</strong> — La estructura (qué hay)</li>
+                            <li><strong>CSS</strong> — El diseño (cómo se ve)</li>
+                            <li><strong>Imágenes</strong> — Fotos, íconos, logos</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Dato curioso 🤓</h4>
+                        <p>Podés ver el código de <strong>cualquier</strong> página web. En Chrome: clic derecho → "Ver código fuente de la página" o <code>Ctrl + U</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: URL ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔗 Anatomía de una URL</h2>
+                <p class="slide-text">Cada página web tiene una dirección única llamada <strong>URL</strong> (Uniform Resource Locator).</p>
+                <div class="anatomy-box">
+                    <h4>Desglosando una URL:</h4>
+                    <div class="anatomy-flow">
+                        <div class="anatomy-part">
+                            <code>https://</code>
+                            <span class="anatomy-desc">Protocolo seguro</span>
+                        </div>
+                        <div class="anatomy-part">
+                            <code>www.bytec.com</code>
+                            <span class="anatomy-desc">Dominio (nombre del sitio)</span>
+                        </div>
+                        <div class="anatomy-part">
+                            <code>/cursos</code>
+                            <span class="anatomy-desc">Ruta (página específica)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Protocolo</h4>
+                        <p><code>https://</code> significa que la conexión es <strong>segura</strong> (cifrada). El candadito 🔒 en el navegador lo confirma.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Dominio</h4>
+                        <p>Es el "nombre" del sitio. Detrás de cada dominio hay una <strong>dirección IP</strong> (ej: 142.250.80.46 es Google).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: SEMÁNTICO VS SINTÁCTICO ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">📖 Semántico vs Sintáctico</h2>
+                <p class="slide-text">Dos conceptos fundamentales que aplican tanto al lenguaje humano como al código:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Semántica</h3>
+                        <p>El <strong>significado</strong>. ¿Qué quiere decir?</p>
+                        <div class="comparison-visual">💭</div>
+                        <p style="margin-top: 12px; font-size: 13px;">La semántica se pregunta: "¿Qué <em>significa</em> este contenido?"</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Sintaxis</h3>
+                        <p>La <strong>forma</strong>. ¿Cómo se escribe correctamente?</p>
+                        <div class="comparison-visual">📝</div>
+                        <p style="margin-top: 12px; font-size: 13px;">La sintaxis se pregunta: "¿Está bien <em>escrito</em>?"</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🗣️ <strong>Ejemplo con el español:</strong> "Yo gustar pizza" → La <em>semántica</em> se entiende (te gusta la pizza), pero la <em>sintaxis</em> está mal (lo correcto es "A mí me gusta la pizza").</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: SEMÁNTICA EN HTML ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏷️ Semántica en HTML</h2>
+                <p class="slide-text">En HTML, <strong>semántica</strong> significa usar la etiqueta correcta según el <strong>significado</strong> del contenido:</p>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>✅ Semántico (correcto)</h3>
+                        <div class="code-block small">
+<pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;p&gt;Este es un párrafo.&lt;/p&gt;
+&lt;nav&gt;Menú de navegación&lt;/nav&gt;
+&lt;footer&gt;Pie de página&lt;/footer&gt;</code></pre>
+                        </div>
+                        <p class="slide-text">Cada etiqueta tiene un <strong>significado claro</strong>. El navegador y los buscadores entienden qué es cada cosa.</p>
+                    </div>
+                    <div class="col">
+                        <h3>❌ No semántico (funciona, pero mal)</h3>
+                        <div class="code-block small">
+<pre><code>&lt;div&gt;Título Principal&lt;/div&gt;
+&lt;div&gt;Este es un párrafo.&lt;/div&gt;
+&lt;div&gt;Menú de navegación&lt;/div&gt;
+&lt;div&gt;Pie de página&lt;/div&gt;</code></pre>
+                        </div>
+                        <p class="slide-text">Todo es <code>&lt;div&gt;</code> (caja genérica). El navegador no sabe qué es un título y qué es un pie de página.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔍 <strong>¿Por qué importa?</strong> Google usa la semántica para entender tu web. Un <code>&lt;h1&gt;</code> le dice "esto es lo más importante de la página". Un <code>&lt;div&gt;</code> no dice nada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: SINTAXIS EN HTML ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚙️ Sintaxis en HTML</h2>
+                <p class="slide-text">La <strong>sintaxis</strong> son las reglas de escritura. Si no las seguís, el navegador no entiende tu código.</p>
+                <div class="anatomy-box">
+                    <h4>Anatomía de una etiqueta HTML:</h4>
+                    <div class="anatomy-flow">
+                        <div class="anatomy-part">
+                            <code>&lt;h1&gt;</code>
+                            <span class="anatomy-desc">Etiqueta de apertura</span>
+                        </div>
+                        <div class="anatomy-connector">══ contenido ══</div>
+                        <div class="anatomy-part">
+                            <code>&lt;/h1&gt;</code>
+                            <span class="anatomy-desc">Etiqueta de cierre</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>✅ Sintaxis correcta</h3>
+                        <div class="code-block small">
+<pre><code>&lt;h1&gt;Hola Mundo&lt;/h1&gt;
+&lt;p&gt;Un párrafo válido.&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>❌ Sintaxis incorrecta</h3>
+                        <div class="code-block small">
+<pre><code>&lt;h1&gt;Falta el cierre
+&lt;p&gt;Esto está mal&lt;p&gt;
+h1&gt;Sin el menor que&lt;/h1&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📏 <strong>Regla de oro:</strong> Toda etiqueta que se <strong>abre</strong> (<code>&lt;tag&gt;</code>) se tiene que <strong>cerrar</strong> (<code>&lt;/tag&gt;</code>). La barra <code>/</code> indica el cierre.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: ¿QUÉ ES HTML? ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">📄 ¿Qué es HTML?</h2>
+                <div class="objective-card">
+                    <p class="objective-text"><strong>HTML</strong> = <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage<br>(Lenguaje de Marcado de Hipertexto)</p>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>¿Lenguaje de programación?</h4>
+                        <p><strong>No.</strong> HTML no es un lenguaje de programación. Es un <strong>lenguaje de marcado</strong>: le dice al navegador cómo <strong>estructurar</strong> el contenido, no le da instrucciones lógicas.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Qué es "Hipertexto"?</h4>
+                        <p>Texto que contiene <strong>enlaces</strong> a otros textos. Cuando hacés clic en un link, estás usando hipertexto. Es lo que conecta toda la web.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Qué es "Marcado"?</h4>
+                        <p>Usar <strong>etiquetas</strong> (<code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>) para "marcar" partes del contenido y decirle al navegador: "esto es un título", "esto es un párrafo".</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Dónde se usa?</h4>
+                        <p><strong>En todas las páginas web del mundo.</strong> Cada sitio que visitás (Google, Instagram, Wikipedia) está hecho con HTML como base.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: ESTRUCTURA HTML ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏗️ Estructura Base de HTML</h2>
+                <p class="slide-text">Todo archivo HTML tiene la misma estructura fundamental. Pensalo como el <strong>esqueleto</strong> de la página:</p>
+                <div class="code-block">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Primera Página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Acá va todo lo que se VE en la página --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>&lt;!DOCTYPE html&gt;</code> Le dice al navegador que es HTML5</div>
+                    <div class="recap-item"><code>&lt;html&gt;</code> Raíz de todo el documento</div>
+                    <div class="recap-item"><code>&lt;head&gt;</code> Información invisible (metadatos)</div>
+                    <div class="recap-item"><code>&lt;meta charset&gt;</code> Permite acentos y ñ</div>
+                    <div class="recap-item"><code>&lt;title&gt;</code> Texto de la pestaña del navegador</div>
+                    <div class="recap-item"><code>&lt;body&gt;</code> Todo el contenido visible</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: HEAD VS BODY ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧠 Head vs Body</h2>
+                <p class="slide-text">Las dos secciones principales de un HTML tienen roles muy distintos:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">&lt;head&gt;</h3>
+                        <p>Lo que el usuario <strong>NO ve</strong>.</p>
+                        <div class="comparison-visual">🧠</div>
+                        <p style="margin-top: 12px; font-size: 13px;">Metadatos, título de la pestaña, conexión con CSS, idioma, codificación.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">&lt;body&gt;</h3>
+                        <p>Lo que el usuario <strong>SÍ ve</strong>.</p>
+                        <div class="comparison-visual">👀</div>
+                        <p style="margin-top: 12px; font-size: 13px;">Títulos, párrafos, imágenes, botones, formularios... todo lo visible.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Regla simple:</strong> Si lo querés ver en la pantalla → va en <code>&lt;body&gt;</code>. Si es configuración o información para el navegador → va en <code>&lt;head&gt;</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: ETIQUETAS BÁSICAS ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔤 Etiquetas Básicas</h2>
+                <p class="slide-text">Las primeras etiquetas que vas a usar para poner contenido en la página:</p>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Títulos (h1 a h6)</h3>
+                        <div class="code-block small">
+<pre><code>&lt;h1&gt;Título más importante&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;h3&gt;Sub-subtítulo&lt;/h3&gt;
+&lt;h4&gt;Nivel 4&lt;/h4&gt;
+&lt;h5&gt;Nivel 5&lt;/h5&gt;
+&lt;h6&gt;Nivel 6 (más chico)&lt;/h6&gt;</code></pre>
+                        </div>
+                        <p class="slide-text">Van de <code>&lt;h1&gt;</code> (más importante) a <code>&lt;h6&gt;</code> (menos importante). Usá <strong>solo un h1</strong> por página.</p>
+                    </div>
+                    <div class="col">
+                        <h3>Párrafos y saltos</h3>
+                        <div class="code-block small">
+<pre><code>&lt;p&gt;Esto es un párrafo. El navegador
+   lo muestra como un bloque de texto
+   con espacio arriba y abajo.&lt;/p&gt;
+
+&lt;p&gt;Otro párrafo separado.&lt;/p&gt;
+
+&lt;br&gt;  &lt;!-- Salto de línea --&gt;
+&lt;hr&gt;  &lt;!-- Línea horizontal --&gt;</code></pre>
+                        </div>
+                        <p class="slide-text"><code>&lt;p&gt;</code> crea bloques de texto. <code>&lt;br&gt;</code> y <code>&lt;hr&gt;</code> son <strong>etiquetas vacías</strong> (no necesitan cierre).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: QUÉ ES UN IDE ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 ¿Qué es un IDE?</h2>
+                <div class="objective-card">
+                    <p class="objective-text"><strong>IDE</strong> = <strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment<br>(Entorno de Desarrollo Integrado)</p>
+                </div>
+                <p class="slide-text">Es un <strong>editor de texto especializado</strong> para escribir código. Es como el Word, pero para programadores.</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>¿Por qué no usar el Bloc de Notas?</h4>
+                        <ul>
+                            <li>No colorea el código (syntax highlighting)</li>
+                            <li>No autocompleta etiquetas</li>
+                            <li>No marca errores</li>
+                            <li>No tiene vista previa</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>VS Code (el que usamos)</h4>
+                        <ul>
+                            <li>Gratuito y creado por Microsoft</li>
+                            <li>Colorea el código por tipo</li>
+                            <li>Autocompleta etiquetas HTML</li>
+                            <li>Extensiones (Live Server, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⬇️ <strong>Descargá VS Code:</strong> <code>https://code.visualstudio.com</code> — Es gratis y funciona en Windows, Mac y Linux.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: CONFIGURAR VS CODE ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔧 Configurando tu IDE</h2>
+                <p class="slide-text">Pasos para empezar a trabajar con Visual Studio Code:</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Creá una <strong>carpeta</strong> en tu escritorio, ej: <code>mi-primera-web</code></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Abrí VS Code → <strong>File → Open Folder</strong> → elegí tu carpeta.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Creá un archivo nuevo: <strong>File → New File</strong> → nombralo <code>index.html</code></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Escribí <code>!</code> y presioná <strong>Tab</strong> para generar la estructura HTML automáticamente.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Extensión recomendada: Live Server</h4>
+                        <p>Permite ver los cambios en <strong>tiempo real</strong> en el navegador. Instalala desde el ícono de extensiones en VS Code buscando "Live Server".</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Por qué "index.html"?</h4>
+                        <p>Por convención, <code>index.html</code> es la <strong>página principal</strong> de un sitio. Cuando entrás a un dominio, el servidor busca este archivo automáticamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: TRUCO EMMET ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚡ El Truco del "!" (Emmet)</h2>
+                <p class="slide-text">VS Code tiene un atajo increíble. En un archivo <code>.html</code> vacío, escribí <code>!</code> y presioná <code>Tab</code>:</p>
+                <div class="code-block">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <p class="slide-text">¡Se genera toda la estructura base automáticamente! Solo tenés que:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">✏️ Cambiar <code>lang="en"</code> por <code>lang="es"</code> (estamos en español)</div>
+                    <div class="check-item">✏️ Cambiar el <code>&lt;title&gt;</code> por el nombre de tu página</div>
+                    <div class="check-item">✏️ Empezar a escribir tu contenido dentro del <code>&lt;body&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: PRÁCTICA 1 ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica: ¡Tu Primera Página Web!</h2>
+                <p class="slide-text">Vamos a codear juntos. Seguí estos pasos:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">📁 Creá una carpeta <code>mi-primera-web</code></div>
+                    <div class="check-item">📄 Dentro, creá un archivo <code>index.html</code></div>
+                    <div class="check-item">⚡ Escribí <code>!</code> + Tab para la estructura base</div>
+                    <div class="check-item">✏️ Cambiá el idioma a <code>es</code> y el título</div>
+                    <div class="check-item">🔤 Dentro del body, agregá un <code>&lt;h1&gt;</code>, un <code>&lt;h2&gt;</code> y dos <code>&lt;p&gt;</code></div>
+                </div>
+                <div class="code-block">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi Primera Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;¡Hola Mundo!&lt;/h1&gt;
+    &lt;h2&gt;Mi primera página web&lt;/h2&gt;
+    &lt;p&gt;Esto es un párrafo. Estoy aprendiendo HTML en BYTEC.&lt;/p&gt;
+    &lt;p&gt;Ya sé que HTML es un lenguaje de marcado, no de programación.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Guardá el archivo (<code>Ctrl + S</code>) y abrilo en el navegador haciendo doble clic, o usá Live Server.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: MÁS ETIQUETAS ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧩 Más Etiquetas Útiles</h2>
+                <p class="slide-text">Además de títulos y párrafos, HTML tiene etiquetas para listas, texto en negrita y más:</p>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Listas</h3>
+                        <div class="code-block small">
+<pre><code>&lt;!-- Lista con viñetas --&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Lista numerada --&gt;
+&lt;ol&gt;
+  &lt;li&gt;Primero&lt;/li&gt;
+  &lt;li&gt;Segundo&lt;/li&gt;
+  &lt;li&gt;Tercero&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>Formato de texto</h3>
+                        <div class="code-block small">
+<pre><code>&lt;!-- Negrita --&gt;
+&lt;strong&gt;Texto importante&lt;/strong&gt;
+
+&lt;!-- Cursiva --&gt;
+&lt;em&gt;Texto enfatizado&lt;/em&gt;
+
+&lt;!-- Enlace --&gt;
+&lt;a href="https://google.com"&gt;
+  Ir a Google
+&lt;/a&gt;
+
+&lt;!-- Imagen --&gt;
+&lt;img src="foto.jpg" alt="Descripción"&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <code>&lt;ul&gt;</code> = Unordered List (sin números). <code>&lt;ol&gt;</code> = Ordered List (con números). <code>&lt;li&gt;</code> = List Item (cada elemento).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar</h2>
+                <p class="slide-text">Resolvé estos ejercicios en la carpeta <code>ejercicios/</code>:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Mi primera página</h4>
+                            <p>Archivo: <code>01-hola-mundo.html</code> — Completá la estructura base de HTML.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Página personal</h4>
+                            <p>Archivo: <code>02-sobre-mi.html</code> — Creá una página "Sobre Mí" con títulos, párrafos y listas.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Receta de cocina</h4>
+                            <p>Archivo: <code>03-receta.html</code> — Escribí una receta usando listas ordenadas y más.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Blog de noticias</h4>
+                            <p>Archivo: <code>04-blog.html</code> — Armá una página de blog con múltiples artículos.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: CIERRE ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Tu Página Personal</h3>
+                    <p>Creá un archivo <code>index.html</code> que sea tu presentación personal. Debe incluir:</p>
+                    <ul>
+                        <li>Un <code>&lt;h1&gt;</code> con tu nombre</li>
+                        <li>Un <code>&lt;h2&gt;</code> que diga "Sobre mí"</li>
+                        <li>Al menos <strong>2 párrafos</strong> contando quién sos</li>
+                        <li>Una <strong>lista</strong> con tus hobbies o tecnologías que te interesan</li>
+                        <li>Un <strong>enlace</strong> (<code>&lt;a&gt;</code>) a tu red social favorita</li>
+                        <li>Usar las etiquetas <code>&lt;strong&gt;</code> y <code>&lt;em&gt;</code> para destacar texto</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 01 COMPLETADA</div>
+                    <p>De no saber nada → a tu primera página web. ¡Arrancamos!</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+        });
+    </script>
+
+</body>
+</html>
