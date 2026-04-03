@@ -1,0 +1,37 @@
+/*
+============================================================
+EJERCICIO 04 (DESAFÍO): Landing Page
+============================================================
+
+CONSIGNA:
+Diseñá los estilos para una landing page completa.
+Este es el ejercicio más libre: usá tu creatividad.
+
+REQUISITOS MÍNIMOS:
+1. * { box-sizing: border-box; }
+2. Secciones con padding generoso
+3. Cards inline-block para features y precios
+4. max-width en el contenido principal
+5. margin: 0 auto para centrar
+6. Al menos 3 clases CSS propias
+7. Al menos 1 :hover
+
+COLORES SUGERIDOS:
+- Fondo: #0a0a23
+- Cards: #12123a
+- Naranja: #f75001
+- Azul: #04589d
+- Texto: white / #aaa
+
+PROPIEDADES BONUS PARA PROBAR:
+- box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+- transition: all 0.3s;
+- transform: translateY(-5px);  (en :hover)
+- text-transform: uppercase;
+- letter-spacing: 2px;
+
+¡Buena suerte!
+============================================================
+*/
+
+/* Escribí tus estilos aquí */

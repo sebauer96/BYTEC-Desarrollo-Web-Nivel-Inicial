@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 3: El Modelo de Caja</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 20</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 03</div>
+                <h1 class="title-main">El Modelo<br><span class="title-accent">de Caja</span></h1>
+                <p class="title-sub">Box Model · Margin · Padding · Border · Display</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">💻 Práctica incluida</span>
+                    <span class="meta-item">🚀 Nivel: Principiante</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Entender el <strong>Modelo de Caja</strong> (Box Model) de CSS: cómo el navegador calcula el tamaño real de cada elemento y cómo controlar el <strong>espaciado</strong> dentro y fuera de los elementos.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Repaso Clase 2</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">25 min</span>
+                        <span class="timeline-label">Box Model en detalle</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 1</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Display, Width & Height</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 2</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Cierre + Tarea</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: REPASO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Repaso Rápido — Clase 2</h2>
+                <p class="slide-text">En la clase anterior aprendimos formularios y los fundamentos de CSS:</p>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>&lt;form&gt;</code> Contenedor de formulario</div>
+                    <div class="recap-item"><code>&lt;input&gt;</code> Campos de entrada</div>
+                    <div class="recap-item"><code>&lt;select&gt;</code> Listas desplegables</div>
+                    <div class="recap-item"><code>selector { }</code> Regla CSS</div>
+                    <div class="recap-item"><code>.clase</code> Selector por clase</div>
+                    <div class="recap-item"><code>color, bg, font</code> Propiedades básicas</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 Hoy vamos a profundizar en CSS, entendiendo <strong>cómo el navegador decide el tamaño</strong> de cada elemento en la pantalla.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: TODO ES UNA CAJA ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">📦 Todo es una Caja</h2>
+                <p class="slide-text">En CSS, <strong>cada elemento HTML es un rectángulo</strong> (una caja). No importa si es un título, un párrafo, un botón o una imagen.</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Lo que vos ves</h3>
+                        <div class="comparison-visual">📝</div>
+                        <p style="margin-top: 12px; font-size: 13px;">Texto, imágenes, botones con formas variadas.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Lo que el navegador ve</h3>
+                        <div class="comparison-visual">⬜⬜⬜</div>
+                        <p style="margin-top: 12px; font-size: 13px;">Rectángulos apilados uno debajo del otro.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔍 <strong>Probalo ahora:</strong> Abrí cualquier web, hacé clic derecho → "Inspeccionar" y pasá el mouse sobre los elementos. Vas a ver los <strong>rectángulos</strong> resaltados en colores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: EL BOX MODEL ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏗️ El Box Model (Modelo de Caja)</h2>
+                <p class="slide-text">Cada caja tiene <strong>4 capas</strong>, de adentro hacia afuera:</p>
+                <div class="box-model-diagram">
+                    <div class="box-layer margin-layer">
+                        <span class="layer-label">MARGIN</span>
+                        <div class="box-layer border-layer">
+                            <span class="layer-label">BORDER</span>
+                            <div class="box-layer padding-layer">
+                                <span class="layer-label">PADDING</span>
+                                <div class="box-layer content-layer">
+                                    <span class="layer-label">CONTENT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recap-grid">
+                    <div class="recap-item"><strong>Content</strong><br>El contenido real (texto, imagen)</div>
+                    <div class="recap-item"><strong>Padding</strong><br>Espacio INTERNO (entre contenido y borde)</div>
+                    <div class="recap-item"><strong>Border</strong><br>El borde visible de la caja</div>
+                    <div class="recap-item" style="grid-column: 1 / -1; max-width: 320px; margin: 0 auto;"><strong>Margin</strong><br>Espacio EXTERNO (entre esta caja y las demás)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: CONTENT ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 1. Content (Contenido)</h2>
+                <p class="slide-text">Es la capa más interna: el texto, la imagen o cualquier contenido del elemento. Se controla con <code>width</code> y <code>height</code>.</p>
+                <div class="code-block">
+<pre><code>.caja {
+  width: 300px;    /* Ancho del contenido */
+  height: 200px;   /* Alto del contenido */
+}</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Unidades de medida</h4>
+                        <ul>
+                            <li><code>px</code> — Píxeles (tamaño fijo)</li>
+                            <li><code>%</code> — Porcentaje del padre</li>
+                            <li><code>vw / vh</code> — % del viewport</li>
+                            <li><code>auto</code> — El navegador decide</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Y si no pongo width/height?</h4>
+                        <p>Por defecto, un elemento <strong>bloque</strong> ocupa el <strong>100% del ancho</strong> disponible y su alto se adapta al contenido. No siempre es necesario definirlos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: PADDING ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧸 2. Padding (Espacio Interno)</h2>
+                <p class="slide-text">El <code>padding</code> agrega espacio <strong>entre el contenido y el borde</strong>. Es como la "espuma" dentro de una caja de envío.</p>
+                <div class="code-block">
+<pre><code>/* Mismo padding en los 4 lados */
+.caja {
+  padding: 20px;
+}
+
+/* Diferente por lado: arriba, derecha, abajo, izquierda (sentido reloj 🕐) */
+.caja {
+  padding: 10px 20px 10px 20px;
+}
+
+/* Atajo: vertical | horizontal */
+.caja {
+  padding: 10px 20px;    /* 10 arriba/abajo, 20 izq/der */
+}
+
+/* Por lado individual */
+.caja {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🕐 <strong>Truco mnemotécnico:</strong> El orden de los 4 valores es como un reloj: <strong>Top → Right → Bottom → Left</strong> (arriba → derecha → abajo → izquierda).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: BORDER ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔲 3. Border (Borde)</h2>
+                <p class="slide-text">El <code>border</code> es la línea visible que rodea al padding. Tiene 3 propiedades: <strong>grosor</strong>, <strong>estilo</strong> y <strong>color</strong>.</p>
+                <div class="code-block">
+<pre><code>/* Atajo: grosor estilo color */
+.caja {
+  border: 2px solid #f75001;
+}
+
+/* Por propiedad */
+.caja {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #f75001;
+}
+
+/* Solo un lado */
+.caja {
+  border-bottom: 3px dashed #04589d;
+}
+
+/* Redondear esquinas */
+.caja {
+  border-radius: 10px;     /* Todas las esquinas */
+  border-radius: 50%;      /* Círculo perfecto */
+}</code></pre>
+                </div>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Estilo</span>
+                        <span>Descripción</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>solid</code>
+                        <span>Línea continua (el más usado)</span>
+                        <code>border: 2px solid red</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>dashed</code>
+                        <span>Línea de guiones</span>
+                        <code>border: 2px dashed blue</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>dotted</code>
+                        <span>Línea de puntos</span>
+                        <code>border: 2px dotted green</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>none</code>
+                        <span>Sin borde</span>
+                        <code>border: none</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: MARGIN ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">↔️ 4. Margin (Espacio Externo)</h2>
+                <p class="slide-text">El <code>margin</code> agrega espacio <strong>fuera del borde</strong>, separando la caja de los demás elementos. Funciona igual que el padding:</p>
+                <div class="code-block">
+<pre><code>/* Mismo margin en los 4 lados */
+.caja {
+  margin: 20px;
+}
+
+/* Vertical | Horizontal */
+.caja {
+  margin: 20px 40px;
+}
+
+/* Centrar horizontalmente un bloque con ancho fijo */
+.caja {
+  width: 600px;
+  margin: 0 auto;    /* 0 arriba/abajo, AUTO a los costados = centrado */
+}</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Padding vs Margin</h4>
+                        <ul>
+                            <li><strong>Padding:</strong> espacio DENTRO (tiene fondo)</li>
+                            <li><strong>Margin:</strong> espacio FUERA (transparente)</li>
+                            <li>Padding empuja el contenido hacia adentro</li>
+                            <li>Margin empuja otros elementos hacia afuera</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>El truco de <code>margin: 0 auto</code></h4>
+                        <p>Es la forma clásica de <strong>centrar</strong> un bloque horizontalmente. Necesita un <code>width</code> definido para funcionar. El <code>auto</code> reparte el espacio sobrante de forma igual a cada lado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: CÁLCULO DEL TAMAÑO ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧮 ¿Cuánto mide realmente una caja?</h2>
+                <p class="slide-text">Por defecto, el navegador usa <code>content-box</code>: el <code>width</code> solo aplica al contenido. Padding y border se <strong>suman</strong>.</p>
+                <div class="code-block">
+<pre><code>.caja {
+  width: 300px;
+  padding: 20px;        /* 20 × 2 = 40px extra */
+  border: 5px solid;    /*  5 × 2 = 10px extra */
+}
+
+/* Ancho REAL en pantalla = 300 + 40 + 10 = 350px 😱 */</code></pre>
+                </div>
+                <div class="anatomy-box">
+                    <h4>Fórmula del ancho real (content-box):</h4>
+                    <div class="anatomy-flow">
+                        <div class="anatomy-part">
+                            <code>width</code>
+                            <span class="anatomy-desc">300px</span>
+                        </div>
+                        <div class="anatomy-connector">+</div>
+                        <div class="anatomy-part">
+                            <code>padding × 2</code>
+                            <span class="anatomy-desc">40px</span>
+                        </div>
+                        <div class="anatomy-connector">+</div>
+                        <div class="anatomy-part">
+                            <code>border × 2</code>
+                            <span class="anatomy-desc">10px</span>
+                        </div>
+                        <div class="anatomy-connector">=</div>
+                        <div class="anatomy-part">
+                            <code>350px</code>
+                            <span class="anatomy-desc">Ancho real</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>😤 Esto es confuso y causa problemas de layout. Por eso existe <strong>border-box</strong>...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: BORDER-BOX ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">✨ box-sizing: border-box</h2>
+                <p class="slide-text">Con <code>border-box</code>, el <code>width</code> incluye padding y border. El navegador ajusta el contenido para que todo entre en el tamaño que definiste.</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">content-box (por defecto)</h3>
+                        <p><code>width: 300px</code></p>
+                        <p style="font-size: 13px; margin-top: 8px;">+ padding + border = <strong>350px reales</strong></p>
+                        <div class="comparison-visual">😤</div>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">border-box (recomendado)</h3>
+                        <p><code>width: 300px</code></p>
+                        <p style="font-size: 13px; margin-top: 8px;">padding y border incluidos = <strong>300px reales</strong></p>
+                        <div class="comparison-visual">😎</div>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code>/* ⭐ Buena práctica: aplicar a TODOS los elementos */
+* {
+  box-sizing: border-box;
+}
+
+/* Con esto, width: 300px SIEMPRE será 300px en pantalla,
+   sin importar el padding o border que le pongas */</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>⭐ <strong>Regla universal:</strong> Siempre agregá <code>* { box-sizing: border-box; }</code> al inicio de tu CSS. Es lo primero que hacen todos los desarrolladores profesionales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: PRÁCTICA 1 ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 1: Visualizando el Box Model</h2>
+                <p class="slide-text">Vamos a crear cajas con colores para ver cada capa del Box Model en acción:</p>
+                <div class="code-block">
+<pre><code>&lt;!-- index.html --&gt;
+&lt;div class="caja-demo"&gt;
+  &lt;p&gt;Soy el contenido de la caja&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>/* style.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a23;
+  font-family: Arial, sans-serif;
+  color: white;
+  padding: 40px;
+}
+
+.caja-demo {
+  width: 400px;
+  background-color: #1a1a4e;      /* Fondo del contenido */
+  padding: 30px;                   /* Espacio interno */
+  border: 4px solid #f75001;       /* Borde naranja */
+  margin: 40px auto;               /* Espacio externo + centrado */
+  border-radius: 8px;
+}</code></pre>
+                </div>
+                <div class="practice-checklist">
+                    <div class="check-item">🔍 Abrí el Inspector (F12) → pestaña "Elements" → mirá la pestaña "Box Model" abajo a la derecha</div>
+                    <div class="check-item">🎨 Cambiá el padding a <code>60px</code> y observá cómo crece el espacio interno</div>
+                    <div class="check-item">↔️ Cambiá el margin a <code>100px</code> y observá cómo se aleja de los bordes</div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/01-box-model-visual.html</code> para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: WIDTH Y HEIGHT ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">📏 Width, Height y sus variantes</h2>
+                <p class="slide-text">Además de <code>width</code> y <code>height</code>, tenemos propiedades para limitar tamaños:</p>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Propiedad</span>
+                        <span>¿Qué hace?</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>width</code>
+                        <span>Ancho fijo del elemento</span>
+                        <code>width: 400px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>height</code>
+                        <span>Alto fijo del elemento</span>
+                        <code>height: 200px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>max-width</code>
+                        <span>Ancho máximo (se achica si la pantalla es menor)</span>
+                        <code>max-width: 600px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>min-height</code>
+                        <span>Alto mínimo (crece si el contenido lo necesita)</span>
+                        <code>min-height: 100px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>width: 100%</code>
+                        <span>Ocupa todo el ancho disponible del padre</span>
+                        <code>width: 100%</code>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip profesional:</strong> Usá <code>max-width</code> en vez de <code>width</code> fijo cuando sea posible. Así tu diseño se adapta mejor a pantallas chicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: DISPLAY ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧱 Display: Block vs Inline</h2>
+                <p class="slide-text">Cada elemento HTML tiene un <strong>comportamiento por defecto</strong> que define cómo ocupa espacio:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">display: block</h3>
+                        <p>Ocupa <strong>todo el ancho</strong> disponible. Cada elemento empieza en una <strong>nueva línea</strong>.</p>
+                        <div class="comparison-visual" style="font-size: 16px;">
+                            ⬜⬜⬜⬜⬜⬜<br>
+                            ⬜⬜⬜⬜⬜⬜<br>
+                            ⬜⬜⬜⬜⬜⬜
+                        </div>
+                        <p style="margin-top: 8px; font-size: 12px;">h1, p, div, form, ul, li</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">display: inline</h3>
+                        <p>Ocupa <strong>solo lo necesario</strong>. Se pone al lado del elemento anterior.</p>
+                        <div class="comparison-visual" style="font-size: 16px;">
+                            ⬜ ⬜ ⬜ ⬜ ⬜
+                        </div>
+                        <p style="margin-top: 8px; font-size: 12px;">a, strong, em, span, code</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code>/* Cambiar el comportamiento */
+span {
+  display: block;     /* Ahora ocupa toda la línea */
+}
+
+li {
+  display: inline;    /* Ahora se ponen uno al lado del otro */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: INLINE-BLOCK ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧩 display: inline-block</h2>
+                <p class="slide-text">Es un <strong>híbrido</strong>: se comporta como inline (se pone al lado), pero permite definir <code>width</code>, <code>height</code>, <code>padding</code> y <code>margin</code> como un block.</p>
+                <div class="code-block">
+<pre><code>.etiqueta {
+  display: inline-block;
+  background-color: #04589d;
+  color: white;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 20px;
+}</code></pre>
+                </div>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Propiedad</span>
+                        <span>¿Se pone al lado?</span>
+                        <span>¿Acepta width/padding?</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>block</code>
+                        <span>❌ No, va en nueva línea</span>
+                        <span>✅ Sí</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>inline</code>
+                        <span>✅ Sí, al lado</span>
+                        <span>❌ No (width/height ignorados)</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>inline-block</code>
+                        <span>✅ Sí, al lado</span>
+                        <span>✅ Sí</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>none</code>
+                        <span>— Elemento invisible</span>
+                        <span>— No se muestra</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: OVERFLOW ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌊 Overflow: Contenido que se desborda</h2>
+                <p class="slide-text">¿Qué pasa cuando el contenido es más grande que la caja? La propiedad <code>overflow</code> lo controla:</p>
+                <div class="code-block">
+<pre><code>.caja {
+  width: 300px;
+  height: 150px;
+  overflow: hidden;     /* Corta el contenido que no entra */
+}
+
+.caja-scroll {
+  width: 300px;
+  height: 150px;
+  overflow: auto;       /* Agrega scroll si es necesario */
+}</code></pre>
+                </div>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>visible</code><br>(por defecto) El contenido se sale de la caja</div>
+                    <div class="recap-item"><code>hidden</code><br>Corta/oculta lo que no entra</div>
+                    <div class="recap-item"><code>auto</code><br>Agrega scrollbar solo si hace falta</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> <code>overflow: auto</code> es el más flexible. Solo muestra scrollbar cuando realmente se necesita.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: SHORTHAND ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚡ Shorthands (Atajos CSS)</h2>
+                <p class="slide-text">CSS permite escribir varias propiedades en una sola línea. Acá los atajos más útiles:</p>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Margin / Padding</h3>
+                        <div class="code-block small">
+<pre><code>/* 1 valor: los 4 lados iguales */
+margin: 20px;
+
+/* 2 valores: vertical | horizontal */
+margin: 10px 20px;
+
+/* 3 valores: top | horizontal | bottom */
+margin: 10px 20px 30px;
+
+/* 4 valores: top right bottom left */
+margin: 10px 20px 30px 40px;</code></pre>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>Border</h3>
+                        <div class="code-block small">
+<pre><code>/* Atajo completo: ancho estilo color */
+border: 2px solid #f75001;
+
+/* Es lo mismo que escribir: */
+border-width: 2px;
+border-style: solid;
+border-color: #f75001;
+
+/* Solo un lado */
+border-left: 4px solid blue;
+border-bottom: 1px dashed gray;</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🧠 <strong>Mnemotécnico de 4 valores:</strong> Pensá en un reloj → empieza a las <strong>12 (top)</strong>, sigue a las <strong>3 (right)</strong>, luego <strong>6 (bottom)</strong> y termina en <strong>9 (left)</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: PRÁCTICA 2 ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 2: Card de Perfil</h2>
+                <p class="slide-text">Vamos a construir una <strong>tarjeta de perfil</strong> aplicando todo lo que aprendimos del Box Model:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">📦 Un contenedor <code>.card</code> con ancho, padding, borde y centrado</div>
+                    <div class="check-item">🔤 Un <code>&lt;h2&gt;</code> con el nombre y un <code>&lt;p&gt;</code> con la descripción</div>
+                    <div class="check-item">🏷️ Tags de skills usando <code>display: inline-block</code></div>
+                    <div class="check-item">🔘 Un botón con la clase <code>.boton</code> con padding, border-radius y margin-top</div>
+                </div>
+                <div class="code-block">
+<pre><code>/* style.css */
+* { box-sizing: border-box; }
+
+body {
+  background-color: #0a0a23;
+  font-family: Arial, sans-serif;
+  color: white;
+  padding: 40px;
+}
+
+.card {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #12123a;
+  border: 2px solid #04589d;
+  border-radius: 12px;
+}
+
+.card h2 { color: #f75001; margin-bottom: 10px; }
+.card p  { color: #aaa; margin-bottom: 20px; }
+
+.skill-tag {
+  display: inline-block;
+  background-color: #04589d;
+  padding: 6px 14px;
+  margin: 4px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.boton {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #f75001;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/02-card-perfil.html</code> y su CSS para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar</h2>
+                <p class="slide-text">Resolvé estos ejercicios en la carpeta <code>ejercicios/</code>:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Box Model Visual</h4>
+                            <p>Archivo: <code>01-box-model-visual.html</code> + CSS — Experimentá cambiando padding, margin y border.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Card de Perfil</h4>
+                            <p>Archivos: <code>02-card-perfil.html</code> + CSS — Construí una tarjeta de perfil con tags de skills.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Galería de Cards</h4>
+                            <p>Archivos: <code>03-galeria.html</code> + CSS — Tres tarjetas lado a lado usando inline-block.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Landing Page</h4>
+                            <p>Archivos: <code>04-landing.html</code> + CSS — Header, sección de features y footer con Box Model.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CIERRE ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Portafolio con Cards</h3>
+                    <p>Creá una página "Mi Portafolio" que muestre al menos <strong>3 tarjetas</strong> de proyectos (pueden ser inventados). Cada tarjeta debe tener:</p>
+                    <ul>
+                        <li>Un contenedor con <code>max-width</code>, <code>padding</code> y <code>border</code></li>
+                        <li>Título del proyecto en <code>&lt;h2&gt;</code></li>
+                        <li>Descripción en <code>&lt;p&gt;</code></li>
+                        <li>Tags de tecnologías con <code>display: inline-block</code></li>
+                        <li>Un botón "Ver proyecto" estilizado con CSS</li>
+                        <li>Usa <code>margin: 0 auto</code> para centrar cada card</li>
+                        <li>Aplicá <code>* { box-sizing: border-box; }</code> al inicio</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 03 COMPLETADA</div>
+                    <p>Ahora entendés cómo el navegador calcula cada píxel. ¡Dominio total de la caja!</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        <span class="hint-desktop">Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar</span>
+        <span class="hint-mobile">Deslizá hacia los lados ◂ ▸ para navegar</span>
+    </div>
+
+    <div class="swipe-toast" id="swipeToast">
+        <span class="swipe-toast-icon">👆</span>
+        <p class="swipe-toast-text">¡Deslizá para navegar!</p>
+        <p class="swipe-toast-sub">Arrastrá el dedo hacia la izquierda o derecha para cambiar de slide</p>
+        <button class="swipe-toast-dismiss" onclick="dismissToast()">ENTENDIDO</button>
+    </div>
+
+    <div class="swipe-indicator left" id="swipeLeft">◂</div>
+    <div class="swipe-indicator right" id="swipeRight">▸</div>
+
+    <script>
+        // Stars background
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        // Slide navigation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        });
+
+        // Touch swipe navigation (improved)
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isSwiping = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+            const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            if (diffX > diffY && diffX > 10) {
+                const indicator = (e.changedTouches[0].screenX - touchStartX) > 0
+                    ? document.getElementById('swipeLeft')
+                    : document.getElementById('swipeRight');
+                indicator.classList.add('flash');
+                setTimeout(() => indicator.classList.remove('flash'), 200);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+            document.getElementById('swipeLeft').classList.remove('flash');
+            document.getElementById('swipeRight').classList.remove('flash');
+        });
+
+        // Swipe toast for first-time mobile users
+        function showSwipeToast() {
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const toastKey = 'bytec-swipe-seen';
+            if (isTouchDevice && !localStorage.getItem(toastKey)) {
+                setTimeout(() => {
+                    document.getElementById('swipeToast').classList.add('visible');
+                }, 1200);
+            }
+        }
+
+        function dismissToast() {
+            document.getElementById('swipeToast').classList.remove('visible');
+            localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        showSwipeToast();
+    </script>
+
+</body>
+</html>

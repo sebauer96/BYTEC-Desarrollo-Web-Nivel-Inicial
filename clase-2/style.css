@@ -990,7 +990,7 @@ code {
     margin: 16px 0 30px;
 }
 
-/* ==================== KEYBOARD HINT ==================== */
+/* ==================== NAVIGATION HINTS ==================== */
 
 .keyboard-hint {
     position: fixed;
@@ -1004,6 +1004,14 @@ code {
     opacity: 0.6;
 }
 
+.keyboard-hint .hint-desktop {
+    display: inline;
+}
+
+.keyboard-hint .hint-mobile {
+    display: none;
+}
+
 kbd {
     display: inline-block;
     background: var(--dark-card);
@@ -1014,36 +1022,194 @@ kbd {
     font-size: 11px;
 }
 
+/* ==================== SWIPE TOAST ==================== */
+
+.swipe-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--dark-card);
+    border: 2px solid var(--orange);
+    border-radius: 12px;
+    padding: 16px 28px;
+    z-index: 200;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 30px rgba(247, 80, 1, 0.25);
+    max-width: 320px;
+    width: 90%;
+}
+
+.swipe-toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: all;
+}
+
+.swipe-toast-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 8px;
+    animation: swipe-hand 1.5s ease-in-out infinite;
+}
+
+@keyframes swipe-hand {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+}
+
+.swipe-toast-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.swipe-toast-sub {
+    font-size: 11px;
+    color: var(--muted-text);
+}
+
+.swipe-toast-dismiss {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    color: var(--muted-text);
+    background: none;
+    border: 1px solid var(--dark-border);
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.swipe-toast-dismiss:hover,
+.swipe-toast-dismiss:active {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/* ==================== SWIPE FEEDBACK ==================== */
+
+.swipe-indicator {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: var(--orange);
+    opacity: 0;
+    z-index: 150;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.swipe-indicator.left { left: 12px; }
+.swipe-indicator.right { right: 12px; }
+.swipe-indicator.flash { opacity: 0.6; }
+
 /* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 768px) {
     .slide {
-        padding: 60px 16px 60px;
+        padding: 56px 14px 50px;
+    }
+
+    .slide-content {
+        max-height: calc(100vh - 90px);
+        padding: 6px;
+    }
+
+    .nav-bar {
+        padding: 0 12px;
+    }
+
+    .nav-logo {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .nav-progress {
+        font-size: 12px;
     }
 
     .title-main {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     .title-accent {
-        font-size: 18px;
+        font-size: 17px;
+    }
+
+    .title-sub {
+        font-size: 11px;
+        letter-spacing: 1px;
     }
 
     .slide-heading {
-        font-size: 20px;
+        font-size: 19px;
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+    }
+
+    .slide-text {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .pixel-badge {
+        font-size: 10px;
+        padding: 6px 14px;
+        margin-bottom: 20px;
+    }
+
+    .title-meta {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+
+    .meta-item {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+
+    .title-logo {
+        font-size: 18px;
     }
 
     .timeline,
     .recap-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .timeline-time {
+        font-size: 15px;
+    }
+
+    .timeline-label {
+        font-size: 10px;
     }
 
     .comparison-box {
         flex-direction: column;
+        gap: 12px;
+    }
+
+    .comparison-side {
+        padding: 16px;
     }
 
     .comparison-arrow {
         transform: rotate(90deg);
+        font-size: 20px;
     }
 
     .info-cards,
@@ -1052,37 +1218,194 @@ kbd {
     .selectors-grid,
     .properties-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .info-card {
+        padding: 14px;
     }
 
     .step-cards {
         grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .step-card {
+        padding: 12px;
+    }
+
+    .step-num {
+        font-size: 16px;
+    }
+
+    .step-card p {
+        font-size: 12px;
+    }
+
+    .code-block {
+        padding: 12px;
+        margin: 10px 0;
+    }
+
+    .code-block code {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .code-block.small {
+        padding: 10px;
     }
 
     .attr-row {
-        grid-template-columns: 100px 1fr;
+        grid-template-columns: 90px 1fr;
+        padding: 8px 10px;
+        font-size: 11px;
+        gap: 8px;
     }
 
     .attr-row span:last-child {
         display: none;
     }
 
+    .attr-row.header {
+        font-size: 10px;
+    }
+
     .metaphor-box {
         flex-direction: column;
+        gap: 12px;
+    }
+
+    .metaphor-item {
+        padding: 16px;
+        min-width: unset;
+    }
+
+    .metaphor-icon {
+        font-size: 36px;
     }
 
     .metaphor-plus,
     .metaphor-equals {
         transform: rotate(90deg);
+        font-size: 20px;
     }
 
-    .title-meta {
-        flex-direction: column;
-        align-items: center;
+    .anatomy-box {
+        padding: 16px;
+    }
+
+    .anatomy-flow {
         gap: 10px;
+    }
+
+    .anatomy-part code {
+        font-size: 13px;
+        padding: 4px 10px;
+    }
+
+    .anatomy-connector {
+        font-size: 8px;
+    }
+
+    .objective-card {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .objective-text {
+        font-size: 14px;
+    }
+
+    .highlight-box {
+        padding: 12px 14px;
+    }
+
+    .highlight-box p {
+        font-size: 12px;
+    }
+
+    .practice-checklist {
+        margin: 14px 0;
+    }
+
+    .check-item {
+        padding: 10px 12px;
+        font-size: 12px;
     }
 
     .exercise-card {
         flex-direction: column;
         text-align: center;
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .exercise-num {
+        font-size: 16px;
+    }
+
+    .exercise-card h4 {
+        font-size: 13px;
+    }
+
+    .exercise-card p {
+        font-size: 11px;
+    }
+
+    .homework-card {
+        padding: 20px;
+    }
+
+    .homework-card h3 {
+        font-size: 15px;
+    }
+
+    .homework-card p,
+    .homework-card li {
+        font-size: 12px;
+    }
+
+    .keyboard-hint .hint-desktop {
+        display: none;
+    }
+
+    .keyboard-hint .hint-mobile {
+        display: inline;
+    }
+
+    .keyboard-hint {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .title-main {
+        font-size: 20px;
+    }
+
+    .title-accent {
+        font-size: 14px;
+    }
+
+    .slide-heading {
+        font-size: 16px;
+    }
+
+    .timeline,
+    .recap-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-side p {
+        font-size: 12px;
+    }
+
+    .nav-logo {
+        font-size: 9px;
     }
 }

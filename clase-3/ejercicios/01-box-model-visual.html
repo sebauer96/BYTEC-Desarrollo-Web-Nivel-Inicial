@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 01 - Box Model Visual</title>
+    <link rel="stylesheet" href="01-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 01: Visualizando el Box Model
+    ============================================================
+
+    CONSIGNA:
+    Experimentá con las capas del Box Model cambiando valores
+    en el archivo 01-style.css.
+
+    PASOS:
+    1. Mirá las 4 cajas de abajo en el navegador
+    2. Abrí el Inspector (F12) y pasá el mouse sobre cada caja
+       para ver el Box Model en colores
+    3. Andá al archivo 01-style.css y completá los valores
+       indicados con "TU-VALOR"
+    4. Guardá y observá los cambios en el navegador
+
+    BONUS:
+    - Probá qué pasa si ponés margin negativo (ej: margin: -10px)
+    - Cambiá box-sizing entre content-box y border-box
+      y mirá cómo cambia el tamaño real
+    ============================================================
+    -->
+
+    <h1>Laboratorio del Box Model</h1>
+    <p>Abrí el Inspector (F12) y pasá el mouse sobre cada caja para ver margin, padding y border.</p>
+
+    <div class="caja caja-1">
+        <p>CAJA 1: Solo contenido</p>
+    </div>
+
+    <div class="caja caja-2">
+        <p>CAJA 2: Con padding</p>
+    </div>
+
+    <div class="caja caja-3">
+        <p>CAJA 3: Con padding + border</p>
+    </div>
+
+    <div class="caja caja-4">
+        <p>CAJA 4: Con padding + border + margin</p>
+    </div>
+
+    <hr>
+
+    <h2>Desafío: border-box vs content-box</h2>
+    <p>Las dos cajas tienen width: 300px. ¿Por qué una es más ancha?</p>
+
+    <div class="caja caja-content-box">
+        <p>content-box (defecto)</p>
+    </div>
+
+    <div class="caja caja-border-box">
+        <p>border-box (recomendado)</p>
+    </div>
+
+</body>
+</html>

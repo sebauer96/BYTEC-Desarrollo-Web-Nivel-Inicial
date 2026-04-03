@@ -647,10 +647,22 @@ h1&gt;Sin el menor que&lt;/h1&gt;</code></pre>
     </main>
 
     <div class="keyboard-hint">
-        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+        <span class="hint-desktop">Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar</span>
+        <span class="hint-mobile">Deslizá hacia los lados ◂ ▸ para navegar</span>
     </div>
 
+    <div class="swipe-toast" id="swipeToast">
+        <span class="swipe-toast-icon">👆</span>
+        <p class="swipe-toast-text">¡Deslizá para navegar!</p>
+        <p class="swipe-toast-sub">Arrastrá el dedo hacia la izquierda o derecha para cambiar de slide</p>
+        <button class="swipe-toast-dismiss" onclick="dismissToast()">ENTENDIDO</button>
+    </div>
+
+    <div class="swipe-indicator left" id="swipeLeft">◂</div>
+    <div class="swipe-indicator right" id="swipeRight">▸</div>
+
     <script>
+        // Stars background
         const canvas = document.getElementById('stars');
         const ctx = canvas.getContext('2d');
         let stars = [];
@@ -692,6 +704,7 @@ h1&gt;Sin el menor que&lt;/h1&gt;</code></pre>
         drawStars();
         window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
 
+        // Slide navigation
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
@@ -715,17 +728,65 @@ h1&gt;Sin el menor que&lt;/h1&gt;</code></pre>
             }
         }
 
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
-            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
         });
 
+        // Touch swipe navigation (improved)
         let touchStartX = 0;
-        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
-        document.addEventListener('touchend', e => {
-            const diff = touchStartX - e.changedTouches[0].screenX;
-            if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isSwiping = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+            const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            if (diffX > diffY && diffX > 10) {
+                const indicator = (e.changedTouches[0].screenX - touchStartX) > 0
+                    ? document.getElementById('swipeLeft')
+                    : document.getElementById('swipeRight');
+                indicator.classList.add('flash');
+                setTimeout(() => indicator.classList.remove('flash'), 200);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+            document.getElementById('swipeLeft').classList.remove('flash');
+            document.getElementById('swipeRight').classList.remove('flash');
         });
+
+        // Swipe toast for first-time mobile users
+        function showSwipeToast() {
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const toastKey = 'bytec-swipe-seen';
+            if (isTouchDevice && !localStorage.getItem(toastKey)) {
+                setTimeout(() => {
+                    document.getElementById('swipeToast').classList.add('visible');
+                }, 1200);
+            }
+        }
+
+        function dismissToast() {
+            document.getElementById('swipeToast').classList.remove('visible');
+            localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        showSwipeToast();
     </script>
 
 </body>

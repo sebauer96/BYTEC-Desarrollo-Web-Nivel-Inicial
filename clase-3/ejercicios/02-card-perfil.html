@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Card de Perfil</title>
+    <link rel="stylesheet" href="02-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 02: Card de Perfil
+    ============================================================
+
+    CONSIGNA:
+    Construí una tarjeta de perfil estilizada con CSS.
+    El HTML ya está armado, completá los estilos en 02-style.css.
+
+    REQUISITOS CSS:
+    1. Aplicar box-sizing: border-box a todo (*)
+    2. body con fondo oscuro y centrado
+    3. .card con:
+       - max-width de 420px
+       - padding interno
+       - borde azul (#04589d)
+       - border-radius para redondear
+       - centrado con margin: auto
+    4. .card-name en color naranja (#f75001)
+    5. .skill-tag con:
+       - display: inline-block (para que se pongan al lado)
+       - padding, margin, border-radius redondeado
+       - fondo azul
+    6. .boton-perfil con estilos de botón
+    ============================================================
+    -->
+
+    <div class="card">
+        <h2 class="card-name">Tu Nombre</h2>
+        <p class="card-role">Estudiante de Desarrollo Web</p>
+        <p class="card-bio">Aprendiendo HTML y CSS en BYTEC. Me apasiona la tecnología y quiero crear mis propias páginas web.</p>
+
+        <h3 class="card-section">Skills</h3>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">Box Model</span>
+        <span class="skill-tag">VS Code</span>
+
+        <h3 class="card-section">Contacto</h3>
+        <button class="boton-perfil">Enviar mensaje</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+/*
+============================================================
+EJERCICIO 02: Card de Perfil
+============================================================
+
+CONSIGNA:
+Completá los estilos para crear una tarjeta de perfil.
+Reemplazá cada "TU-VALOR" por el valor CSS correcto.
+
+COLORES BYTEC:
+- Naranja: #f75001
+- Azul: #04589d
+- Fondo oscuro: #0a0a23
+- Fondo card: #12123a
+============================================================
+*/
+
+/* 1. Border-box para todo */
+* {
+    box-sizing: /* TU-VALOR */;
+}
+
+/* 2. Body oscuro con padding */
+body {
+    background-color: /* TU-VALOR: un color oscuro */;
+    font-family: Arial, sans-serif;
+    color: white;
+    padding: 40px;
+}
+
+/* 3. La tarjeta: centrada, con borde y padding */
+.card {
+    max-width: /* TU-VALOR: probá 420px */;
+    margin: /* TU-VALOR: usá "40px auto" para centrar */;
+    padding: /* TU-VALOR: probá 30px */;
+    background-color: #12123a;
+    border: /* TU-VALOR: probá "2px solid #04589d" */;
+    border-radius: /* TU-VALOR: probá 12px */;
+}
+
+/* 4. Nombre en naranja */
+.card-name {
+    color: /* TU-VALOR: naranja de BYTEC */;
+    margin-bottom: 4px;
+}
+
+/* 5. Rol en gris */
+.card-role {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* 6. Biografía */
+.card-bio {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1a1a5e;
+}
+
+/* 7. Subtítulos de sección */
+.card-section {
+    color: /* TU-VALOR: azul de BYTEC */;
+    font-size: 14px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+/* 8. Tags de skills: inline-block para que se pongan al lado */
+.skill-tag {
+    display: /* TU-VALOR: "inline-block" */;
+    background-color: /* TU-VALOR: azul de BYTEC */;
+    color: white;
+    padding: /* TU-VALOR: probá "6px 14px" */;
+    margin: /* TU-VALOR: probá "4px" */;
+    border-radius: /* TU-VALOR: probá "20px" para hacerlo pill */;
+    font-size: 13px;
+}
+
+/* 9. Botón de contacto */
+.boton-perfil {
+    display: block;
+    width: 100%;
+    padding: /* TU-VALOR: probá "12px" */;
+    margin-top: 20px;
+    background-color: /* TU-VALOR: naranja de BYTEC */;
+    color: white;
+    border: /* TU-VALOR: "none" */;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* BONUS: Efecto hover en el botón */
+/* .boton-perfil:hover {
+    background-color: TU-VALOR: un naranja más oscuro;
+} */

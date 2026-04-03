@@ -1,0 +1,19 @@
+/*
+============================================================
+EJERCICIO 03: Galería de Cards
+============================================================
+
+CONSIGNA:
+Escribí los estilos para que 3 tarjetas de proyectos
+se muestren lado a lado.
+
+CLAVE: display: inline-block + width en porcentaje
+
+TIPS:
+- text-align: center en el padre centra los hijos inline-block
+- vertical-align: top alinea las cards por arriba
+- Si las cards no entran en una línea, reducí el width o margin
+============================================================
+*/
+
+/* Escribí tus estilos aquí */
