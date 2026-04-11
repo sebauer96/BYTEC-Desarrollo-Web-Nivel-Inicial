@@ -1,0 +1,88 @@
+/*
+============================================================
+EJERCICIO 01: Flexbox Básico
+============================================================
+
+CONSIGNA:
+Reemplazá cada "TU-VALOR" por un valor CSS válido.
+Guardá y observá los cambios en el navegador.
+
+RECORDÁ:
+- display: flex → activa Flexbox en el contenedor
+- justify-content → alinea en el eje principal (horizontal)
+- align-items → alinea en el eje cruzado (vertical)
+- flex-direction → cambia la dirección (row, column)
+- gap → espacio entre los hijos
+============================================================
+*/
+
+* { box-sizing: border-box; }
+
+body {
+    background-color: #0a0a23;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+
+h1 { color: #f75001; margin-bottom: 10px; }
+h2 { color: #04589d; margin-top: 30px; margin-bottom: 10px; }
+p  { color: #aaa; margin-bottom: 20px; }
+code { background: #1a1a5e; padding: 2px 6px; border-radius: 3px; }
+
+.contenedor {
+    border: 2px dashed #04589d;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 150px;
+}
+
+.caja {
+    width: 80px;
+    height: 80px;
+    background-color: #f75001;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.caja-especial {
+    width: auto;
+    padding: 16px 24px;
+    font-size: 16px;
+}
+
+/* ========== CONTENEDOR 1: Poné los hijos en fila ========== */
+.contenedor-1 {
+    display: /* TU-VALOR: probá con flex */;
+    gap: /* TU-VALOR: probá con 20px */;
+    justify-content: /* TU-VALOR: probá con center */;
+    align-items: /* TU-VALOR: probá con center */;
+}
+
+/* ========== CONTENEDOR 2: Centrado perfecto ========== */
+.contenedor-2 {
+    display: /* TU-VALOR */;
+    justify-content: /* TU-VALOR: para centrar horizontalmente */;
+    align-items: /* TU-VALOR: para centrar verticalmente */;
+    min-height: 200px;
+}
+
+/* ========== CONTENEDOR 3: Distribuí el espacio ========== */
+.contenedor-3 {
+    display: /* TU-VALOR */;
+    justify-content: /* TU-VALOR: probá space-between, space-around y space-evenly */;
+    align-items: /* TU-VALOR */;
+}
+
+/* ========== CONTENEDOR 4: Dirección columna ========== */
+.contenedor-4 {
+    display: /* TU-VALOR */;
+    flex-direction: /* TU-VALOR: probá con column */;
+    align-items: /* TU-VALOR: probá con center */;
+    gap: /* TU-VALOR: probá con 12px */;
+}

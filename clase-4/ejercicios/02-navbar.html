@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Navbar con Flexbox</title>
+    <link rel="stylesheet" href="02-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 02: Navbar Profesional con Flexbox
+    ============================================================
+
+    CONSIGNA:
+    Construí una barra de navegación profesional usando Flexbox.
+    La navbar debe tener: logo a la izquierda, links en el centro
+    y un botón a la derecha.
+
+    ESTRUCTURA (ya armada abajo):
+    [Logo]     [Inicio] [Servicios] [Nosotros] [Contacto]     [Botón]
+
+    PASOS:
+    1. En 02-style.css, hacé que .navbar use display: flex
+    2. Usá align-items para centrar todo verticalmente
+    3. Hacé que .nav-links use display: flex y gap para los links
+    4. Usá flex: 1 en .nav-links para que ocupe el espacio del medio
+    5. Usá justify-content: center en .nav-links para centrar los links
+    6. Estilizá el botón .btn-cta
+
+    PISTAS:
+    - La navbar necesita display: flex y align-items: center
+    - Los links necesitan su propio display: flex (flex anidado)
+    - flex: 1 en los links hace que ocupen todo el espacio sobrante
+    - list-style: none saca los bullets del <ul>
+
+    BONUS:
+    - Agregá un efecto hover a los links (cambio de color)
+    - Agregá un hover al botón (cambio de fondo)
+    - Probá poner la navbar fixed con position: fixed
+    ============================================================
+    -->
+
+    <nav class="navbar">
+        <div class="logo">MiSitio</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <button class="btn-cta">Registrarse</button>
+    </nav>
+
+    <!-- Content to test scrolling with fixed navbar -->
+    <main class="page-content">
+        <h1>Bienvenido a MiSitio</h1>
+        <p>Esta es una página de ejemplo para probar tu navbar.</p>
+        <p>Si hiciste la navbar con <code>position: fixed</code>, el contenido debería quedar debajo.</p>
+
+        <div class="demo-section">
+            <h2>Sección de ejemplo</h2>
+            <p>Scrolleá para verificar que la navbar queda fija arriba.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Otra sección</h2>
+            <p>Tu navbar debería verse profesional, con el logo a la izquierda, links centrados y el botón a la derecha.</p>
+        </div>
+    </main>
+
+</body>
+</html>

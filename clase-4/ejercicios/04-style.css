@@ -1,0 +1,43 @@
+/*
+============================================================
+EJERCICIO 04 (DESAFÍO): Holy Grail Layout
+============================================================
+
+CONSIGNA:
+Diseñá el "Holy Grail Layout" usando solo Flexbox.
+Este es el ejercicio más libre: usá tu creatividad.
+
+ESTRUCTURA:
+- body: flex, column, min-height: 100vh
+- .main-layout: flex, row, flex: 1
+- sidebars: flex: 0 0 200px (ancho fijo)
+- contenido: flex: 1 (flexible)
+
+REQUISITOS MÍNIMOS:
+1. * { box-sizing: border-box; margin: 0; padding: 0; }
+2. body con display: flex y flex-direction: column
+3. .main-layout con display: flex (fila)
+4. Sidebars con ancho fijo (flex: 0 0 200px)
+5. Contenido principal flexible (flex: 1)
+6. Header y footer con padding y fondo diferente
+
+COLORES SUGERIDOS:
+- Fondo body: #0a0a23
+- Header/Footer: #0d0d2b
+- Sidebar izq: #12123a
+- Contenido: #0a0a23
+- Sidebar der: #12123a
+- Naranja: #f75001
+- Azul: #04589d
+- Texto: white / #aaa
+
+PROPIEDADES BONUS PARA PROBAR:
+- border-left / border-right para separar secciones
+- overflow-y: auto en el contenido principal
+- position: sticky en el header
+
+¡Buena suerte!
+============================================================
+*/
+
+/* Escribí tus estilos aquí */

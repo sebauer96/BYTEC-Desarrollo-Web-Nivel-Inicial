@@ -42,7 +42,7 @@
 | 01 | ¿Cómo Funciona la Web? | Navegador, semántico vs sintáctico, qué es HTML, IDE (VS Code) | Creada |
 | 02 | Interactividad & CSS | Formularios (form, label, input, select, button), sintaxis CSS, selectores | Creada |
 | 03 | El Modelo de Caja | Box Model (content, padding, border, margin), box-sizing, display block/inline/inline-block | Creada |
-| 04 | Layout con Flexbox | Alinear, distribuir y ordenar elementos con flexbox | Pendiente |
+| 04 | Layout con Flexbox | Alinear, distribuir y ordenar elementos con flexbox | Creada |
 | 05 | Diseño Responsive | Media queries, mobile first | Pendiente |
 | 06 | Tipografía, Colores & Diseño Visual | Google Fonts, paletas, imágenes, fondos | Pendiente |
 | 07 | Proyecto Final: Maquetación | Sitio web completo desde cero | Pendiente |

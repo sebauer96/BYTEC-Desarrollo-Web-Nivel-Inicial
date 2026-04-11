@@ -1,0 +1,130 @@
+/*
+============================================================
+EJERCICIO 03: Layout de Cards con Flexbox
+============================================================
+
+CONSIGNA:
+Creá los estilos para un layout flexible de tarjetas.
+Las cards deben reorganizarse según el ancho de la ventana.
+
+PROPIEDADES CLAVE:
+- display: flex → activa Flexbox
+- flex-wrap: wrap → permite saltar de línea
+- gap → espacio entre cards
+- flex: 1 1 280px → crece, se achica, base 280px
+- flex-direction: column → para que el contenido de cada
+  card se apile verticalmente
+- margin-top: auto → empuja un elemento al fondo
+
+COLORES SUGERIDOS:
+- Fondo: #0a0a23
+- Cards: #12123a
+- Naranja: #f75001
+- Azul: #04589d
+- Texto: white / #aaa
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #0a0a23;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
+
+/* ========== HEADER ========== */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    color: #f75001;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #aaa;
+    font-size: 16px;
+}
+
+/* ========== GRID DE CARDS ==========
+   Usá flex-wrap: wrap para que las cards
+   salten de línea cuando no entren.
+   Usá gap para el espacio entre ellas.
+*/
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ========== CARD ==========
+   Cada card necesita:
+   1. flex: 1 1 280px (para ser flexible)
+   2. max-width para que no crezca infinitamente
+   3. display: flex + flex-direction: column
+      para que el botón quede al fondo
+*/
+.card {
+    flex: 1 1 280px;
+    max-width: 350px;
+    background-color: #12123a;
+    border: 1px solid #1a1a5e;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    border-color: #04589d;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(4, 88, 157, 0.2);
+}
+
+/* ========== CONTENIDO DE LA CARD ========== */
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    color: #f75001;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.card-desc {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ========== BOTÓN ==========
+   margin-top: auto empuja el botón al fondo
+   de la card (funciona porque la card es flex column)
+*/
+.card-btn {
+    margin-top: auto;
+    background-color: #04589d;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card-btn:hover {
+    background-color: #f75001;
+}

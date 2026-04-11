@@ -1,0 +1,119 @@
+/*
+============================================================
+EJERCICIO 02: Navbar Profesional con Flexbox
+============================================================
+
+CONSIGNA:
+Completá los valores "TU-VALOR" para crear una navbar
+con Flexbox. El layout debe ser:
+[Logo]     [Links centrados]     [Botón]
+
+RECORDÁ:
+- display: flex activa Flexbox
+- align-items: center centra verticalmente
+- flex: 1 hace que un hijo ocupe el espacio sobrante
+- justify-content: center centra los hijos
+- list-style: none quita los bullets del <ul>
+- gap agrega espacio entre hijos flex
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #0a0a23;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    display: /* TU-VALOR: activá Flexbox */;
+    align-items: /* TU-VALOR: para centrar todo verticalmente */;
+    padding: 0 24px;
+    height: 60px;
+    background-color: #0d0d2b;
+    border-bottom: 2px solid #1a1a5e;
+}
+
+/* ========== LOGO ========== */
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f75001;
+    letter-spacing: 2px;
+}
+
+/* ========== LINKS ========== */
+.nav-links {
+    display: /* TU-VALOR: los links también necesitan flex */;
+    list-style: /* TU-VALOR: sacá los bullets */;
+    gap: /* TU-VALOR: espacio entre links, probá 24px */;
+    flex: /* TU-VALOR: para que ocupe el espacio del medio, probá 1 */;
+    justify-content: /* TU-VALOR: para centrar los links */;
+}
+
+.nav-links a {
+    color: /* TU-VALOR: probá #e8e8f0 */;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: /* TU-VALOR: probá #f75001 */;
+}
+
+/* ========== BOTÓN CTA ========== */
+.btn-cta {
+    background-color: /* TU-VALOR: probá #f75001 */;
+    color: white;
+    border: none;
+    padding: /* TU-VALOR: probá 10px 20px */;
+    border-radius: /* TU-VALOR: probá 6px */;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-cta:hover {
+    background-color: /* TU-VALOR: probá #d94500 */;
+}
+
+/* ========== CONTENIDO DE LA PÁGINA ========== */
+.page-content {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-content h1 {
+    color: #f75001;
+    margin-bottom: 16px;
+}
+
+.page-content p {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.page-content code {
+    background: #1a1a5e;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #f75001;
+}
+
+.demo-section {
+    background-color: #12123a;
+    border: 1px solid #1a1a5e;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.demo-section h2 {
+    color: #04589d;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 01 - Flexbox Básico</title>
+    <link rel="stylesheet" href="01-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 01: Flexbox Básico
+    ============================================================
+
+    CONSIGNA:
+    Experimentá con las propiedades del contenedor flex
+    cambiando valores en el archivo 01-style.css.
+
+    PASOS:
+    1. Mirá las cajas en el navegador (están apiladas verticalmente)
+    2. Andá al archivo 01-style.css y completá los valores
+       indicados con "TU-VALOR"
+    3. Guardá y observá cómo cambian las cajas
+
+    PISTAS:
+    - display: flex hace que los hijos se pongan en fila
+    - justify-content controla la distribución horizontal
+    - align-items controla la alineación vertical
+    - flex-direction cambia la dirección (row o column)
+    - gap agrega espacio entre los hijos
+
+    BONUS:
+    - Probá todos los valores de justify-content:
+      flex-start, center, flex-end, space-between, space-around, space-evenly
+    - Combiná justify-content con align-items
+    - Cambiá flex-direction a column y mirá qué pasa
+    ============================================================
+    -->
+
+    <h1>Laboratorio Flexbox</h1>
+    <p>Abrí el archivo <code>01-style.css</code> y completá los valores para experimentar con Flexbox.</p>
+
+    <h2>1. Contenedor básico</h2>
+    <div class="contenedor contenedor-1">
+        <div class="caja">A</div>
+        <div class="caja">B</div>
+        <div class="caja">C</div>
+    </div>
+
+    <h2>2. Centrado perfecto</h2>
+    <div class="contenedor contenedor-2">
+        <div class="caja caja-especial">¡Centrá esta caja!</div>
+    </div>
+
+    <h2>3. Distribución de espacio</h2>
+    <div class="contenedor contenedor-3">
+        <div class="caja">1</div>
+        <div class="caja">2</div>
+        <div class="caja">3</div>
+        <div class="caja">4</div>
+        <div class="caja">5</div>
+    </div>
+
+    <h2>4. Dirección columna</h2>
+    <div class="contenedor contenedor-4">
+        <div class="caja">X</div>
+        <div class="caja">Y</div>
+        <div class="caja">Z</div>
+    </div>
+
+</body>
+</html>

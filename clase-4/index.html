@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 4: Layout con Flexbox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 20</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 04</div>
+                <h1 class="title-main">Layout con<br><span class="title-accent">Flexbox</span></h1>
+                <p class="title-sub">Alinear · Distribuir · Ordenar · Layouts Flexibles</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">💻 Práctica incluida</span>
+                    <span class="meta-item">🚀 Nivel: Principiante</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Dominar <strong>Flexbox</strong>, el sistema de CSS que permite alinear, distribuir y ordenar elementos de forma flexible. Vas a poder crear <strong>layouts profesionales</strong> sin trucos ni hacks.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Repaso Clase 3</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">25 min</span>
+                        <span class="timeline-label">Flexbox: Contenedor</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 1</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Flexbox: Hijos</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 2</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Cierre + Tarea</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: REPASO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Repaso Rápido — Clase 3</h2>
+                <p class="slide-text">En la clase anterior aprendimos el Modelo de Caja y cómo el navegador calcula tamaños:</p>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>padding</code> Espacio interno</div>
+                    <div class="recap-item"><code>border</code> Borde visible</div>
+                    <div class="recap-item"><code>margin</code> Espacio externo</div>
+                    <div class="recap-item"><code>box-sizing</code> border-box FTW</div>
+                    <div class="recap-item"><code>display</code> block / inline / inline-block</div>
+                    <div class="recap-item"><code>overflow</code> Contenido desbordado</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 Con el Box Model controlamos el <strong>tamaño y espaciado</strong> de cada caja. Hoy vamos a aprender a <strong>posicionar</strong> esas cajas unas respecto a las otras.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: EL PROBLEMA ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">😤 El Problema: Layouts sin Flexbox</h2>
+                <p class="slide-text">Hasta ahora, para poner elementos al lado usamos <code>display: inline-block</code>. Pero tiene problemas:</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Problemas de inline-block</h4>
+                        <ul>
+                            <li>Espacios fantasma entre elementos</li>
+                            <li>Difícil centrar verticalmente</li>
+                            <li>No se reparten el espacio sobrante</li>
+                            <li>El orden depende del HTML</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Qué queremos lograr?</h4>
+                        <ul>
+                            <li>Poner elementos lado a lado fácilmente</li>
+                            <li>Centrar en ambos ejes (horizontal y vertical)</li>
+                            <li>Distribuir el espacio equitativamente</li>
+                            <li>Adaptar el layout a distintas pantallas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎉 <strong>Flexbox</strong> resuelve todos estos problemas con unas pocas propiedades. ¡Vamos a verlo!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: QUÉ ES FLEXBOX ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">📐 ¿Qué es Flexbox?</h2>
+                <p class="slide-text"><strong>Flexbox</strong> (Flexible Box Layout) es un sistema de CSS para distribuir elementos en <strong>una dimensión</strong>: en fila o en columna.</p>
+                <div class="flex-demo-box">
+                    <div class="flex-demo-container">
+                        <div class="flex-demo-parent">
+                            <span class="flex-demo-label">Contenedor (padre)</span>
+                            <div class="flex-demo-child">Hijo 1</div>
+                            <div class="flex-demo-child">Hijo 2</div>
+                            <div class="flex-demo-child">Hijo 3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Contenedor (padre)</h4>
+                        <p>El elemento al que le ponés <code>display: flex</code>. Controla cómo se distribuyen sus hijos.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Items (hijos)</h4>
+                        <p>Los elementos <strong>directos</strong> dentro del contenedor flex. Se alinean y distribuyen automáticamente.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⭐ <strong>Regla clave:</strong> Flexbox funciona con <strong>dos niveles</strong>: propiedades del <strong>padre</strong> (contenedor) y propiedades de los <strong>hijos</strong> (items).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: DISPLAY FLEX ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🚀 display: flex — El Primer Paso</h2>
+                <p class="slide-text">Con solo escribir <code>display: flex</code> en el padre, los hijos se ponen <strong>uno al lado del otro</strong> automáticamente:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Sin Flexbox</h3>
+                        <div class="comparison-visual">
+                            <div class="mini-block stack">A</div>
+                            <div class="mini-block stack">B</div>
+                            <div class="mini-block stack">C</div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 13px;">Los bloques se apilan verticalmente.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Con display: flex</h3>
+                        <div class="comparison-visual">
+                            <div class="mini-blocks-row">
+                                <div class="mini-block">A</div>
+                                <div class="mini-block">B</div>
+                                <div class="mini-block">C</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 13px;">Se ponen en fila automáticamente.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code>.contenedor {
+  display: flex;    /* ¡Eso es todo! Los hijos se ponen en fila */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: EJES ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">↔️ Los Dos Ejes de Flexbox</h2>
+                <p class="slide-text">Flexbox trabaja con <strong>dos ejes</strong>. Entenderlos es clave para dominar la alineación:</p>
+                <div class="axes-diagram">
+                    <div class="axis-container">
+                        <div class="axis-main">
+                            <span class="axis-label main-label">EJE PRINCIPAL (main axis) →</span>
+                            <div class="axis-items">
+                                <div class="axis-item">1</div>
+                                <div class="axis-item">2</div>
+                                <div class="axis-item">3</div>
+                            </div>
+                        </div>
+                        <div class="axis-cross">
+                            <span class="axis-label cross-label">EJE CRUZADO ↓<br>(cross axis)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Eje Principal (Main Axis)</h4>
+                        <ul>
+                            <li>Dirección en la que van los hijos</li>
+                            <li>Por defecto: <strong>horizontal</strong> (→)</li>
+                            <li>Se controla con <code>flex-direction</code></li>
+                            <li>Se alinea con <code>justify-content</code></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Eje Cruzado (Cross Axis)</h4>
+                        <ul>
+                            <li>Perpendicular al eje principal</li>
+                            <li>Por defecto: <strong>vertical</strong> (↓)</li>
+                            <li>Se alinea con <code>align-items</code></li>
+                            <li>Siempre es el "otro" eje</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: FLEX-DIRECTION ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧭 flex-direction</h2>
+                <p class="slide-text">Define la dirección del <strong>eje principal</strong> (cómo se acomodan los hijos):</p>
+                <div class="code-block">
+<pre><code>.contenedor {
+  display: flex;
+  flex-direction: row;            /* Fila → (por defecto) */
+  flex-direction: row-reverse;    /* Fila invertida ← */
+  flex-direction: column;         /* Columna ↓ */
+  flex-direction: column-reverse; /* Columna invertida ↑ */
+}</code></pre>
+                </div>
+                <div class="direction-grid">
+                    <div class="direction-card">
+                        <h4>row <span class="dir-default">(defecto)</span></h4>
+                        <div class="dir-visual row-vis">
+                            <span>1</span><span>2</span><span>3</span>
+                        </div>
+                        <code>→ Izquierda a derecha</code>
+                    </div>
+                    <div class="direction-card">
+                        <h4>row-reverse</h4>
+                        <div class="dir-visual row-rev-vis">
+                            <span>3</span><span>2</span><span>1</span>
+                        </div>
+                        <code>← Derecha a izquierda</code>
+                    </div>
+                    <div class="direction-card">
+                        <h4>column</h4>
+                        <div class="dir-visual col-vis">
+                            <span>1</span><span>2</span><span>3</span>
+                        </div>
+                        <code>↓ Arriba a abajo</code>
+                    </div>
+                    <div class="direction-card">
+                        <h4>column-reverse</h4>
+                        <div class="dir-visual col-rev-vis">
+                            <span>3</span><span>2</span><span>1</span>
+                        </div>
+                        <code>↑ Abajo a arriba</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: JUSTIFY-CONTENT ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">↔️ justify-content</h2>
+                <p class="slide-text">Controla la distribución de los hijos a lo largo del <strong>eje principal</strong>:</p>
+                <div class="code-block">
+<pre><code>.contenedor {
+  display: flex;
+  justify-content: flex-start;      /* Al inicio (defecto) */
+  justify-content: center;          /* Centrado */
+  justify-content: flex-end;        /* Al final */
+  justify-content: space-between;   /* Espacio entre elementos */
+  justify-content: space-around;    /* Espacio alrededor */
+  justify-content: space-evenly;    /* Espacio parejo */
+}</code></pre>
+                </div>
+                <div class="justify-demos">
+                    <div class="justify-row">
+                        <code>flex-start</code>
+                        <div class="justify-track jc-start"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="justify-row">
+                        <code>center</code>
+                        <div class="justify-track jc-center"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="justify-row">
+                        <code>flex-end</code>
+                        <div class="justify-track jc-end"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="justify-row">
+                        <code>space-between</code>
+                        <div class="justify-track jc-between"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="justify-row">
+                        <code>space-around</code>
+                        <div class="justify-track jc-around"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="justify-row">
+                        <code>space-evenly</code>
+                        <div class="justify-track jc-evenly"><span></span><span></span><span></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: ALIGN-ITEMS ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">↕️ align-items</h2>
+                <p class="slide-text">Controla la alineación de los hijos en el <strong>eje cruzado</strong> (perpendicular al principal):</p>
+                <div class="code-block">
+<pre><code>.contenedor {
+  display: flex;
+  align-items: stretch;      /* Se estiran para llenar (defecto) */
+  align-items: flex-start;   /* Arriba */
+  align-items: center;       /* Centro */
+  align-items: flex-end;     /* Abajo */
+  align-items: baseline;     /* Alineados por la línea de texto */
+}</code></pre>
+                </div>
+                <div class="align-demos">
+                    <div class="align-demo-item">
+                        <code>stretch</code>
+                        <div class="align-track ai-stretch">
+                            <span class="h1"></span><span class="h2"></span><span class="h3"></span>
+                        </div>
+                    </div>
+                    <div class="align-demo-item">
+                        <code>flex-start</code>
+                        <div class="align-track ai-start">
+                            <span class="h1"></span><span class="h2"></span><span class="h3"></span>
+                        </div>
+                    </div>
+                    <div class="align-demo-item">
+                        <code>center</code>
+                        <div class="align-track ai-center">
+                            <span class="h1"></span><span class="h2"></span><span class="h3"></span>
+                        </div>
+                    </div>
+                    <div class="align-demo-item">
+                        <code>flex-end</code>
+                        <div class="align-track ai-end">
+                            <span class="h1"></span><span class="h2"></span><span class="h3"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🧠 <strong>Truco mnemotécnico:</strong> <code>justify</code> = eje principal (la J parece una flecha →). <code>align</code> = eje cruzado (perpendicular).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: CENTRADO PERFECTO ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">✨ El Centrado Perfecto</h2>
+                <p class="slide-text">El centrado perfecto (horizontal y vertical) fue durante años un dolor de cabeza. Con Flexbox se logra con <strong>3 líneas</strong>:</p>
+                <div class="code-block">
+<pre><code>.contenedor {
+  display: flex;
+  justify-content: center;    /* Centra en el eje principal → */
+  align-items: center;        /* Centra en el eje cruzado ↓ */
+  height: 100vh;              /* Ocupa toda la pantalla */
+}</code></pre>
+                </div>
+                <div class="centered-demo">
+                    <div class="centered-demo-box">
+                        <div class="centered-demo-inner">¡Centrado!</div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 Este patrón es <strong>super común</strong>: lo vas a usar para centrar modales, mensajes de error, loaders, héroes de landing pages, etc.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: PRÁCTICA 1 ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 1: Flexbox Básico</h2>
+                <p class="slide-text">Vamos a experimentar con las propiedades del contenedor flex:</p>
+                <div class="code-block">
+<pre><code>&lt;!-- index.html --&gt;
+&lt;div class="contenedor"&gt;
+  &lt;div class="caja"&gt;1&lt;/div&gt;
+  &lt;div class="caja"&gt;2&lt;/div&gt;
+  &lt;div class="caja"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>/* style.css */
+* { box-sizing: border-box; }
+
+body {
+  background-color: #0a0a23;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 300px;
+  border: 2px dashed #04589d;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.caja {
+  width: 100px;
+  height: 100px;
+  background-color: #f75001;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}</code></pre>
+                </div>
+                <div class="practice-checklist">
+                    <div class="check-item">🔄 Cambiá <code>flex-direction</code> a <code>column</code> y observá</div>
+                    <div class="check-item">↔️ Probá los distintos valores de <code>justify-content</code></div>
+                    <div class="check-item">↕️ Probá los distintos valores de <code>align-items</code></div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/01-flexbox-basico.html</code> para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: GAP ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">📏 gap — Espacio entre Hijos</h2>
+                <p class="slide-text">La propiedad <code>gap</code> agrega espacio <strong>entre</strong> los hijos, sin agregar espacio extra al inicio ni al final:</p>
+                <div class="code-block">
+<pre><code>.contenedor {
+  display: flex;
+  gap: 20px;              /* Espacio uniforme entre todos los hijos */
+}
+
+/* También podés separar fila y columna */
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 30px;         /* 20px entre filas, 30px entre columnas */
+}</code></pre>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Con margin</h3>
+                        <p style="font-size: 13px;">Tenés que sacar el margin del último hijo. Complejo.</p>
+                        <div class="comparison-visual" style="font-size: 14px;">margin ← 😤 → margin</div>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Con gap</h3>
+                        <p style="font-size: 13px;">Solo agrega espacio entre elementos. Simple y limpio.</p>
+                        <div class="comparison-visual" style="font-size: 14px;">gap ← 😎 → gap</div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> Usá <code>gap</code> en vez de <code>margin</code> entre hijos de un contenedor flex. Es más limpio y predecible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: FLEX-WRAP ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 flex-wrap — Saltar de Línea</h2>
+                <p class="slide-text">Por defecto, los hijos se comprimen para entrar en una sola línea. Con <code>flex-wrap</code> les permitís <strong>saltar a la siguiente línea</strong>:</p>
+                <div class="code-block">
+<pre><code>.contenedor {
+  display: flex;
+  flex-wrap: nowrap;    /* No salta de línea (defecto) — se comprimen */
+  flex-wrap: wrap;      /* Salta a la siguiente línea si no entra */
+  flex-wrap: wrap-reverse;  /* Salta pero en dirección inversa */
+}</code></pre>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">nowrap (defecto)</h3>
+                        <div class="comparison-visual" style="font-size: 12px;">
+                            <div class="mini-blocks-row squish">
+                                <div class="mini-block sm">1</div>
+                                <div class="mini-block sm">2</div>
+                                <div class="mini-block sm">3</div>
+                                <div class="mini-block sm">4</div>
+                                <div class="mini-block sm">5</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 8px; font-size: 12px;">Se comprimen para entrar.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">wrap</h3>
+                        <div class="comparison-visual" style="font-size: 12px;">
+                            <div class="mini-blocks-wrap">
+                                <div class="mini-block sm">1</div>
+                                <div class="mini-block sm">2</div>
+                                <div class="mini-block sm">3</div>
+                                <div class="mini-block sm">4</div>
+                                <div class="mini-block sm">5</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 8px; font-size: 12px;">Saltan a la siguiente línea.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⭐ <code>flex-wrap: wrap</code> es <strong>esencial</strong> para diseños responsive. Los elementos se reorganizan solos según el espacio disponible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: PROPIEDADES DE LOS HIJOS ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">👶 Propiedades de los Hijos</h2>
+                <p class="slide-text">Hasta ahora vimos propiedades del <strong>padre</strong>. Ahora vamos a ver las propiedades que se aplican a cada <strong>hijo</strong> individual:</p>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Propiedad</span>
+                        <span>¿Qué hace?</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>flex-grow</code>
+                        <span>Cuánto crece para llenar espacio sobrante</span>
+                        <code>flex-grow: 1</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>flex-shrink</code>
+                        <span>Cuánto se achica si falta espacio</span>
+                        <code>flex-shrink: 0</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>flex-basis</code>
+                        <span>Tamaño base antes de crecer/achicarse</span>
+                        <code>flex-basis: 200px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>align-self</code>
+                        <span>Alineación individual (override del padre)</span>
+                        <code>align-self: flex-end</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>order</code>
+                        <span>Cambia el orden visual sin tocar el HTML</span>
+                        <code>order: -1</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: FLEX-GROW ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">📈 flex-grow — Crecer para Llenar</h2>
+                <p class="slide-text"><code>flex-grow</code> define cuánto crece un hijo para ocupar el <strong>espacio sobrante</strong> del contenedor:</p>
+                <div class="code-block">
+<pre><code>/* Todos los hijos crecen igual */
+.hijo {
+  flex-grow: 1;     /* Se reparten el espacio sobrante por igual */
+}
+
+/* El hijo-2 crece el doble que los demás */
+.hijo-1 { flex-grow: 1; }
+.hijo-2 { flex-grow: 2; }   /* Ocupa el doble de espacio extra */
+.hijo-3 { flex-grow: 1; }</code></pre>
+                </div>
+                <div class="grow-demo">
+                    <div class="grow-row">
+                        <code>Todos flex-grow: 1</code>
+                        <div class="grow-track">
+                            <div class="grow-item g1">1</div>
+                            <div class="grow-item g1">1</div>
+                            <div class="grow-item g1">1</div>
+                        </div>
+                    </div>
+                    <div class="grow-row">
+                        <code>Hijo del medio: flex-grow: 2</code>
+                        <div class="grow-track">
+                            <div class="grow-item g1">1</div>
+                            <div class="grow-item g2">2</div>
+                            <div class="grow-item g1">1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <code>flex-grow: 0</code> (defecto) = no crece. <code>flex-grow: 1</code> = ocupa todo el espacio sobrante disponible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: FLEX SHORTHAND ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚡ El Shorthand: flex</h2>
+                <p class="slide-text">La propiedad <code>flex</code> es un atajo que combina <strong>flex-grow</strong>, <strong>flex-shrink</strong> y <strong>flex-basis</strong> en una sola línea:</p>
+                <div class="code-block">
+<pre><code>/* flex: grow shrink basis */
+.hijo {
+  flex: 0 1 auto;     /* Valores por defecto */
+}
+
+/* Atajos comunes */
+.hijo {
+  flex: 1;            /* = flex: 1 1 0%  → Crece y se achica por igual */
+}
+
+.hijo {
+  flex: none;         /* = flex: 0 0 auto → Tamaño fijo, no cambia */
+}
+
+.sidebar  { flex: 0 0 250px; }   /* Sidebar fijo de 250px */
+.main     { flex: 1; }            /* Contenido principal flexible */</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Valores más usados</h4>
+                        <ul>
+                            <li><code>flex: 1</code> — Crece para llenar</li>
+                            <li><code>flex: none</code> — Tamaño fijo</li>
+                            <li><code>flex: 0 0 200px</code> — Fijo 200px</li>
+                            <li><code>flex: 2</code> — Crece el doble</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Ejemplo: Layout clásico</h4>
+                        <div class="layout-demo">
+                            <div class="layout-sidebar">sidebar<br><code>flex: 0 0 200px</code></div>
+                            <div class="layout-main">contenido<br><code>flex: 1</code></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: PRÁCTICA 2 ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 2: Navbar con Flexbox</h2>
+                <p class="slide-text">Vamos a construir una <strong>barra de navegación</strong> profesional usando Flexbox:</p>
+                <div class="code-block">
+<pre><code>&lt;nav class="navbar"&gt;
+  &lt;div class="logo"&gt;MiSitio&lt;/div&gt;
+  &lt;ul class="nav-links"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;button class="btn-cta"&gt;Registrarse&lt;/button&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>/* El truco: flex en el nav, y flex: 1 en los links */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 60px;
+  background-color: #0d0d2b;
+  border-bottom: 2px solid #1a1a5e;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  flex: 1;               /* Ocupa todo el espacio del medio */
+  justify-content: center;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/02-navbar.html</code> para construir la navbar paso a paso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar</h2>
+                <p class="slide-text">Resolvé estos ejercicios en la carpeta <code>ejercicios/</code>:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Flexbox Básico</h4>
+                            <p>Archivo: <code>01-flexbox-basico.html</code> + CSS — Experimentá con justify-content, align-items y flex-direction.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Navbar Profesional</h4>
+                            <p>Archivos: <code>02-navbar.html</code> + CSS — Construí una barra de navegación con logo, links y botón.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Cards con Flexbox</h4>
+                            <p>Archivos: <code>03-card-layout.html</code> + CSS — Layout de tarjetas que se adaptan al espacio.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Holy Grail Layout</h4>
+                            <p>Archivos: <code>04-holy-grail.html</code> + CSS — Header, sidebar, contenido principal y footer.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CIERRE ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Rediseñá tu Portafolio con Flexbox</h3>
+                    <p>Tomá la tarea de la clase anterior (portafolio con cards) y <strong>mejoralo con Flexbox</strong>. Los requisitos:</p>
+                    <ul>
+                        <li>Una <strong>navbar</strong> con logo a la izquierda y links a la derecha usando <code>display: flex</code></li>
+                        <li>Las <strong>cards</strong> distribuidas con <code>flex-wrap: wrap</code> y <code>gap</code></li>
+                        <li>Cada card debe usar <code>flex: 1 1 280px</code> para ser flexible</li>
+                        <li>Un <strong>footer</strong> con contenido centrado usando flexbox</li>
+                        <li>Aplicá <code>justify-content</code> y <code>align-items</code> donde corresponda</li>
+                        <li>El hero/header con centrado perfecto (<code>justify-content: center</code> + <code>align-items: center</code>)</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 04 COMPLETADA</div>
+                    <p>¡Flexbox es tu nueva herramienta favorita! Ahora podés crear layouts que antes parecían imposibles.</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        <span class="hint-desktop">Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar</span>
+        <span class="hint-mobile">Deslizá hacia los lados ◂ ▸ para navegar</span>
+    </div>
+
+    <div class="swipe-toast" id="swipeToast">
+        <span class="swipe-toast-icon">👆</span>
+        <p class="swipe-toast-text">¡Deslizá para navegar!</p>
+        <p class="swipe-toast-sub">Arrastrá el dedo hacia la izquierda o derecha para cambiar de slide</p>
+        <button class="swipe-toast-dismiss" onclick="dismissToast()">ENTENDIDO</button>
+    </div>
+
+    <div class="swipe-indicator left" id="swipeLeft">◂</div>
+    <div class="swipe-indicator right" id="swipeRight">▸</div>
+
+    <script>
+        // Stars background
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        // Slide navigation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        });
+
+        // Touch swipe navigation
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isSwiping = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+            const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            if (diffX > diffY && diffX > 10) {
+                const indicator = (e.changedTouches[0].screenX - touchStartX) > 0
+                    ? document.getElementById('swipeLeft')
+                    : document.getElementById('swipeRight');
+                indicator.classList.add('flash');
+                setTimeout(() => indicator.classList.remove('flash'), 200);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+            document.getElementById('swipeLeft').classList.remove('flash');
+            document.getElementById('swipeRight').classList.remove('flash');
+        });
+
+        // Swipe toast for first-time mobile users
+        function showSwipeToast() {
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const toastKey = 'bytec-swipe-seen';
+            if (isTouchDevice && !localStorage.getItem(toastKey)) {
+                setTimeout(() => {
+                    document.getElementById('swipeToast').classList.add('visible');
+                }, 1200);
+            }
+        }
+
+        function dismissToast() {
+            document.getElementById('swipeToast').classList.remove('visible');
+            localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        showSwipeToast();
+    </script>
+
+</body>
+</html>

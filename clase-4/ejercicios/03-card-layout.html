@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Cards con Flexbox</title>
+    <link rel="stylesheet" href="03-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 03: Layout de Cards con Flexbox
+    ============================================================
+
+    CONSIGNA:
+    Creá un layout de tarjetas de servicios usando Flexbox.
+    Las cards deben distribuirse en fila y saltar de línea
+    cuando no entren en la pantalla (flex-wrap).
+
+    ESTRUCTURA:
+    - Un contenedor .cards-grid con display: flex
+    - 6 tarjetas .card adentro
+    - Cada card tiene: emoji, título, descripción y un botón
+
+    REQUISITOS CSS:
+    1. El contenedor .cards-grid debe usar:
+       - display: flex
+       - flex-wrap: wrap (para que salten de línea)
+       - gap para espacio entre cards
+       - justify-content para distribuir el espacio
+    2. Cada .card debe usar:
+       - flex: 1 1 280px (crece, se achica, base de 280px)
+       - max-width para que no crezca infinitamente
+    3. El botón dentro de cada card debe quedar abajo usando:
+       - display: flex + flex-direction: column en la card
+       - margin-top: auto en el botón (lo empuja al fondo)
+
+    PISTAS:
+    - flex: 1 1 280px significa:
+      · flex-grow: 1 (crece para llenar)
+      · flex-shrink: 1 (se achica si falta espacio)
+      · flex-basis: 280px (tamaño base de 280px)
+    - margin-top: auto en un hijo flex empuja hacia abajo
+    - Achicá la ventana del navegador para ver cómo se
+      reorganizan las cards
+
+    BONUS:
+    - Agregá un hover a las cards (borde de color, sombra)
+    - Hacé que el botón cambie de color en hover
+    - Probá distintos valores de flex-basis (200px, 300px, 400px)
+    ============================================================
+    -->
+
+    <header class="page-header">
+        <h1>Nuestros Servicios</h1>
+        <p>Soluciones digitales para tu negocio</p>
+    </header>
+
+    <section class="cards-grid">
+
+        <article class="card">
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">Desarrollo Web</h3>
+            <p class="card-desc">Sitios web modernos, rápidos y adaptables a cualquier dispositivo.</p>
+            <button class="card-btn">Ver más</button>
+        </article>
+
+        <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3 class="card-title">Diseño UI/UX</h3>
+            <p class="card-desc">Interfaces intuitivas y atractivas que tus usuarios van a amar.</p>
+            <button class="card-btn">Ver más</button>
+        </article>
+
+        <article class="card">
+            <div class="card-icon">📱</div>
+            <h3 class="card-title">Apps Móviles</h3>
+            <p class="card-desc">Aplicaciones nativas y multiplataforma para iOS y Android.</p>
+            <button class="card-btn">Ver más</button>
+        </article>
+
+        <article class="card">
+            <div class="card-icon">🔒</div>
+            <h3 class="card-title">Seguridad</h3>
+            <p class="card-desc">Protección de datos y auditorías de seguridad para tu plataforma.</p>
+            <button class="card-btn">Ver más</button>
+        </article>
+
+        <article class="card">
+            <div class="card-icon">📊</div>
+            <h3 class="card-title">Analítica</h3>
+            <p class="card-desc">Dashboards y métricas para entender el comportamiento de tus usuarios.</p>
+            <button class="card-btn">Ver más</button>
+        </article>
+
+        <article class="card">
+            <div class="card-icon">☁️</div>
+            <h3 class="card-title">Cloud</h3>
+            <p class="card-desc">Infraestructura en la nube escalable y de alta disponibilidad.</p>
+            <button class="card-btn">Ver más</button>
+        </article>
+
+    </section>
+
+</body>
+</html>

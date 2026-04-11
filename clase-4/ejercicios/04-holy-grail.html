@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 04 - Holy Grail Layout</title>
+    <!--
+    Vinculá tu archivo de estilos:
+    <link rel="stylesheet" href="04-style.css">
+    -->
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 04 (DESAFÍO): Holy Grail Layout
+    ============================================================
+
+    CONSIGNA:
+    Creá el famoso "Holy Grail Layout" usando solo Flexbox.
+    Es un layout clásico de páginas web con 5 secciones:
+
+    ┌──────────────────────────────────┐
+    │            HEADER                │
+    ├─────────┬──────────────┬─────────┤
+    │         │              │         │
+    │  NAV    │   CONTENIDO  │ ASIDE   │
+    │ (sidebar│   PRINCIPAL  │(sidebar │
+    │  izq.)  │              │  der.)  │
+    │         │              │         │
+    ├─────────┴──────────────┴─────────┤
+    │            FOOTER                │
+    └──────────────────────────────────┘
+
+    ESTRUCTURA HTML:
+    1. Un <header> con el nombre del sitio
+    2. Una <div class="main-layout"> que contiene:
+       - <nav class="sidebar-left"> con links de navegación
+       - <main class="content"> con el contenido principal
+       - <aside class="sidebar-right"> con info extra
+    3. Un <footer> con copyright
+
+    REQUISITOS CSS:
+    1. El body debe ser un flex column que ocupe toda la pantalla:
+       - display: flex
+       - flex-direction: column
+       - min-height: 100vh
+
+    2. El .main-layout debe ser un flex row:
+       - display: flex
+       - flex: 1 (para que ocupe todo el espacio vertical)
+
+    3. Los sidebars deben tener ancho fijo:
+       - flex: 0 0 200px (no crece, no se achica, 200px fijo)
+
+    4. El contenido principal debe ser flexible:
+       - flex: 1 (ocupa todo el espacio sobrante)
+
+    5. Header y footer con padding y fondo distinto
+
+    PISTAS:
+    - El body es el contenedor flex principal (column)
+    - Dentro del body, .main-layout es otro flex (row)
+    - flex: 0 0 200px = ancho fijo de 200px
+    - flex: 1 = ocupa todo el espacio disponible
+    - min-height: 100vh = al menos la altura de la pantalla
+
+    BONUS:
+    - Agregá links en el sidebar izquierdo
+    - Poné un widget "Artículos recientes" en el sidebar derecho
+    - Hacé que el contenido principal tenga varias secciones
+    - Investigá cómo hacerlo responsive (que los sidebars
+      se apilen abajo en pantallas chicas usando
+      flex-direction: column en .main-layout)
+
+    ¡Empezá a codear abajo!
+    ============================================================
+    -->
+
+
+</body>
+</html>
