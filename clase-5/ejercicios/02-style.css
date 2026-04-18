@@ -1,0 +1,139 @@
+/*
+============================================================
+EJERCICIO 02: Cards Responsive
+============================================================
+
+CONSIGNA:
+Completá los valores "TU-VALOR" en los @media para que
+las cards pasen de 1 → 2 → 3 columnas.
+
+RECORDÁ:
+- flex-wrap: wrap permite que los hijos salten de línea
+- flex: 1 1 calc(50% - Xpx) = 2 columnas
+- flex: 1 1 calc(33.333% - Xpx) = 3 columnas
+- El valor que restás en calc() debe coincidir con el gap
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #0a0a23;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* ========== HEADER ========== */
+.page-header {
+    text-align: center;
+    padding: 24px 16px;
+    border-bottom: 2px solid #1a1a5e;
+}
+
+.page-header h1 {
+    color: #f75001;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* ========== CARDS — MOBILE (base) ==========
+   En mobile van apiladas en una sola columna
+*/
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+.card {
+    background-color: #12123a;
+    border: 1px solid #1a1a5e;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    border-color: #04589d;
+    transform: translateY(-3px);
+}
+
+.card-avatar {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.card-role {
+    color: #f75001;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.card-bio {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ==========================================================
+   TABLET: 768px en adelante → 2 cards por fila
+   Completá los valores de "TU-VALOR"
+   ========================================================== */
+@media (min-width: 768px) {
+
+    .page-header {
+        padding: /* TU-VALOR: probá 32px 24px */;
+    }
+
+    .page-header h1 {
+        font-size: /* TU-VALOR: probá 28px */;
+    }
+
+    .cards {
+        flex-direction: /* TU-VALOR: probá row */;
+        flex-wrap: /* TU-VALOR: probá wrap */;
+        gap: /* TU-VALOR: probá 20px */;
+        padding: /* TU-VALOR: probá 24px */;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .card {
+        flex: /* TU-VALOR: probá 1 1 calc(50% - 10px) */;
+    }
+}
+
+/* ==========================================================
+   DESKTOP: 1024px en adelante → 3 cards por fila
+   Completá los valores de "TU-VALOR"
+   ========================================================== */
+@media (min-width: 1024px) {
+
+    .page-header h1 {
+        font-size: /* TU-VALOR: probá 32px */;
+    }
+
+    .cards {
+        gap: /* TU-VALOR: probá 24px */;
+        max-width: /* TU-VALOR: probá 1000px */;
+        padding: /* TU-VALOR: probá 32px */;
+    }
+
+    .card {
+        flex: /* TU-VALOR: probá 1 1 calc(33.333% - 16px) */;
+    }
+}

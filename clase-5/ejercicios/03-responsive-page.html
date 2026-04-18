@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Página Responsive</title>
+    <link rel="stylesheet" href="03-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 03: Página Responsive Completa
+    ============================================================
+
+    CONSIGNA:
+    Creá una página completa con navbar, hero, cards y footer
+    que sea 100% responsive usando mobile first.
+
+    ESTRUCTURA (ya armada abajo):
+    1. NAVBAR: logo + links
+       - Mobile: apilados verticalmente
+       - Desktop: en fila con space-between
+
+    2. HERO: título + subtítulo + botón
+       - Mobile: padding chico, font-size chico
+       - Desktop: padding grande, font-size grande
+
+    3. FEATURES: 3 cards de servicios
+       - Mobile: 1 columna
+       - Tablet: 3 columnas con flex
+
+    4. FOOTER: texto centrado
+       - Ajustar padding según breakpoint
+
+    REQUISITOS CSS:
+    - Mobile first con min-width
+    - Al menos 2 breakpoints (768px y 1024px)
+    - Imágenes responsive (max-width: 100%)
+    - Cambios de font-size según breakpoint
+    - Cambios de padding según breakpoint
+
+    BONUS:
+    - Ocultá algo en mobile y mostralo en desktop
+    - Agregá una transición al hover de las cards
+    - Investigá cómo centrar verticalmente el hero
+      con height: 50vh + flexbox
+    ============================================================
+    -->
+
+    <nav class="navbar">
+        <div class="logo">MiSitio</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Bienvenido a MiSitio</h1>
+        <p>Construimos soluciones digitales que se adaptan a vos</p>
+        <a href="#" class="btn-hero">Empezar</a>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Velocidad</h3>
+                <p>Sitios web que cargan rápido en cualquier dispositivo.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Diseño</h3>
+                <p>Interfaces modernas y atractivas para tus usuarios.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Responsive</h3>
+                <p>Se ve perfecto en celulares, tablets y escritorio.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 MiSitio. Hecho con ❤️ en BYTEC.</p>
+    </footer>
+
+</body>
+</html>

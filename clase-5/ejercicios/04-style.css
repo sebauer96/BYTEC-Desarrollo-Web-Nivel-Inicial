@@ -1,0 +1,42 @@
+/*
+============================================================
+EJERCICIO 04 (DESAFÍO): Landing Page Responsive
+============================================================
+
+CONSIGNA:
+Creá los estilos mobile first para una landing page completa.
+Este es el ejercicio más libre: usá tu creatividad.
+
+ESTRATEGIA:
+1. Escribí PRIMERO los estilos base (mobile)
+2. Después agregá @media (min-width: 768px) para tablet
+3. Después @media (min-width: 1024px) para desktop
+4. Opcionalmente @media (min-width: 1440px) para pantallas grandes
+
+REQUISITOS MÍNIMOS:
+1. * { box-sizing: border-box; }
+2. Mobile first (todos los min-width)
+3. Al menos 2 breakpoints
+4. flex-wrap para cards
+5. max-width en contenedores
+6. Font-size adaptable
+
+COLORES SUGERIDOS:
+- Fondo: #0a0a23
+- Cards: #12123a
+- Naranja: #f75001
+- Azul: #04589d
+- Texto: white / #aaa
+
+PROPIEDADES BONUS:
+- position: sticky para navbar
+- clamp(min, preferido, max) para font-size fluido
+- object-fit: cover para imágenes
+- min-height: 60vh para hero
+- box-shadow para cards
+
+¡Buena suerte!
+============================================================
+*/
+
+/* Escribí tus estilos aquí */

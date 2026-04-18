@@ -1,0 +1,141 @@
+/*
+============================================================
+EJERCICIO 01: Primeras Media Queries
+============================================================
+
+CONSIGNA:
+Completá los valores "TU-VALOR" para crear un diseño
+que se adapte a distintos tamaños de pantalla.
+
+RECORDÁ:
+- Los estilos base (fuera de @media) son para MOBILE
+- @media (min-width: 768px) → estilos para TABLET+
+- @media (min-width: 1024px) → estilos para DESKTOP+
+- Siempre mobile first: de chico a grande
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #0a0a23;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* ========== BANNER ==========
+   Mobile: padding chico, texto centrado
+*/
+.banner {
+    background-color: #f75001;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.banner p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ========== INDICADOR ========== */
+.indicador {
+    background-color: #12123a;
+    border-bottom: 2px solid #1a1a5e;
+    padding: 12px;
+    text-align: center;
+}
+
+.indicador-texto {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ========== CONTENIDO ==========
+   Mobile: cajas apiladas verticalmente
+*/
+.contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+.box {
+    background-color: #12123a;
+    border: 1px solid #1a1a5e;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.box h3 {
+    color: #04589d;
+    margin-bottom: 8px;
+}
+
+.box p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ==========================================================
+   TABLET: 768px en adelante
+   Completá los valores de "TU-VALOR"
+   ========================================================== */
+@media (min-width: 768px) {
+
+    .banner {
+        padding: /* TU-VALOR: probá 40px 24px */;
+    }
+
+    .banner h1 {
+        font-size: /* TU-VALOR: probá 28px */;
+    }
+
+    /* Hacé que las cajas vayan en fila */
+    .contenido {
+        flex-direction: /* TU-VALOR: probá row */;
+        padding: /* TU-VALOR: probá 24px */;
+    }
+
+    /* Cada caja ocupa el mismo espacio */
+    .box {
+        flex: /* TU-VALOR: probá 1 */;
+    }
+
+    .indicador-texto::after {
+        content: " — Modo Tablet 📱";
+        color: #04589d;
+    }
+}
+
+/* ==========================================================
+   DESKTOP: 1024px en adelante
+   Completá los valores de "TU-VALOR"
+   ========================================================== */
+@media (min-width: 1024px) {
+
+    .banner {
+        padding: /* TU-VALOR: probá 60px 40px */;
+    }
+
+    .banner h1 {
+        font-size: /* TU-VALOR: probá 36px */;
+    }
+
+    .contenido {
+        max-width: /* TU-VALOR: probá 960px */;
+        margin: /* TU-VALOR: probá 0 auto para centrar */;
+        padding: /* TU-VALOR: probá 32px */;
+    }
+
+    .indicador-texto::after {
+        content: " — Modo Desktop 🖥️";
+        color: #00e676;
+    }
+}

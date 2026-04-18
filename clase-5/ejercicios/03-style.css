@@ -1,0 +1,257 @@
+/*
+============================================================
+EJERCICIO 03: Página Responsive Completa
+============================================================
+
+CONSIGNA:
+Diseñá los estilos mobile first para una página completa.
+Empezá por los estilos base (mobile) y después agregá
+media queries para tablet y desktop.
+
+RECORDÁ:
+- Mobile first = estilos base para celular
+- @media (min-width: 768px) para tablet
+- @media (min-width: 1024px) para desktop
+- Usá flexbox para los layouts
+
+COLORES SUGERIDOS:
+- Fondo: #0a0a23
+- Cards: #12123a
+- Naranja: #f75001
+- Azul: #04589d
+- Texto: white / #aaa
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #0a0a23;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* ========== NAVBAR — Mobile: apilado ========== */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background-color: #0d0d2b;
+    border-bottom: 2px solid #1a1a5e;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f75001;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 8px;
+    text-align: center;
+}
+
+.nav-links a {
+    color: #e8e8f0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f75001;
+}
+
+/* ========== HERO — Mobile ========== */
+.hero {
+    text-align: center;
+    padding: 40px 16px;
+    border-bottom: 1px solid #1a1a5e;
+}
+
+.hero h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.hero p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: #f75001;
+    color: white;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-hero:hover {
+    background-color: #d94500;
+}
+
+/* ========== FEATURES — Mobile: 1 columna ========== */
+.features {
+    padding: 32px 16px;
+}
+
+.section-title {
+    text-align: center;
+    color: #f75001;
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+
+.features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature-card {
+    background-color: #12123a;
+    border: 1px solid #1a1a5e;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    border-color: #04589d;
+    transform: translateY(-3px);
+}
+
+.feature-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    text-align: center;
+    padding: 24px 16px;
+    background-color: #0d0d2b;
+    border-top: 2px solid #1a1a5e;
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   TABLET: 768px en adelante
+   ========================================================== */
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 24px;
+        height: 60px;
+        gap: 0;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .hero {
+        padding: 60px 32px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .features {
+        padding: 48px 32px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .features-grid {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .feature-card {
+        flex: 1;
+    }
+
+    .footer {
+        padding: 32px;
+    }
+}
+
+/* ==========================================================
+   DESKTOP: 1024px en adelante
+   ========================================================== */
+@media (min-width: 1024px) {
+    .navbar {
+        padding: 0 48px;
+    }
+
+    .hero {
+        padding: 80px 48px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 24px;
+    }
+
+    .features {
+        padding: 60px 48px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .features-grid {
+        gap: 28px;
+    }
+
+    .feature-card {
+        padding: 32px;
+    }
+}

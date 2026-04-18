@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Cards Responsive</title>
+    <link rel="stylesheet" href="02-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 02: Cards Responsive
+    ============================================================
+
+    CONSIGNA:
+    Creá un grid de cards que se adapte automáticamente:
+    - MOBILE: 1 card por fila (apiladas)
+    - TABLET (768px+): 2 cards por fila
+    - DESKTOP (1024px+): 3 cards por fila
+
+    PASOS:
+    1. En 02-style.css, los estilos base ya tienen las cards
+       en columna (mobile first)
+    2. Completá el @media de 768px para pasar a 2 columnas
+    3. Completá el @media de 1024px para pasar a 3 columnas
+    4. Ajustá los font-size y padding en cada breakpoint
+
+    PISTAS:
+    - Usá flex-wrap: wrap en el contenedor
+    - Usá flex: 1 1 calc(50% - 12px) para 2 columnas
+    - Usá flex: 1 1 calc(33.333% - 16px) para 3 columnas
+    - El calc() resta el gap para que entren exactamente
+
+    BONUS:
+    - Hacé que el título cambie de tamaño en cada breakpoint
+    - Agregá un hover diferente en desktop
+    - Probá con 4 columnas en pantallas de 1200px+
+    ============================================================
+    -->
+
+    <header class="page-header">
+        <h1>Nuestro Equipo</h1>
+        <p>Conocé a las personas detrás del proyecto</p>
+    </header>
+
+    <section class="cards">
+        <article class="card">
+            <div class="card-avatar">👩‍💻</div>
+            <h3>Ana García</h3>
+            <p class="card-role">Frontend Developer</p>
+            <p class="card-bio">Especialista en CSS y animaciones. Amante del diseño responsive.</p>
+        </article>
+
+        <article class="card">
+            <div class="card-avatar">👨‍💻</div>
+            <h3>Carlos López</h3>
+            <p class="card-role">Backend Developer</p>
+            <p class="card-bio">Experto en bases de datos y APIs. Fan de la eficiencia.</p>
+        </article>
+
+        <article class="card">
+            <div class="card-avatar">🎨</div>
+            <h3>María Torres</h3>
+            <p class="card-role">UI/UX Designer</p>
+            <p class="card-bio">Diseñadora de interfaces intuitivas. Obsesionada con los detalles.</p>
+        </article>
+
+        <article class="card">
+            <div class="card-avatar">📊</div>
+            <h3>Diego Ruiz</h3>
+            <p class="card-role">Data Analyst</p>
+            <p class="card-bio">Transforma datos en decisiones. Visualización es su fuerte.</p>
+        </article>
+
+        <article class="card">
+            <div class="card-avatar">🔒</div>
+            <h3>Laura Sánchez</h3>
+            <p class="card-role">Security Engineer</p>
+            <p class="card-bio">Protege sistemas y datos. Siempre un paso adelante de las amenazas.</p>
+        </article>
+
+        <article class="card">
+            <div class="card-avatar">☁️</div>
+            <h3>Pedro Martínez</h3>
+            <p class="card-role">DevOps Engineer</p>
+            <p class="card-bio">Infraestructura en la nube y automatización. Deploy sin miedo.</p>
+        </article>
+    </section>
+
+</body>
+</html>

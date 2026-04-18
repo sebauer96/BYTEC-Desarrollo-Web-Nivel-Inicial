@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 5: Diseño Responsive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 20</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 05</div>
+                <h1 class="title-main">Diseño<br><span class="title-accent">Responsive</span></h1>
+                <p class="title-sub">Media Queries · Mobile First · Unidades Relativas</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">💻 Práctica incluida</span>
+                    <span class="meta-item">🚀 Nivel: Principiante</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Aprender a hacer que nuestras páginas web se <strong>adapten a cualquier pantalla</strong>: celulares, tablets y escritorio. Vamos a dominar <strong>media queries</strong> y el enfoque <strong>mobile first</strong>.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Repaso Clase 4</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">¿Qué es Responsive?</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Media Queries</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 1</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Mobile First + Patrones</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 2 + Cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: REPASO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Repaso Rápido — Clase 4</h2>
+                <p class="slide-text">En la clase anterior aprendimos Flexbox para crear layouts profesionales:</p>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>display: flex</code> Activa Flexbox</div>
+                    <div class="recap-item"><code>justify-content</code> Eje principal</div>
+                    <div class="recap-item"><code>align-items</code> Eje cruzado</div>
+                    <div class="recap-item"><code>flex-wrap</code> Saltar de línea</div>
+                    <div class="recap-item"><code>gap</code> Espacio entre hijos</div>
+                    <div class="recap-item"><code>flex: 1</code> Crecer flexible</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 Flexbox nos permite alinear y distribuir elementos. Hoy vamos a hacer que esos layouts se <strong>adapten automáticamente</strong> al tamaño de cada pantalla.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: EL PROBLEMA ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">📱 ¿Por Qué Responsive?</h2>
+                <p class="slide-text">Hoy más del <strong>60% del tráfico web</strong> viene de celulares. Tu web tiene que verse bien en todas las pantallas:</p>
+                <div class="devices-demo">
+                    <div class="device-item">
+                        <div class="device-frame phone">
+                            <div class="device-screen">
+                                <div class="device-bar"></div>
+                                <div class="device-line"></div>
+                                <div class="device-line short"></div>
+                                <div class="device-block"></div>
+                            </div>
+                        </div>
+                        <span class="device-label">Celular<br><code>~375px</code></span>
+                    </div>
+                    <div class="device-item">
+                        <div class="device-frame tablet">
+                            <div class="device-screen">
+                                <div class="device-bar"></div>
+                                <div class="device-cols">
+                                    <div class="device-block"></div>
+                                    <div class="device-block"></div>
+                                </div>
+                                <div class="device-line"></div>
+                            </div>
+                        </div>
+                        <span class="device-label">Tablet<br><code>~768px</code></span>
+                    </div>
+                    <div class="device-item">
+                        <div class="device-frame desktop">
+                            <div class="device-screen">
+                                <div class="device-bar"></div>
+                                <div class="device-cols three">
+                                    <div class="device-block"></div>
+                                    <div class="device-block"></div>
+                                    <div class="device-block"></div>
+                                </div>
+                                <div class="device-line"></div>
+                            </div>
+                        </div>
+                        <span class="device-label">Escritorio<br><code>~1200px+</code></span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Responsive Design</strong> = un solo código HTML/CSS que se adapta a cualquier pantalla. No necesitás hacer una web diferente para cada dispositivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: VIEWPORT META ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔍 El Viewport Meta Tag</h2>
+                <p class="slide-text">Para que el diseño responsive funcione en celulares, <strong>siempre</strong> necesitás esta línea en el <code>&lt;head&gt;</code>:</p>
+                <div class="code-block">
+<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Sin viewport meta</h3>
+                        <p style="font-size: 13px;">El celular muestra la web como si fuera una pantalla de escritorio. Todo se ve <strong>diminuto</strong>.</p>
+                        <div class="comparison-visual">🔬</div>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Con viewport meta</h3>
+                        <p style="font-size: 13px;">El celular usa su <strong>ancho real</strong>. El CSS puede adaptarse correctamente.</p>
+                        <div class="comparison-visual">📱✅</div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⭐ <strong>Regla de oro:</strong> Si no tenés este meta tag, tus media queries no van a funcionar en celulares. ¡Siempre incluilo!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: UNIDADES RELATIVAS ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">📏 Unidades Relativas vs Absolutas</h2>
+                <p class="slide-text">Para diseños responsive, preferí <strong>unidades relativas</strong> que se adaptan al contexto:</p>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Unidad</span>
+                        <span>¿Relativa a qué?</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>px</code>
+                        <span>Nada (absoluta, fija)</span>
+                        <code>width: 400px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>%</code>
+                        <span>Al tamaño del elemento padre</span>
+                        <code>width: 80%</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>em</code>
+                        <span>Al font-size del elemento padre</span>
+                        <code>padding: 1.5em</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>rem</code>
+                        <span>Al font-size del <code>&lt;html&gt;</code> (root)</span>
+                        <code>font-size: 1.2rem</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>vw</code>
+                        <span>1% del ancho de la ventana</span>
+                        <code>width: 50vw</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>vh</code>
+                        <span>1% del alto de la ventana</span>
+                        <code>height: 100vh</code>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> Usá <code>rem</code> para font-sizes, <code>%</code> para anchos de contenedores y <code>px</code> solo para cosas que deben ser fijas (bordes, sombras).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: MAX-WIDTH Y PORCENTAJES ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">📐 El Combo: max-width + %</h2>
+                <p class="slide-text">Antes de las media queries, podés hacer mucho solo con <strong>unidades flexibles</strong>:</p>
+                <div class="code-block">
+<pre><code>/* ❌ Ancho fijo — se rompe en pantallas chicas */
+.contenedor {
+  width: 900px;
+}
+
+/* ✅ Ancho flexible — se adapta */
+.contenedor {
+  width: 90%;            /* Ocupa el 90% del padre */
+  max-width: 900px;      /* Pero nunca más de 900px */
+  margin: 0 auto;        /* Centrado horizontal */
+}
+
+/* ✅ Imágenes responsive */
+img {
+  max-width: 100%;       /* Nunca más ancha que su padre */
+  height: auto;          /* Mantiene la proporción */
+}</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>width: 90%</h4>
+                        <p>Se adapta al padre. En un celular de 375px, el contenedor será de 337px. En desktop, 90% del viewport.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>max-width: 900px</h4>
+                        <p>Pone un límite. En pantallas grandes, no crece más de 900px. El contenido no se estira demasiado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: MEDIA QUERIES INTRO ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎛️ Media Queries: ¿Qué Son?</h2>
+                <p class="slide-text">Las <strong>media queries</strong> son bloques de CSS que solo se aplican cuando se cumple una condición (generalmente el <strong>ancho de la pantalla</strong>):</p>
+                <div class="code-block">
+<pre><code>/* Estilos base — se aplican SIEMPRE */
+.titulo {
+  font-size: 18px;
+  color: white;
+}
+
+/* Solo se aplica cuando la pantalla es de 768px o más */
+@media (min-width: 768px) {
+  .titulo {
+    font-size: 28px;    /* Más grande en pantallas medianas */
+  }
+}
+
+/* Solo se aplica cuando la pantalla es de 1200px o más */
+@media (min-width: 1200px) {
+  .titulo {
+    font-size: 36px;    /* Aún más grande en desktop */
+  }
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🧠 Pensalo así: <code>@media</code> es como un <strong>"si la pantalla mide X, aplicá estos estilos"</strong>. Es como un <em>if</em> de CSS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: SINTAXIS ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 Sintaxis de @media</h2>
+                <p class="slide-text">La estructura de una media query:</p>
+                <div class="syntax-diagram">
+                    <div class="syntax-part">
+                        <span class="syntax-label">KEYWORD</span>
+                        <code class="syntax-keyword">@media</code>
+                    </div>
+                    <div class="syntax-part">
+                        <span class="syntax-label">CONDICIÓN</span>
+                        <code class="syntax-condition">(min-width: 768px)</code>
+                    </div>
+                    <div class="syntax-part brace-part">
+                        <code>{</code>
+                    </div>
+                    <div class="syntax-part property-part">
+                        <span class="syntax-label">CSS RULES</span>
+                        <code class="syntax-rules">/* estilos aquí */</code>
+                    </div>
+                    <div class="syntax-part brace-part">
+                        <code>}</code>
+                    </div>
+                </div>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Condición</span>
+                        <span>¿Cuándo se activa?</span>
+                        <span>Uso</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>min-width</code>
+                        <span>Pantalla <strong>≥</strong> al valor</span>
+                        <code>Mobile first ⭐</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>max-width</code>
+                        <span>Pantalla <strong>≤</strong> al valor</span>
+                        <code>Desktop first</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>combinadas</code>
+                        <span>Rango entre dos valores</span>
+                        <code>(min: 768) and (max: 1199)</code>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⭐ La industria recomienda usar <code>min-width</code> (<strong>mobile first</strong>). Empezás diseñando para celular y después agregás estilos para pantallas más grandes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: BREAKPOINTS ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">📊 Breakpoints Comunes</h2>
+                <p class="slide-text">Los <strong>breakpoints</strong> son los anchos donde tu diseño cambia. Estos son los más usados:</p>
+                <div class="breakpoints-visual">
+                    <div class="bp-bar">
+                        <div class="bp-segment mobile">
+                            <span class="bp-name">Mobile</span>
+                            <span class="bp-range">0 – 767px</span>
+                        </div>
+                        <div class="bp-marker" data-label="768px"></div>
+                        <div class="bp-segment tablet">
+                            <span class="bp-name">Tablet</span>
+                            <span class="bp-range">768 – 1023px</span>
+                        </div>
+                        <div class="bp-marker" data-label="1024px"></div>
+                        <div class="bp-segment desktop">
+                            <span class="bp-name">Desktop</span>
+                            <span class="bp-range">1024px+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code>/* Mobile first: estilos base para celular */
+.container { padding: 16px; }
+
+/* Tablet: 768px en adelante */
+@media (min-width: 768px) {
+  .container { padding: 24px; max-width: 720px; margin: 0 auto; }
+}
+
+/* Desktop: 1024px en adelante */
+@media (min-width: 1024px) {
+  .container { padding: 32px; max-width: 960px; }
+}
+
+/* Desktop grande: 1200px en adelante */
+@media (min-width: 1200px) {
+  .container { max-width: 1140px; }
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 No hay breakpoints "correctos" universales. Estos son los más comunes, pero lo ideal es <strong>adaptar según tu diseño</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: MOBILE FIRST ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">📱 Mobile First: La Estrategia</h2>
+                <p class="slide-text"><strong>Mobile first</strong> = empezás diseñando para la pantalla más chica y después agregás estilos para pantallas más grandes:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Desktop First ❌</h3>
+                        <div class="code-block small">
+<pre><code>/* Base: desktop */
+.nav { display: flex; }
+
+/* Achicás para mobile */
+@media (max-width: 768px) {
+  .nav { flex-direction: column; }
+}</code></pre>
+                        </div>
+                        <p style="font-size: 12px; margin-top: 8px;">Más código, más complejo, cargás cosas innecesarias en mobile.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Mobile First ✅</h3>
+                        <div class="code-block small">
+<pre><code>/* Base: mobile */
+.nav { display: flex; flex-direction: column; }
+
+/* Expandís para desktop */
+@media (min-width: 768px) {
+  .nav { flex-direction: row; }
+}</code></pre>
+                        </div>
+                        <p style="font-size: 12px; margin-top: 8px;">Más simple, más eficiente, mejor rendimiento en mobile.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>¿Por qué mobile first?</strong> Porque es más fácil <em>agregar</em> complejidad que <em>sacarla</em>. Empezás simple y después ampliás.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: EJEMPLO COMPLETO ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🛠️ Ejemplo: Cards Responsive</h2>
+                <p class="slide-text">Veamos cómo hacer que unas cards pasen de <strong>1 columna en mobile</strong> a <strong>3 columnas en desktop</strong>:</p>
+                <div class="code-block">
+<pre><code>/* BASE (mobile): cards apiladas verticalmente */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #12123a;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #1a1a5e;
+}
+
+/* TABLET (768px+): 2 columnas */
+@media (min-width: 768px) {
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .card {
+    flex: 1 1 calc(50% - 8px);   /* 2 cards por fila */
+  }
+}
+
+/* DESKTOP (1024px+): 3 columnas */
+@media (min-width: 1024px) {
+  .card {
+    flex: 1 1 calc(33.333% - 11px); /* 3 cards por fila */
+  }
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🔑 <strong>El truco:</strong> Combinás <code>flex-wrap: wrap</code> con <code>flex-basis</code> calculado. En mobile va en columna, en tablet de a 2, y en desktop de a 3.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: PRÁCTICA 1 ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 1: Primeras Media Queries</h2>
+                <p class="slide-text">Vamos a crear una página simple que cambie de colores y layout según el tamaño de pantalla:</p>
+                <div class="code-block">
+<pre><code>&lt;div class="banner"&gt;
+  &lt;h1&gt;Responsive Design&lt;/h1&gt;
+  &lt;p&gt;Achicá la ventana para ver los cambios&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="contenido"&gt;
+  &lt;div class="box"&gt;Caja 1&lt;/div&gt;
+  &lt;div class="box"&gt;Caja 2&lt;/div&gt;
+  &lt;div class="box"&gt;Caja 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>/* Mobile first: base */
+.banner { background: #f75001; padding: 20px; text-align: center; }
+.contenido { display: flex; flex-direction: column; gap: 12px; padding: 16px; }
+.box { background: #12123a; padding: 24px; border-radius: 8px; text-align: center; }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .contenido { flex-direction: row; }
+  .box { flex: 1; }
+  .banner { padding: 40px; }
+}</code></pre>
+                </div>
+                <div class="practice-checklist">
+                    <div class="check-item">📱 Achicá la ventana del navegador y observá el cambio</div>
+                    <div class="check-item">🎨 Agregá un <code>@media</code> que cambie el fondo del banner en desktop</div>
+                    <div class="check-item">📏 Usá el inspector (F12) → click en el ícono de celular para simular dispositivos</div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/01-media-queries.html</code> para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: PATRONES RESPONSIVE ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Patrones Responsive Comunes</h2>
+                <p class="slide-text">Hay patrones que se repiten en casi todas las webs responsive:</p>
+                <div class="pattern-grid">
+                    <div class="pattern-card">
+                        <div class="pattern-icon">📚</div>
+                        <h4>Stack → Row</h4>
+                        <p>En mobile se apilan vertical, en desktop van en fila.</p>
+                        <div class="code-block small">
+<pre><code>.items { flex-direction: column; }
+@media (min-width: 768px) {
+  .items { flex-direction: row; }
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="pattern-card">
+                        <div class="pattern-icon">🙈</div>
+                        <h4>Mostrar / Ocultar</h4>
+                        <p>Elementos que se ocultan en mobile y aparecen en desktop.</p>
+                        <div class="code-block small">
+<pre><code>.sidebar { display: none; }
+@media (min-width: 1024px) {
+  .sidebar { display: block; }
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="pattern-card">
+                        <div class="pattern-icon">🔤</div>
+                        <h4>Tamaño de Texto</h4>
+                        <p>Texto más chico en mobile, más grande en desktop.</p>
+                        <div class="code-block small">
+<pre><code>h1 { font-size: 24px; }
+@media (min-width: 768px) {
+  h1 { font-size: 36px; }
+}
+@media (min-width: 1024px) {
+  h1 { font-size: 48px; }
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="pattern-card">
+                        <div class="pattern-icon">📐</div>
+                        <h4>Cambiar Padding</h4>
+                        <p>Menos espacio en mobile, más generoso en desktop.</p>
+                        <div class="code-block small">
+<pre><code>section { padding: 16px; }
+@media (min-width: 768px) {
+  section { padding: 40px; }
+}
+@media (min-width: 1024px) {
+  section { padding: 60px 80px; }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: IMÁGENES RESPONSIVE ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">🖼️ Imágenes Responsive</h2>
+                <p class="slide-text">Las imágenes pueden romper tu layout si son más anchas que la pantalla. La solución es simple:</p>
+                <div class="code-block">
+<pre><code>/* ⭐ Regla universal para imágenes responsive */
+img {
+  max-width: 100%;     /* Nunca más ancha que su contenedor */
+  height: auto;        /* Mantiene la proporción */
+  display: block;      /* Evita espacio extra debajo */
+}
+
+/* Imagen que siempre ocupa todo el ancho */
+.hero-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;   /* Recorta para llenar sin distorsionar */
+}
+
+/* Imagen con tamaño diferente según pantalla */
+.logo {
+  width: 120px;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 180px;
+  }
+}</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>max-width: 100%</h4>
+                        <p>La imagen se achica si el contenedor es más chico, pero nunca se estira más allá de su tamaño original.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>object-fit: cover</h4>
+                        <p>Para imágenes con tamaño fijo: recorta la imagen para que llene el espacio sin distorsionarse.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: NAVBAR RESPONSIVE ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">🍔 Navbar Responsive</h2>
+                <p class="slide-text">Un patrón super común: navbar horizontal en desktop, menú apilado en mobile:</p>
+                <div class="code-block">
+<pre><code>/* BASE (mobile): links apilados */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #0d0d2b;
+}
+
+.navbar .logo {
+  margin-bottom: 12px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+/* DESKTOP (768px+): todo en una fila */
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 24px;
+    height: 60px;
+  }
+
+  .navbar .logo {
+    margin-bottom: 0;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 En una web real, la versión mobile tendría un <strong>botón hamburguesa</strong> (☰) que muestra/oculta el menú. Eso requiere JavaScript, que veremos en otro momento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: HERRAMIENTAS DEV ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔧 Herramientas del Desarrollador</h2>
+                <p class="slide-text">El Inspector del navegador tiene herramientas para probar responsive sin necesitar un celular real:</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Abrí el Inspector con <kbd>F12</kbd> o <kbd>Ctrl+Shift+I</kbd></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Clickeá el ícono de celular/tablet (📱) en la barra superior del Inspector</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Elegí un dispositivo del menú desplegable (iPhone, iPad, etc.)</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Arrastrá los bordes para probar anchos personalizados</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Tip profesional:</strong> Siempre probá tu diseño en al menos 3 anchos: <strong>375px</strong> (celular), <strong>768px</strong> (tablet) y <strong>1200px+</strong> (desktop).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: PRÁCTICA 2 ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 2: Cards Responsive</h2>
+                <p class="slide-text">Vamos a crear un grid de cards que se adapte automáticamente:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">📱 <strong>Mobile (base):</strong> Cards apiladas en 1 columna con <code>flex-direction: column</code></div>
+                    <div class="check-item">📱 <strong>Tablet (768px):</strong> Cards de a 2 por fila con <code>flex-wrap: wrap</code> + <code>flex: 1 1 calc(50% - 12px)</code></div>
+                    <div class="check-item">🖥️ <strong>Desktop (1024px):</strong> Cards de a 3 por fila con <code>flex: 1 1 calc(33.333% - 16px)</code></div>
+                    <div class="check-item">🔤 El título cambia de tamaño: 20px → 28px → 36px</div>
+                    <div class="check-item">📐 El padding general aumenta: 16px → 32px → 48px</div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/02-responsive-cards.html</code> para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar</h2>
+                <p class="slide-text">Resolvé estos ejercicios en la carpeta <code>ejercicios/</code>:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Primeras Media Queries</h4>
+                            <p>Archivo: <code>01-media-queries.html</code> + CSS — Cambiá colores, tamaños y layout según el ancho.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Cards Responsive</h4>
+                            <p>Archivos: <code>02-responsive-cards.html</code> + CSS — Grid de cards: 1 col → 2 col → 3 col.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Página Responsive</h4>
+                            <p>Archivos: <code>03-responsive-page.html</code> + CSS — Navbar + hero + cards + footer responsive.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Landing Responsive</h4>
+                            <p>Archivos: <code>04-responsive-landing.html</code> + CSS — Landing completa mobile first.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CIERRE ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Portafolio Responsive</h3>
+                    <p>Tomá tu portafolio (de la tarea anterior) y hacelo <strong>100% responsive</strong>. Debe verse perfecto en celular, tablet y escritorio:</p>
+                    <ul>
+                        <li>Aplicá la estrategia <strong>mobile first</strong> con <code>min-width</code></li>
+                        <li>La <strong>navbar</strong> debe apilar los links en mobile y mostrarlos en fila en desktop</li>
+                        <li>Las <strong>cards</strong> deben ir de 1 columna (mobile) a 2 (tablet) a 3 (desktop)</li>
+                        <li>Los <strong>font-size</strong> deben cambiar según el breakpoint</li>
+                        <li>El <strong>padding</strong> debe ser menor en mobile y mayor en desktop</li>
+                        <li>Las imágenes deben tener <code>max-width: 100%</code> y <code>height: auto</code></li>
+                        <li>Probalo con el <strong>simulador de dispositivos</strong> del Inspector (F12)</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 05 COMPLETADA</div>
+                    <p>Tu web ahora se ve bien en cualquier pantalla. ¡Eso es diseño responsive!</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        <span class="hint-desktop">Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar</span>
+        <span class="hint-mobile">Deslizá hacia los lados ◂ ▸ para navegar</span>
+    </div>
+
+    <div class="swipe-toast" id="swipeToast">
+        <span class="swipe-toast-icon">👆</span>
+        <p class="swipe-toast-text">¡Deslizá para navegar!</p>
+        <p class="swipe-toast-sub">Arrastrá el dedo hacia la izquierda o derecha para cambiar de slide</p>
+        <button class="swipe-toast-dismiss" onclick="dismissToast()">ENTENDIDO</button>
+    </div>
+
+    <div class="swipe-indicator left" id="swipeLeft">◂</div>
+    <div class="swipe-indicator right" id="swipeRight">▸</div>
+
+    <script>
+        // Stars background
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        // Slide navigation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        });
+
+        // Touch swipe navigation
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isSwiping = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+            const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            if (diffX > diffY && diffX > 10) {
+                const indicator = (e.changedTouches[0].screenX - touchStartX) > 0
+                    ? document.getElementById('swipeLeft')
+                    : document.getElementById('swipeRight');
+                indicator.classList.add('flash');
+                setTimeout(() => indicator.classList.remove('flash'), 200);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+            document.getElementById('swipeLeft').classList.remove('flash');
+            document.getElementById('swipeRight').classList.remove('flash');
+        });
+
+        // Swipe toast for first-time mobile users
+        function showSwipeToast() {
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const toastKey = 'bytec-swipe-seen';
+            if (isTouchDevice && !localStorage.getItem(toastKey)) {
+                setTimeout(() => {
+                    document.getElementById('swipeToast').classList.add('visible');
+                }, 1200);
+            }
+        }
+
+        function dismissToast() {
+            document.getElementById('swipeToast').classList.remove('visible');
+            localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        showSwipeToast();
+    </script>
+
+</body>
+</html>
