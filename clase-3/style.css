@@ -1478,3 +1478,224 @@ kbd {
         font-size: 9px;
     }
 }
+
+
+/* ==================== PDF BUTTON ==================== */
+
+.nav-btn-pdf {
+    width: auto;
+    padding: 0 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* ==================== WATERMARK ====================
+   Subtle BYTEC logo repeated diagonally across the entire viewport.
+   More visible when printing (see @media print at the end).
+   ==================================================== */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 90;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'><text x='210' y='210' font-family='monospace' font-size='32' font-weight='900' fill='%23f75001' text-anchor='middle' dominant-baseline='middle' transform='rotate(-30 210 210)'>%E2%96%B8 BYTEC</text></svg>");
+    background-repeat: repeat;
+    opacity: 0.05;
+}
+
+/* ==================== PRINT / PDF STYLES ====================
+   Estilos para cuando el usuario imprime o exporta a PDF.
+   - Apila todas las slides una debajo de la otra
+   - Quita la UI (nav, hints, toasts, fondo de estrellas)
+   - Usa fondo blanco para ahorrar tinta
+   - Hace la marca de agua más visible
+   ============================================================ */
+
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 0;
+    }
+
+    /* ---------- Base reset for printing ---------- */
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        color: #1a1a2e !important;
+        border-color: #d0d0d8 !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+        animation: none !important;
+        transition: none !important;
+        backdrop-filter: none !important;
+    }
+
+    html, body {
+        background: white !important;
+        color: #1a1a2e !important;
+        overflow: visible !important;
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    /* ---------- Watermark stays orange and slightly more visible ---------- */
+    body::after {
+        opacity: 0.09 !important;
+        position: absolute !important;
+        height: 100% !important;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'><text x='210' y='210' font-family='monospace' font-size='32' font-weight='900' fill='%23f75001' text-anchor='middle' dominant-baseline='middle' transform='rotate(-30 210 210)'>%E2%96%B8 BYTEC</text></svg>") !important;
+        background-repeat: repeat !important;
+    }
+
+    /* ---------- Hide UI ---------- */
+    .nav-bar,
+    .keyboard-hint,
+    .swipe-toast,
+    .swipe-indicator,
+    #stars {
+        display: none !important;
+    }
+
+    .slides-container {
+        position: static !important;
+        height: auto !important;
+    }
+
+    .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        page-break-after: always;
+        page-break-inside: avoid;
+        height: auto !important;
+        min-height: 195mm !important;
+        background: white !important;
+        padding: 18mm 20mm !important;
+        display: flex !important;
+        align-items: center;
+    }
+
+    .slide:last-child {
+        page-break-after: auto;
+    }
+
+    .slide-content {
+        max-height: none !important;
+        overflow: visible !important;
+        max-width: 100% !important;
+    }
+
+    /* ---------- Restore brand colors for headings and accents ---------- */
+    .slide-heading,
+    .title-main, .title-accent,
+    h1, h2, h3, h4, h5,
+    .info-card h4, .recap-item code,
+    .title-logo,
+    .timeline-time, .step-num, .exercise-num,
+    .card-title, .feature-card h3, .pattern-card h4,
+    .product-name, .product-price,
+    .section-title, .page-header h1,
+    .combo-display, .font-card h4, .gradient-card h4,
+    .color-format-card h4, .axis-item, .bp-segment.mobile .bp-name,
+    .anatomy-part code, .syntax-keyword,
+    .metaphor-item h3, .step-card h3, .selector-card h4,
+    .prop-card h4, .input-type-card h4,
+    .anatomy-box h4 {
+        color: #f75001 !important;
+    }
+
+    /* ---------- Light card backgrounds with subtle border ---------- */
+    .objective-card,
+    .info-card,
+    .recap-item,
+    .timeline-item,
+    .timeline-item.active-timeline,
+    .exercise-card,
+    .check-item,
+    .comparison-side,
+    .highlight-box,
+    .homework-card,
+    .pattern-card,
+    .feature-card,
+    .step-card,
+    .meta-item,
+    .font-card,
+    .combo-card,
+    .color-format-card,
+    .gradient-card,
+    .device-frame,
+    .axis-container,
+    .anatomy-box,
+    .syntax-diagram,
+    .attributes-table,
+    .attr-row.header,
+    .product-card,
+    .post,
+    .feature-tag,
+    .product-category,
+    .palette-preview,
+    .demo-section,
+    .indicador,
+    .hierarchy-demo,
+    .metaphor-item,
+    .selector-card,
+    .prop-card,
+    .input-type-card,
+    .direction-card,
+    .layout-demo,
+    .axis-main,
+    .axis-cross {
+        background: #fafafa !important;
+        border: 1px solid #d8d8e0 !important;
+    }
+
+    /* ---------- Brand badge stays branded ---------- */
+    .pixel-badge {
+        background: #04589d !important;
+        color: white !important;
+        border: 2px solid #f75001 !important;
+    }
+
+    /* ---------- Code blocks ---------- */
+    .code-block {
+        background: #f5f5f0 !important;
+        border: 1px solid #ddd !important;
+        border-left: 4px solid #f75001 !important;
+    }
+
+    .code-block code,
+    .code-block pre {
+        color: #1a1a2e !important;
+        background: transparent !important;
+    }
+
+    code {
+        background: #f5f5f0 !important;
+        color: #c44500 !important;
+        border: none !important;
+    }
+
+    /* ---------- Tags and inline labels ---------- */
+    .tag, .skill-tag, .post-tag, .badge, .difficulty {
+        background: #f5f5f0 !important;
+        color: #1a1a2e !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .difficulty.easy { color: #059669 !important; border-color: #059669 !important; }
+    .difficulty.medium { color: #c47700 !important; border-color: #c47700 !important; }
+    .difficulty.hard { color: #c44500 !important; border-color: #c44500 !important; }
+
+    /* ---------- Force exact colors (no toner-saving mode) ---------- */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}

@@ -16,6 +16,7 @@
         <a href="../index.html" class="nav-logo">▸ BYTEC</a>
         <span class="nav-progress" id="navProgress">1 / 20</span>
         <div class="nav-controls">
+            <button class="nav-btn nav-btn-pdf" onclick="downloadPDF()" title="Descargar como PDF">PDF</button>
             <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
             <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
         </div>
@@ -901,6 +902,11 @@ body {
         function dismissToast() {
             document.getElementById('swipeToast').classList.remove('visible');
             localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        // Download as PDF (uses native browser print → "Save as PDF")
+        function downloadPDF() {
+            window.print();
         }
 
         showSwipeToast();
