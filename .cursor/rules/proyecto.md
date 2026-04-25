@@ -44,7 +44,7 @@
 | 03 | El Modelo de Caja | Box Model (content, padding, border, margin), box-sizing, display block/inline/inline-block | Creada |
 | 04 | Layout con Flexbox | Alinear, distribuir y ordenar elementos con flexbox | Creada |
 | 05 | Diseño Responsive | Media queries, mobile first | Creada |
-| 06 | Tipografía, Colores & Diseño Visual | Google Fonts, paletas, imágenes, fondos | Pendiente |
+| 06 | Tipografía, Colores & Diseño Visual | Google Fonts, paletas, imágenes, fondos | Creada |
 | 07 | Proyecto Final: Maquetación | Sitio web completo desde cero | Pendiente |
 | 08 | Pulido Final & Publicación | Animaciones CSS, deploy en GitHub Pages | Pendiente |
 

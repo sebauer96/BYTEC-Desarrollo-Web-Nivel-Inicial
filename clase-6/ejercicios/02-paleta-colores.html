@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Paleta con Variables CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="02-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 02: Paleta de Colores con Variables CSS
+    ============================================================
+
+    CONSIGNA:
+    Definí una paleta de colores con custom properties (:root)
+    y aplicala a todos los elementos de esta tarjeta de producto.
+
+    PASOS:
+    1. En 02-style.css, completá las variables del :root con
+       los colores que vos elijas (puede ser cualquier paleta)
+    2. Reemplazá los "var(--TU-VARIABLE)" para usar tus colores
+    3. Probá cambiar UN solo color en :root y mirá cómo se
+       actualiza en toda la página
+    4. Recordá: el cambio se ve solo si las variables se aplican
+       correctamente
+
+    SUGERENCIAS DE PALETAS:
+    a) Tech Dark: #0d1117 / #21262d / #58a6ff / #f78166 / #c9d1d9
+    b) Sunset:    #fff8e7 / #2d1b3d / #ff6b6b / #ffd93d / #6c5ce7
+    c) Forest:    #1a2e1a / #2d4a2d / #7fb87f / #ffd166 / #f4f4f4
+    d) Ocean:     #001f3f / #003366 / #00bcd4 / #ff9800 / #ffffff
+    e) ¡La que vos quieras! Probá con coolors.co
+
+    PISTAS:
+    - var(--mi-color) busca el valor en :root
+    - Si cambiás :root { --primario: nuevo-color }, todo cambia
+    - Las variables CSS son case-sensitive
+
+    BONUS:
+    - Cambiá toda la paleta solo modificando el :root
+    - Investigá @media (prefers-color-scheme: dark) para auto-darkmode
+    - Probá usar variables también para fuentes y espaciados
+    ============================================================
+    -->
+
+    <main class="page">
+        <h1 class="page-title">Producto Destacado</h1>
+
+        <div class="product-card">
+            <div class="product-image">
+                <span class="product-emoji">🎧</span>
+                <span class="product-badge">Nuevo</span>
+            </div>
+
+            <div class="product-info">
+                <span class="product-category">Audio</span>
+                <h2 class="product-name">Auriculares Pro X</h2>
+                <p class="product-desc">
+                    Sonido inmersivo con cancelación activa de ruido.
+                    Batería de 30 horas y conexión Bluetooth 5.3.
+                </p>
+
+                <div class="product-features">
+                    <span class="feature-tag">Bluetooth 5.3</span>
+                    <span class="feature-tag">30h batería</span>
+                    <span class="feature-tag">ANC</span>
+                </div>
+
+                <div class="product-footer">
+                    <span class="product-price">$299</span>
+                    <button class="btn-primary">Comprar ahora</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="palette-preview">
+            <h3>Tu paleta actual</h3>
+            <div class="palette-row">
+                <div class="palette-chip primary">Primario</div>
+                <div class="palette-chip secondary">Secundario</div>
+                <div class="palette-chip accent">Acento</div>
+                <div class="palette-chip surface">Superficie</div>
+                <div class="palette-chip text">Texto</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

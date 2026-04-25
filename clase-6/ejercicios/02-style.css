@@ -1,0 +1,210 @@
+/*
+============================================================
+EJERCICIO 02: Paleta con Variables CSS
+============================================================
+
+CONSIGNA:
+1. Completá las variables en :root con tu paleta
+2. Reemplazá los "var(--TU-VARIABLE)" en cada propiedad
+3. Probá cambiar un solo color en :root y mirá la magia
+
+VENTAJAS DE LAS VARIABLES CSS:
+- Cambiás un valor y se actualiza en TODA la web
+- Código más limpio y mantenible
+- Permiten temas (claro/oscuro) muy fácilmente
+============================================================
+*/
+
+/* ========== DEFINÍ TU PALETA ACÁ ========== */
+:root {
+    /* Colores principales */
+    --color-primario: /* TU-VALOR: probá #f75001 */;
+    --color-secundario: /* TU-VALOR: probá #04589d */;
+    --color-acento: /* TU-VALOR: probá #00e676 */;
+
+    /* Fondos */
+    --color-fondo: /* TU-VALOR: probá #060614 */;
+    --color-superficie: /* TU-VALOR: probá #131340 */;
+    --color-borde: /* TU-VALOR: probá #1a1a5e */;
+
+    /* Textos */
+    --color-texto: /* TU-VALOR: probá #e8e8f0 */;
+    --color-texto-suave: /* TU-VALOR: probá #8888aa */;
+
+    /* Espaciados (también podés tener variables de espaciado) */
+    --radio: 12px;
+    --espacio: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* ========== PAGE ========== */
+.page {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.page-title {
+    color: var(/* TU-VALOR: usá la variable del color primario */);
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 700;
+}
+
+/* ========== PRODUCT CARD ========== */
+.product-card {
+    background: var(/* TU-VALOR: superficie */);
+    border: 1px solid var(/* TU-VALOR: borde */);
+    border-radius: var(--radio);
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.product-image {
+    background: linear-gradient(135deg, var(/* TU-VALOR: primario */), var(/* TU-VALOR: secundario */));
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.product-emoji {
+    font-size: 80px;
+    display: block;
+}
+
+.product-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(/* TU-VALOR: acento */);
+    color: var(--color-fondo);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-info {
+    padding: 24px;
+}
+
+.product-category {
+    display: inline-block;
+    background: var(/* TU-VALOR: borde */);
+    color: var(/* TU-VALOR: texto-suave */);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.product-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-texto);
+}
+
+.product-desc {
+    color: var(/* TU-VALOR: texto-suave */);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.feature-tag {
+    background: var(--color-fondo);
+    color: var(/* TU-VALOR: acento */);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid var(--color-borde);
+}
+
+.product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.product-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(/* TU-VALOR: primario */);
+}
+
+.btn-primary {
+    background: var(/* TU-VALOR: primario */);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover { transform: translateY(-2px); }
+
+/* ========== PALETTE PREVIEW ========== */
+.palette-preview {
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    padding: 20px;
+}
+
+.palette-preview h3 {
+    color: var(--color-texto);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.palette-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.palette-chip {
+    flex: 1;
+    min-width: 100px;
+    padding: 16px 8px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.palette-chip.primary { background: var(--color-primario); }
+.palette-chip.secondary { background: var(--color-secundario); }
+.palette-chip.accent { background: var(--color-acento); color: var(--color-fondo); }
+.palette-chip.surface { background: var(--color-superficie); border: 1px solid var(--color-borde); }
+.palette-chip.text { background: var(--color-texto); color: var(--color-fondo); }

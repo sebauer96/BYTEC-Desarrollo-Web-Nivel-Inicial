@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 6: Tipografía, Colores & Diseño Visual</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Playfair+Display:wght@700&family=Inter:wght@400;600&family=Lobster&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 20</span>
+        <div class="nav-controls">
+            <button class="nav-btn nav-btn-pdf" onclick="downloadPDF()" title="Descargar como PDF">PDF</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 06</div>
+                <h1 class="title-main">Tipografía,<br><span class="title-accent">Colores & Diseño</span></h1>
+                <p class="title-sub">Google Fonts · Paletas · Imágenes · Fondos</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">🎨 Diseño visual</span>
+                    <span class="meta-item">🚀 Nivel: Principiante</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Aprender los <strong>fundamentos del diseño visual</strong>: cómo elegir tipografías, combinar colores armónicamente, usar imágenes y crear fondos que hagan que tu web se vea <strong>profesional</strong>.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Repaso Clase 5</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Tipografía + Google Fonts</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 1</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Colores y Paletas</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Imágenes y Fondos</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 2 + Cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: REPASO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Repaso Rápido — Clase 5</h2>
+                <p class="slide-text">En la clase anterior aprendimos a hacer nuestras webs responsive:</p>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>@media</code> Media queries</div>
+                    <div class="recap-item"><code>min-width</code> Mobile first</div>
+                    <div class="recap-item"><code>vw / vh / %</code> Unidades relativas</div>
+                    <div class="recap-item"><code>max-width</code> Límite máximo</div>
+                    <div class="recap-item"><code>flex-wrap</code> Saltar de línea</div>
+                    <div class="recap-item"><code>768 / 1024</code> Breakpoints</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 Hasta acá tenemos webs <strong>funcionales y responsive</strong>. Hoy vamos a hacer que se vean <strong>hermosas y profesionales</strong>. ¡Toca al diseño visual!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: ¿POR QUÉ IMPORTA EL DISEÑO? ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">✨ ¿Por Qué Importa el Diseño Visual?</h2>
+                <p class="slide-text">Tu HTML puede estar perfecto, pero si la web no se ve linda, los usuarios la van a abandonar. El diseño es <strong>la primera impresión</strong>:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side feo-side">
+                        <h3 class="comparison-title old">Sin diseño 😔</h3>
+                        <div class="demo-feo">
+                            <h4 style="font-family: 'Times New Roman', serif; color: blue;">Mi Sitio</h4>
+                            <p style="font-family: 'Times New Roman', serif;">Bienvenido a mi web</p>
+                            <button style="background: gray; color: white; border: 2px outset; padding: 4px 10px;">Click aquí</button>
+                        </div>
+                        <p style="font-size: 12px; margin-top: 12px;">Tipografía aburrida, colores planos, sin jerarquía.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Con diseño ✨</h3>
+                        <div class="demo-lindo">
+                            <h4>Mi Sitio</h4>
+                            <p>Bienvenido a mi web</p>
+                            <button>Empezar →</button>
+                        </div>
+                        <p style="font-size: 12px; margin-top: 12px;">Tipografía elegida, paleta armónica, jerarquía clara.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🧠 <strong>Estudios de UX:</strong> los usuarios se forman una opinión sobre tu web en menos de <strong>50 milisegundos</strong>. El diseño visual es lo primero que ven.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: TIPOGRAFÍA INTRO ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔤 Tipografía: Familias de Fuentes</h2>
+                <p class="slide-text">Las fuentes se agrupan en <strong>familias</strong> según su estilo. Cada una transmite una sensación distinta:</p>
+                <div class="font-families-grid">
+                    <div class="font-card">
+                        <div class="font-sample serif-sample">Aa Bb 123</div>
+                        <h4>Serif</h4>
+                        <p>Tienen "patitas" en las letras. Transmiten <strong>elegancia, tradición, formalidad</strong>.</p>
+                        <code>Times, Georgia, Playfair Display</code>
+                    </div>
+                    <div class="font-card">
+                        <div class="font-sample sans-sample">Aa Bb 123</div>
+                        <h4>Sans-Serif</h4>
+                        <p>Sin patitas, líneas limpias. Transmiten <strong>modernidad, simpleza, claridad</strong>.</p>
+                        <code>Arial, Inter, Roboto</code>
+                    </div>
+                    <div class="font-card">
+                        <div class="font-sample mono-sample">Aa Bb 123</div>
+                        <h4>Monospace</h4>
+                        <p>Todas las letras ocupan el mismo ancho. Para <strong>código, datos técnicos</strong>.</p>
+                        <code>Courier, Space Mono</code>
+                    </div>
+                    <div class="font-card">
+                        <div class="font-sample display-sample">Aa Bb 123</div>
+                        <h4>Display</h4>
+                        <p>Decorativas, llamativas. Para <strong>títulos grandes y branding</strong>.</p>
+                        <code>Bebas Neue, Lobster</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: GOOGLE FONTS ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌐 Google Fonts: Tipografías Gratis</h2>
+                <p class="slide-text"><strong>Google Fonts</strong> tiene más de 1500 tipografías gratuitas listas para usar. Solo necesitás 2 pasos:</p>
+                <div class="steps-process">
+                    <div class="process-step">
+                        <span class="process-num">1</span>
+                        <h4>Linkear en el HTML</h4>
+                        <p>Agregá el link en el <code>&lt;head&gt;</code>:</p>
+                        <div class="code-block small">
+<pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"&gt;</code></pre>
+                        </div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <span class="process-num">2</span>
+                        <h4>Usar en el CSS</h4>
+                        <p>Aplicá la fuente con <code>font-family</code>:</p>
+                        <div class="code-block small">
+<pre><code>body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🌟 Andá a <a href="https://fonts.google.com" target="_blank" style="color: var(--orange);">fonts.google.com</a>, elegí una fuente, hacé click en "Get font" → "Get embed code" y copiá el link.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: PROPIEDADES TIPOGRÁFICAS ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 Propiedades CSS de Texto</h2>
+                <p class="slide-text">Más allá de la fuente, hay propiedades clave para que el texto se vea bien:</p>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Propiedad</span>
+                        <span>¿Qué hace?</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>font-size</code>
+                        <span>Tamaño del texto</span>
+                        <code>font-size: 18px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>font-weight</code>
+                        <span>Grosor (100-900, normal, bold)</span>
+                        <code>font-weight: 700</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>line-height</code>
+                        <span>Altura entre líneas (1.5 = 150%)</span>
+                        <code>line-height: 1.6</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>letter-spacing</code>
+                        <span>Espacio entre letras</span>
+                        <code>letter-spacing: 2px</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>text-align</code>
+                        <span>Alineación (left, center, right)</span>
+                        <code>text-align: center</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>text-transform</code>
+                        <span>uppercase, lowercase, capitalize</span>
+                        <code>text-transform: uppercase</code>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip de legibilidad:</strong> usá <code>line-height: 1.5</code> a <code>1.7</code> para párrafos. Es lo que hace que el texto sea cómodo de leer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: JERARQUÍA ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">🪜 Jerarquía Visual</h2>
+                <p class="slide-text">La <strong>jerarquía</strong> guía la mirada del usuario. Lo más importante debe verse más, lo secundario menos:</p>
+                <div class="hierarchy-demo">
+                    <div class="hierarchy-item h-1">
+                        <span class="h-tag">H1 — 48px / 900</span>
+                        <h1>Título principal</h1>
+                    </div>
+                    <div class="hierarchy-item h-2">
+                        <span class="h-tag">H2 — 32px / 700</span>
+                        <h2>Subtítulo de sección</h2>
+                    </div>
+                    <div class="hierarchy-item h-3">
+                        <span class="h-tag">H3 — 22px / 600</span>
+                        <h3>Subtítulo menor</h3>
+                    </div>
+                    <div class="hierarchy-item h-4">
+                        <span class="h-tag">P — 16px / 400</span>
+                        <p>Párrafo de cuerpo. Este es el texto que el usuario va a leer más.</p>
+                    </div>
+                    <div class="hierarchy-item h-5">
+                        <span class="h-tag">SMALL — 13px / 400 / muted</span>
+                        <small>Texto secundario, fechas, notas al pie.</small>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📐 <strong>Regla 1.5x:</strong> cada nivel debe ser ~1.5 veces más grande que el anterior. Así se nota la diferencia visual.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: COMBINAR FUENTES ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">🤝 Combinar Fuentes</h2>
+                <p class="slide-text">Lo profesional es usar <strong>2 fuentes máximo</strong>: una para títulos y otra para cuerpo. Algunas combinaciones probadas:</p>
+                <div class="combo-grid">
+                    <div class="combo-card">
+                        <div class="combo-display" style="font-family: 'Playfair Display', serif;">Playfair Display</div>
+                        <div class="combo-body" style="font-family: 'Inter', sans-serif;">Inter para el cuerpo de texto.<br>Lorem ipsum dolor sit amet.</div>
+                        <span class="combo-label">Elegante + Moderno</span>
+                    </div>
+                    <div class="combo-card">
+                        <div class="combo-display" style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px;">BEBAS NEUE</div>
+                        <div class="combo-body" style="font-family: 'Inter', sans-serif;">Inter para el cuerpo de texto.<br>Lorem ipsum dolor sit amet.</div>
+                        <span class="combo-label">Impactante + Limpio</span>
+                    </div>
+                    <div class="combo-card">
+                        <div class="combo-display" style="font-family: 'Orbitron', sans-serif; font-weight: 900;">Orbitron</div>
+                        <div class="combo-body" style="font-family: 'Space Mono', monospace;">Space Mono para el cuerpo.<br>Estilo techy y geek.</div>
+                        <span class="combo-label">Tech + Futurista</span>
+                    </div>
+                    <div class="combo-card">
+                        <div class="combo-display" style="font-family: 'Lobster', cursive;">Lobster</div>
+                        <div class="combo-body" style="font-family: 'Inter', sans-serif;">Inter para el cuerpo de texto.<br>Lorem ipsum dolor sit amet.</div>
+                        <span class="combo-label">Casual + Friendly</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚠️ <strong>Regla de oro:</strong> no uses más de 2 familias de fuentes. Más es caos visual y carga lento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: PRÁCTICA 1 ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 1: Aplicar Google Fonts</h2>
+                <p class="slide-text">Vamos a tomar una página simple y mejorarla con tipografías profesionales:</p>
+                <div class="code-block">
+<pre><code>&lt;!-- En el HEAD --&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet"&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>/* style.css */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+h1 { font-size: 48px; font-weight: 700; }
+h2 { font-size: 32px; font-weight: 700; }
+h3 { font-size: 22px; font-weight: 600; }
+
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/01-google-fonts.html</code> para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: COLORES ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎨 Colores en CSS</h2>
+                <p class="slide-text">Hay varias formas de declarar colores en CSS. Las más usadas son:</p>
+                <div class="color-formats">
+                    <div class="color-format-card">
+                        <div class="color-swatch" style="background: #f75001;"></div>
+                        <h4>Hexadecimal</h4>
+                        <code>#f75001</code>
+                        <p>Lo más común en diseño. Empieza con <code>#</code> seguido de 6 caracteres (RGB en hex).</p>
+                    </div>
+                    <div class="color-format-card">
+                        <div class="color-swatch" style="background: rgb(247, 80, 1);"></div>
+                        <h4>RGB</h4>
+                        <code>rgb(247, 80, 1)</code>
+                        <p>Red, Green, Blue. Cada valor de 0 a 255.</p>
+                    </div>
+                    <div class="color-format-card">
+                        <div class="color-swatch" style="background: rgba(247, 80, 1, 0.5);"></div>
+                        <h4>RGBA</h4>
+                        <code>rgba(247, 80, 1, 0.5)</code>
+                        <p>RGB + alpha (transparencia). El último valor va de 0 (transparente) a 1 (opaco).</p>
+                    </div>
+                    <div class="color-format-card">
+                        <div class="color-swatch" style="background: hsl(20, 99%, 49%);"></div>
+                        <h4>HSL</h4>
+                        <code>hsl(20, 99%, 49%)</code>
+                        <p>Hue (matiz), Saturation, Lightness. Más intuitivo para diseñar.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> usá <code>rgba()</code> cuando necesites transparencia (sombras, overlays). Para todo lo demás, hex es lo estándar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: PALETAS ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎨 Crear Paletas Armónicas</h2>
+                <p class="slide-text">Una buena paleta tiene <strong>5-7 colores</strong> que se complementan. La estructura típica:</p>
+                <div class="palette-structure">
+                    <div class="palette-row">
+                        <div class="palette-swatch primary" style="background: #f75001;">
+                            <span class="swatch-name">Primario</span>
+                            <code>#f75001</code>
+                        </div>
+                        <div class="palette-swatch secondary" style="background: #04589d;">
+                            <span class="swatch-name">Secundario</span>
+                            <code>#04589d</code>
+                        </div>
+                        <div class="palette-swatch accent" style="background: #00e676; color: #060614;">
+                            <span class="swatch-name">Acento</span>
+                            <code>#00e676</code>
+                        </div>
+                    </div>
+                    <div class="palette-row">
+                        <div class="palette-swatch dark" style="background: #060614;">
+                            <span class="swatch-name">Fondo</span>
+                            <code>#060614</code>
+                        </div>
+                        <div class="palette-swatch surface" style="background: #131340;">
+                            <span class="swatch-name">Superficie</span>
+                            <code>#131340</code>
+                        </div>
+                        <div class="palette-swatch text" style="background: #e8e8f0; color: #060614;">
+                            <span class="swatch-name">Texto</span>
+                            <code>#e8e8f0</code>
+                        </div>
+                        <div class="palette-swatch muted" style="background: #8888aa; color: #060614;">
+                            <span class="swatch-name">Texto sutil</span>
+                            <code>#8888aa</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Estructura de paleta</h4>
+                        <ul>
+                            <li><strong>1 color primario</strong> (marca)</li>
+                            <li><strong>1 secundario</strong> (acompaña)</li>
+                            <li><strong>1 acento</strong> (destacar acciones)</li>
+                            <li><strong>2-3 grises</strong> (fondo, superficie, texto)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Herramientas para paletas</h4>
+                        <ul>
+                            <li><strong>coolors.co</strong> — Genera paletas</li>
+                            <li><strong>realtimecolors.com</strong> — Preview en vivo</li>
+                            <li><strong>colorhunt.co</strong> — Paletas curadas</li>
+                            <li><strong>paletton.com</strong> — Color theory</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: VARIABLES CSS ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚙️ Variables CSS (Custom Properties)</h2>
+                <p class="slide-text">Las <strong>variables CSS</strong> te permiten guardar valores y reusarlos. Perfectas para paletas de colores:</p>
+                <div class="code-block">
+<pre><code>/* Definir las variables en :root (al inicio del CSS) */
+:root {
+  --color-primario: #f75001;
+  --color-secundario: #04589d;
+  --color-fondo: #060614;
+  --color-texto: #e8e8f0;
+  --color-muted: #8888aa;
+
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'Inter', sans-serif;
+}
+
+/* Usarlas con var() */
+body {
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+}
+
+h1 {
+  color: var(--color-primario);
+  font-family: var(--fuente-titulo);
+}
+
+.btn {
+  background: var(--color-primario);
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>⭐ <strong>¿Por qué usar variables?</strong> Si querés cambiar el color primario de toda la web, lo cambiás <em>en un solo lugar</em>. Esencial para mantener código limpio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: CONTRASTE Y ACCESIBILIDAD ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">👁️ Contraste y Accesibilidad</h2>
+                <p class="slide-text">El <strong>contraste</strong> entre texto y fondo es crítico para que se pueda leer. WCAG (estándar de accesibilidad) recomienda:</p>
+                <div class="contrast-demos">
+                    <div class="contrast-card good">
+                        <div class="contrast-sample" style="background: #060614; color: #e8e8f0;">
+                            <strong>Buen contraste</strong>
+                            <p>Texto legible en cualquier dispositivo</p>
+                        </div>
+                        <span class="contrast-label good">✅ Ratio: 13.4 (AAA)</span>
+                    </div>
+                    <div class="contrast-card medium">
+                        <div class="contrast-sample" style="background: #060614; color: #8888aa;">
+                            <strong>Contraste medio</strong>
+                            <p>Solo para textos secundarios y notas</p>
+                        </div>
+                        <span class="contrast-label medium">⚠️ Ratio: 4.6 (AA)</span>
+                    </div>
+                    <div class="contrast-card bad">
+                        <div class="contrast-sample" style="background: #060614; color: #2a2a4e;">
+                            <strong>Mal contraste</strong>
+                            <p>No se lee, evitalo siempre</p>
+                        </div>
+                        <span class="contrast-label bad">❌ Ratio: 1.5 (Fail)</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔍 <strong>Probalo:</strong> usá <a href="https://webaim.org/resources/contrastchecker/" target="_blank" style="color: var(--orange);">webaim.org/resources/contrastchecker</a> para verificar el contraste de tus combinaciones.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: IMÁGENES ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">🖼️ Imágenes en HTML & CSS</h2>
+                <p class="slide-text">Hay 2 formas de insertar imágenes: como <strong>etiqueta HTML</strong> o como <strong>fondo CSS</strong>. Cada una tiene su uso:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">&lt;img&gt; (HTML)</h3>
+                        <div class="code-block small">
+<pre><code>&lt;img src="foto.jpg" alt="Persona sonriendo"&gt;</code></pre>
+                        </div>
+                        <p style="font-size: 13px; margin-top: 8px;">Usá esto cuando la imagen es <strong>contenido</strong>: fotos, logos, productos.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">background-image (CSS)</h3>
+                        <div class="code-block small">
+<pre><code>.hero {
+  background-image: url('hero.jpg');
+}</code></pre>
+                        </div>
+                        <p style="font-size: 13px; margin-top: 8px;">Usá esto cuando la imagen es <strong>decorativa</strong>: hero, patterns, banners.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📸 <strong>Imágenes gratis:</strong> <a href="https://unsplash.com" target="_blank" style="color: var(--orange);">unsplash.com</a>, <a href="https://pexels.com" target="_blank" style="color: var(--orange);">pexels.com</a> y <a href="https://pixabay.com" target="_blank" style="color: var(--orange);">pixabay.com</a>. Todas con licencia libre.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: BACKGROUND PROPERTIES ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌅 Propiedades de Background</h2>
+                <p class="slide-text">El <code>background</code> tiene varias propiedades para controlar imágenes y colores de fondo:</p>
+                <div class="code-block">
+<pre><code>.hero {
+  background-color: #060614;                          /* Color de fondo */
+  background-image: url('imagen.jpg');                /* Imagen */
+  background-size: cover;                             /* Ajusta al contenedor */
+  background-position: center;                        /* Centra la imagen */
+  background-repeat: no-repeat;                       /* No repetir */
+  background-attachment: fixed;                       /* Efecto parallax */
+}
+
+/* Atajo (shorthand) */
+.hero {
+  background: #060614 url('imagen.jpg') center/cover no-repeat;
+}
+
+/* Gradientes (degradados) */
+.banner-gradient {
+  background: linear-gradient(135deg, #f75001, #04589d);
+}
+
+/* Overlay oscuro sobre imagen */
+.hero-overlay {
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('imagen.jpg') center/cover;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎨 <strong>El truco del overlay:</strong> apilar un gradiente oscuro sobre la imagen permite que el texto sea legible aunque la foto sea muy clara.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: GRADIENTES ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌈 Gradientes (Degradados)</h2>
+                <p class="slide-text">Los <strong>gradientes</strong> son transiciones suaves entre colores. Le dan profundidad y modernidad a tu diseño:</p>
+                <div class="gradient-grid">
+                    <div class="gradient-card">
+                        <div class="gradient-sample" style="background: linear-gradient(to right, #f75001, #04589d);"></div>
+                        <h4>Linear horizontal</h4>
+                        <code>linear-gradient(to right, ...)</code>
+                    </div>
+                    <div class="gradient-card">
+                        <div class="gradient-sample" style="background: linear-gradient(135deg, #f75001, #04589d);"></div>
+                        <h4>Linear diagonal</h4>
+                        <code>linear-gradient(135deg, ...)</code>
+                    </div>
+                    <div class="gradient-card">
+                        <div class="gradient-sample" style="background: radial-gradient(circle, #f75001, #060614);"></div>
+                        <h4>Radial</h4>
+                        <code>radial-gradient(circle, ...)</code>
+                    </div>
+                    <div class="gradient-card">
+                        <div class="gradient-sample" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                        <h4>Pastel suave</h4>
+                        <code>linear-gradient(135deg, ...)</code>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🌟 <strong>Recurso:</strong> <a href="https://uigradients.com" target="_blank" style="color: var(--orange);">uigradients.com</a> tiene 100+ gradientes listos para copiar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: PRÁCTICA 2 ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 2: Hero Visual con Imagen</h2>
+                <p class="slide-text">Vamos a crear un <strong>hero section</strong> profesional combinando imagen, gradiente, tipografía y color:</p>
+                <div class="code-block">
+<pre><code>&lt;section class="hero"&gt;
+  &lt;div class="hero-content"&gt;
+    &lt;h1&gt;Bienvenido al Futuro&lt;/h1&gt;
+    &lt;p&gt;La nueva forma de construir webs profesionales&lt;/p&gt;
+    &lt;a href="#" class="btn-primary"&gt;Empezar ahora&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>.hero {
+  min-height: 80vh;
+  background:
+    linear-gradient(135deg, rgba(247,80,1,0.6), rgba(4,88,157,0.7)),
+    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  margin-bottom: 16px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: white;
+  color: #060614;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 20px;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/04-hero-visual.html</code> para construir tu propio hero.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar</h2>
+                <p class="slide-text">Resolvé estos ejercicios en la carpeta <code>ejercicios/</code>:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Aplicar Google Fonts</h4>
+                            <p>Archivo: <code>01-google-fonts.html</code> + CSS — Aplicá una fuente de Google Fonts y ajustá la jerarquía.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Paleta con Variables CSS</h4>
+                            <p>Archivos: <code>02-paleta-colores.html</code> + CSS — Definí una paleta con custom properties y aplicala.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Imágenes y Fondos</h4>
+                            <p>Archivos: <code>03-imagenes-fondos.html</code> + CSS — Background-image, gradientes y overlays.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Hero Visual</h4>
+                            <p>Archivos: <code>04-hero-visual.html</code> + CSS — Diseñá un hero completo con foto, gradiente y tipografía.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CIERRE ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Rediseñá tu Portafolio Visualmente</h3>
+                    <p>Tomá tu portafolio responsive y aplicale <strong>diseño visual profesional</strong>. Los requisitos:</p>
+                    <ul>
+                        <li>Importá <strong>al menos 2 fuentes de Google Fonts</strong> (una para títulos, otra para cuerpo)</li>
+                        <li>Definí una <strong>paleta de colores</strong> con custom properties (<code>:root { --color-... }</code>)</li>
+                        <li>Aplicá <strong>jerarquía tipográfica</strong>: H1 grande, H2 mediano, P legible</li>
+                        <li>Usá <code>line-height: 1.5-1.7</code> en los párrafos</li>
+                        <li>Incluí un <strong>hero con imagen</strong> de Unsplash y overlay de gradiente</li>
+                        <li>Agregá al menos un <strong>gradiente</strong> en algún botón o sección</li>
+                        <li>Verificá <strong>contraste</strong> en el checker de WebAIM</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 06 COMPLETADA</div>
+                    <p>¡Tu web ahora se ve profesional! Tipografía, color e imágenes son la base del buen diseño.</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        <span class="hint-desktop">Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar</span>
+        <span class="hint-mobile">Deslizá hacia los lados ◂ ▸ para navegar</span>
+    </div>
+
+    <div class="swipe-toast" id="swipeToast">
+        <span class="swipe-toast-icon">👆</span>
+        <p class="swipe-toast-text">¡Deslizá para navegar!</p>
+        <p class="swipe-toast-sub">Arrastrá el dedo hacia la izquierda o derecha para cambiar de slide</p>
+        <button class="swipe-toast-dismiss" onclick="dismissToast()">ENTENDIDO</button>
+    </div>
+
+    <div class="swipe-indicator left" id="swipeLeft">◂</div>
+    <div class="swipe-indicator right" id="swipeRight">▸</div>
+
+    <script>
+        // Stars background
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        // Slide navigation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isSwiping = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+            const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            if (diffX > diffY && diffX > 10) {
+                const indicator = (e.changedTouches[0].screenX - touchStartX) > 0
+                    ? document.getElementById('swipeLeft')
+                    : document.getElementById('swipeRight');
+                indicator.classList.add('flash');
+                setTimeout(() => indicator.classList.remove('flash'), 200);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+            document.getElementById('swipeLeft').classList.remove('flash');
+            document.getElementById('swipeRight').classList.remove('flash');
+        });
+
+        function showSwipeToast() {
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const toastKey = 'bytec-swipe-seen';
+            if (isTouchDevice && !localStorage.getItem(toastKey)) {
+                setTimeout(() => {
+                    document.getElementById('swipeToast').classList.add('visible');
+                }, 1200);
+            }
+        }
+
+        function dismissToast() {
+            document.getElementById('swipeToast').classList.remove('visible');
+            localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        // Download as PDF (uses native browser print → "Save as PDF")
+        function downloadPDF() {
+            window.print();
+        }
+
+        showSwipeToast();
+    </script>
+
+</body>
+</html>

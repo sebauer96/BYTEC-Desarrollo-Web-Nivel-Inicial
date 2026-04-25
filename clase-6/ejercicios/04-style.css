@@ -1,0 +1,46 @@
+/*
+============================================================
+EJERCICIO 04 (DESAFÍO): Hero Visual Completo
+============================================================
+
+CONSIGNA:
+Diseñá los estilos para un hero visual profesional combinando:
+- Tipografías de Google Fonts
+- Paleta de colores con variables CSS
+- Imagen de fondo con overlay
+- Jerarquía tipográfica clara
+
+ESTRATEGIA:
+1. Definí tus variables en :root (paleta + fuentes)
+2. Aplicá la fuente del cuerpo en body
+3. Diseñá el hero con background + overlay
+4. Diseñá la navbar transparente
+5. Diseñá las features cards
+
+REQUISITOS MÍNIMOS:
+1. * { box-sizing: border-box; }
+2. Variables CSS en :root para colores y fuentes
+3. Importar Google Fonts en el HTML
+4. background-image con overlay de gradient
+5. Al menos 2 family-fonts usadas
+6. Jerarquía: H1 > H2 > H3 > P
+7. Al menos 2 :hover
+
+INSPIRACIÓN PALETAS:
+- Sunset:  #ff6b6b / #4ecdc4 / #1a1a2e / #f4f4f4
+- Forest:  #2d6a4f / #95d5b2 / #081c15 / #d8f3dc
+- Royal:   #7209b7 / #f72585 / #03071e / #fdfdfd
+- Tech:    #00b4d8 / #ffd60a / #03045e / #caf0f8
+
+PROPIEDADES BONUS:
+- backdrop-filter: blur(10px) (navbar transparente bonita)
+- clamp(min, ideal, max) (tamaños fluidos)
+- background-attachment: fixed (efecto parallax)
+- text-shadow: 0 2px 10px rgba(0,0,0,0.3)
+- box-shadow para profundidad
+
+¡Buena suerte! ✨
+============================================================
+*/
+
+/* Escribí tus estilos aquí */

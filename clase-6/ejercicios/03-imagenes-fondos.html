@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Imágenes y Fondos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="03-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 03: Imágenes y Fondos
+    ============================================================
+
+    CONSIGNA:
+    Aplicá distintas técnicas para mostrar imágenes en una página:
+    - background-image con cover y position
+    - Gradientes overlay sobre imágenes
+    - Imágenes con object-fit
+    - Gradientes puros como fondo
+
+    PASOS:
+    1. En 03-style.css completá los valores con "TU-VALOR"
+    2. Cada sección representa una técnica distinta
+    3. Probá cambiar las URLs de Unsplash por otras
+
+    URLS DE UNSPLASH USADAS:
+    - https://images.unsplash.com/photo-1451187580459-43490279c0fa (espacio)
+    - https://images.unsplash.com/photo-1518770660439-4636190af475 (tech)
+    - https://images.unsplash.com/photo-1557682250-33bd709cbe85 (gradiente)
+
+    BONUS:
+    - Probá background-attachment: fixed para efecto parallax
+    - Combiná dos gradientes uno sobre el otro
+    - Usá filter: brightness(0.6) en una imagen
+    ============================================================
+    -->
+
+    <!-- ========== HERO con imagen + overlay gradient ========== -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Naturaleza Digital</span>
+            <h1>Donde el código encuentra el universo</h1>
+            <p>Construimos experiencias web que inspiran y conectan.</p>
+            <a href="#" class="hero-btn">Explorá ahora</a>
+        </div>
+    </section>
+
+    <!-- ========== Galería con object-fit ========== -->
+    <section class="galeria-section">
+        <h2 class="section-title">Galería</h2>
+        <div class="galeria">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400" alt="Tech 1">
+            <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400" alt="Tech 2">
+            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400" alt="Tech 3">
+        </div>
+    </section>
+
+    <!-- ========== Banner con gradiente puro ========== -->
+    <section class="banner-gradiente">
+        <div class="banner-content">
+            <h2>Sin imágenes, solo CSS</h2>
+            <p>Los gradientes pueden ser un fondo precioso por sí solos.</p>
+        </div>
+    </section>
+
+    <!-- ========== Card con imagen recortada ========== -->
+    <section class="features-section">
+        <h2 class="section-title">Nuestros servicios</h2>
+        <div class="cards">
+            <article class="feature-card">
+                <div class="card-image card-image-1"></div>
+                <div class="card-body">
+                    <h3>Diseño Web</h3>
+                    <p>Sitios modernos que transmiten tu identidad de marca.</p>
+                </div>
+            </article>
+            <article class="feature-card">
+                <div class="card-image card-image-2"></div>
+                <div class="card-body">
+                    <h3>Desarrollo</h3>
+                    <p>Código limpio, mantenible y de alto rendimiento.</p>
+                </div>
+            </article>
+            <article class="feature-card">
+                <div class="card-image card-image-3"></div>
+                <div class="card-body">
+                    <h3>UX/UI</h3>
+                    <p>Interfaces pensadas para que el usuario fluya naturalmente.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+</body>
+</html>

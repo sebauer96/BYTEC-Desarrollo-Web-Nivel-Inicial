@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 01 - Google Fonts</title>
+
+    <!--
+    PASO 1: Linkear las fuentes de Google Fonts
+    Estas dos lineas ya están agregadas. Notá la conexión a fonts.googleapis.com.
+
+    Si querés cambiar las fuentes, andá a https://fonts.google.com,
+    elegí una, hacé "Get embed code" y reemplazá el href de abajo.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="01-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 01: Aplicar Google Fonts y jerarquía
+    ============================================================
+
+    CONSIGNA:
+    Aplicá las dos fuentes de Google Fonts importadas
+    (Playfair Display + Inter) en el archivo 01-style.css.
+    Después ajustá la jerarquía tipográfica.
+
+    PASOS:
+    1. En 01-style.css, completá los valores con "TU-VALOR"
+    2. Asignále Playfair Display a los títulos (h1, h2, h3)
+    3. Asignále Inter al body (todo lo demás)
+    4. Ajustá tamaños, weights y line-heights
+    5. Guardá y mirá el cambio en el navegador
+
+    PISTAS:
+    - font-family: 'Playfair Display', serif;
+    - font-family: 'Inter', sans-serif;
+    - line-height ideal para párrafos: 1.5 a 1.7
+    - font-weight: 400 = normal, 700 = bold, 900 = black
+
+    BONUS:
+    - Probá otras fuentes de Google Fonts (cambiá el link de arriba)
+    - Aplicá text-transform: uppercase a algún elemento
+    - Agregá letter-spacing a los títulos
+    ============================================================
+    -->
+
+    <article class="post">
+
+        <header class="post-header">
+            <span class="post-tag">Diseño Web</span>
+            <h1>El poder de la tipografía en tu sitio</h1>
+            <p class="post-meta">Por María García · 25 de Abril, 2026</p>
+        </header>
+
+        <p class="post-lead">
+            Una buena tipografía puede transformar por completo la experiencia
+            de un sitio web. No se trata solo de elegir una fuente bonita,
+            sino de crear una <strong>jerarquía clara</strong> que guíe al lector.
+        </p>
+
+        <h2>¿Por qué importan las fuentes?</h2>
+        <p>
+            Las fuentes transmiten emociones. Una serif puede dar elegancia
+            y formalidad, mientras que una sans-serif comunica modernidad
+            y simpleza. Combinar ambas suele dar resultados profesionales.
+        </p>
+
+        <h2>Buenas prácticas</h2>
+        <p>
+            La regla básica es no usar más de dos familias de fuentes en
+            un mismo proyecto. Una para títulos y otra para el cuerpo
+            del texto es suficiente para crear contraste visual.
+        </p>
+
+        <h3>Sobre el line-height</h3>
+        <p>
+            El espacio entre líneas (line-height) es uno de los detalles
+            que más afectan la legibilidad. Un valor entre 1.5 y 1.7 es
+            ideal para párrafos largos.
+        </p>
+
+        <footer class="post-footer">
+            <small>Publicado en BYTEC · Todos los derechos reservados</small>
+        </footer>
+
+    </article>
+
+</body>
+</html>
