@@ -1,0 +1,256 @@
+/*
+============================================================
+EJERCICIO 01: Transitions y Hover Effects
+============================================================
+
+CONSIGNA:
+Reemplazá cada "TU-VALOR" para que cada elemento tenga
+una animación suave al pasar el mouse.
+
+CLAVE:
+- transition: define qué propiedad animar y en cuánto tiempo
+- transform: cambia el elemento sin afectar el layout
+- box-shadow: agrega profundidad y "glow"
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #0a0a23;
+    color: #e8e8f0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    color: #f75001;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #aaa;
+}
+
+.demo-section {
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.demo-section h2 {
+    color: #04589d;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #1a1a5e;
+    padding-bottom: 8px;
+}
+
+.demo-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ==========================================================
+   BOTONES
+   ========================================================== */
+.btn {
+    background: #f75001;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* 1. LIFT: se levanta + sombra */
+.btn-lift {
+    transition: /* TU-VALOR: probá all 0.3s */;
+}
+
+.btn-lift:hover {
+    transform: /* TU-VALOR: probá translateY(-4px) */;
+    box-shadow: /* TU-VALOR: probá 0 8px 20px rgba(247, 80, 1, 0.4) */;
+}
+
+/* 2. GLOW: brillo alrededor */
+.btn-glow {
+    transition: /* TU-VALOR: probá box-shadow 0.3s */;
+}
+
+.btn-glow:hover {
+    box-shadow: /* TU-VALOR: probá 0 0 25px rgba(247, 80, 1, 0.7) */;
+}
+
+/* 3. GROW: se hace más grande */
+.btn-grow {
+    transition: /* TU-VALOR: probá transform 0.3s */;
+}
+
+.btn-grow:hover {
+    transform: /* TU-VALOR: probá scale(1.1) */;
+}
+
+/* 4. COLOR SHIFT: cambia de color suavemente */
+.btn-shift {
+    background: #04589d;
+    transition: /* TU-VALOR: probá background-color 0.3s */;
+}
+
+.btn-shift:hover {
+    background: /* TU-VALOR: probá #f75001 */;
+}
+
+/* ==========================================================
+   CARDS
+   ========================================================== */
+.card {
+    background: #131340;
+    border: 2px solid #1a1a5e;
+    border-radius: 12px;
+    padding: 24px;
+    flex: 1;
+    min-width: 220px;
+}
+
+.card h3 {
+    color: #f75001;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* CARD 1: Lift + sombra */
+.card-lift {
+    transition: /* TU-VALOR: probá all 0.3s ease */;
+}
+
+.card-lift:hover {
+    transform: /* TU-VALOR: probá translateY(-6px) */;
+    box-shadow: /* TU-VALOR: probá 0 12px 30px rgba(0, 0, 0, 0.4) */;
+}
+
+/* CARD 2: Tilt (rotación sutil) */
+.card-tilt {
+    transition: transform 0.3s;
+}
+
+.card-tilt:hover {
+    transform: /* TU-VALOR: probá rotate(-2deg) scale(1.02) */;
+}
+
+/* CARD 3: Border glow */
+.card-border {
+    transition: /* TU-VALOR: probá all 0.3s */;
+}
+
+.card-border:hover {
+    border-color: /* TU-VALOR: probá #f75001 */;
+    box-shadow: 0 0 20px rgba(247, 80, 1, 0.3);
+}
+
+/* ==========================================================
+   IMÁGENES
+   ========================================================== */
+.demo-grid img {
+    width: 200px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #1a1a5e;
+}
+
+/* IMG 1: Zoom */
+.img-zoom {
+    transition: /* TU-VALOR: probá transform 0.4s */;
+}
+
+.img-zoom:hover {
+    transform: /* TU-VALOR: probá scale(1.08) */;
+}
+
+/* IMG 2: Cambia el brillo */
+.img-bright {
+    filter: brightness(0.7);
+    transition: /* TU-VALOR: probá filter 0.3s */;
+}
+
+.img-bright:hover {
+    filter: /* TU-VALOR: probá brightness(1.1) */;
+}
+
+/* IMG 3: Desenfoca al hover (efecto "fuera de foco") */
+.img-blur {
+    transition: filter 0.3s;
+}
+
+.img-blur:hover {
+    filter: /* TU-VALOR: probá blur(3px) */;
+}
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+.links-demo {
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* LINK 1: Color clásico */
+.link-classic {
+    color: #aaa;
+    text-decoration: none;
+    transition: /* TU-VALOR: probá color 0.2s */;
+}
+
+.link-classic:hover {
+    color: /* TU-VALOR: probá #f75001 */;
+}
+
+/* LINK 2: Underline animado (truco con ::after) */
+.link-underline {
+    color: #04589d;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #04589d;
+    transition: /* TU-VALOR: probá width 0.3s */;
+}
+
+.link-underline:hover::after {
+    width: /* TU-VALOR: probá 100% */;
+}
+
+/* LINK 3: Flecha que se mueve */
+.link-arrow {
+    color: #f75001;
+    text-decoration: none;
+    display: inline-block;
+    transition: /* TU-VALOR: probá transform 0.2s */;
+}
+
+.link-arrow:hover {
+    transform: /* TU-VALOR: probá translateX(6px) */;
+}

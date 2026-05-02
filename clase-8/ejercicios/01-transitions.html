@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 01 - Transitions y Hover Effects</title>
+    <link rel="stylesheet" href="01-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 01: Transitions y Hover Effects
+    ============================================================
+
+    CONSIGNA:
+    Agregale transiciones y hover effects profesionales a una
+    serie de elementos comunes (botones, cards, links e imágenes).
+
+    PASOS:
+    1. Abrí 01-style.css y completá los valores con "TU-VALOR"
+    2. Pasá el mouse por encima de cada elemento para ver el efecto
+    3. Probá distintas duraciones y propiedades
+
+    PROPIEDADES CLAVE:
+    - transition: PROPIEDAD DURACIÓN [TIMING] [DELAY]
+    - transform: translateY() / scale() / rotate()
+    - box-shadow para sombras y glow
+    - filter: brightness() / blur() para efectos visuales
+
+    PISTAS:
+    - transition: all 0.3s → animá todo lo que cambie
+    - transform: translateY(-4px) → levanta el elemento
+    - transform: scale(1.05) → zoom sutil
+    - box-shadow: 0 8px 24px rgba(...) → sombra al levantar
+
+    BONUS:
+    - Probá timing functions: ease-in, ease-out, ease-in-out, cubic-bezier(...)
+    - Combiná varias propiedades en el mismo hover
+    - Investigá `prefers-reduced-motion` para usuarios sensibles al movimiento
+    ============================================================
+    -->
+
+    <header class="page-header">
+        <h1>🎬 Laboratorio de Animaciones</h1>
+        <p>Pasá el mouse sobre cada elemento para ver el hover effect</p>
+    </header>
+
+    <main>
+        <!-- ========== BOTONES ========== -->
+        <section class="demo-section">
+            <h2>Botones</h2>
+            <div class="demo-grid">
+                <button class="btn btn-lift">Lift Effect</button>
+                <button class="btn btn-glow">Glow Effect</button>
+                <button class="btn btn-grow">Grow Effect</button>
+                <button class="btn btn-shift">Color Shift</button>
+            </div>
+        </section>
+
+        <!-- ========== CARDS ========== -->
+        <section class="demo-section">
+            <h2>Cards</h2>
+            <div class="demo-grid">
+                <div class="card card-lift">
+                    <h3>Lift</h3>
+                    <p>Se levanta y agrega sombra al pasar el mouse.</p>
+                </div>
+                <div class="card card-tilt">
+                    <h3>Tilt</h3>
+                    <p>Se inclina ligeramente. Efecto sutil pero llamativo.</p>
+                </div>
+                <div class="card card-border">
+                    <h3>Border Glow</h3>
+                    <p>El borde cambia de color con un brillo suave.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== IMÁGENES ========== -->
+        <section class="demo-section">
+            <h2>Imágenes</h2>
+            <div class="demo-grid">
+                <img src="https://picsum.photos/300/200?random=10" alt="Demo zoom" class="img-zoom">
+                <img src="https://picsum.photos/300/200?random=11" alt="Demo brightness" class="img-bright">
+                <img src="https://picsum.photos/300/200?random=12" alt="Demo blur" class="img-blur">
+            </div>
+        </section>
+
+        <!-- ========== LINKS ========== -->
+        <section class="demo-section">
+            <h2>Links</h2>
+            <p class="links-demo">
+                <a href="#" class="link-classic">Link clásico (color shift)</a> &nbsp;·&nbsp;
+                <a href="#" class="link-underline">Link con underline animado</a> &nbsp;·&nbsp;
+                <a href="#" class="link-arrow">Link con flecha →</a>
+            </p>
+        </section>
+    </main>
+
+</body>
+</html>

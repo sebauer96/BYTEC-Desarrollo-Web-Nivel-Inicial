@@ -1,0 +1,232 @@
+/*
+============================================================
+EJERCICIO 02: Animaciones con @keyframes
+============================================================
+
+CONSIGNA:
+Completá los @keyframes con los pasos correctos y aplicá
+las animaciones a los elementos.
+
+CLAVE:
+- @keyframes define LA SECUENCIA de la animación
+- animation aplica esa secuencia a un elemento
+- Sintaxis: animation: NOMBRE DURACIÓN TIMING DELAY ITERACIÓN
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #0a0a23;
+    color: #e8e8f0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 { color: #f75001; font-size: 28px; margin-bottom: 8px; }
+.page-header p { color: #aaa; }
+
+.demo-section {
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.demo-section h2 {
+    color: #04589d;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #1a1a5e;
+    padding-bottom: 8px;
+}
+
+.hint { color: #888; font-size: 13px; margin-bottom: 16px; }
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+/* ==========================================================
+   ANIMACIONES DE ENTRADA
+   ========================================================== */
+.enter-card {
+    background: #131340;
+    border: 2px solid #1a1a5e;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.enter-icon { font-size: 48px; margin-bottom: 12px; }
+.enter-card h3 { color: #f75001; margin-bottom: 8px; }
+.enter-card p { color: #aaa; font-size: 13px; }
+
+/* ========== FADE IN ==========
+   Aparece desde abajo con opacidad creciente
+*/
+@keyframes fadeIn {
+    from {
+        opacity: /* TU-VALOR: probá 0 */;
+        transform: /* TU-VALOR: probá translateY(30px) */;
+    }
+    to {
+        opacity: /* TU-VALOR: probá 1 */;
+        transform: /* TU-VALOR: probá translateY(0) */;
+    }
+}
+
+.fade-in {
+    animation: /* TU-VALOR: probá fadeIn 0.8s ease-out */;
+}
+
+/* ========== SLIDE IN LEFT ==========
+   Entra desde la izquierda
+*/
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: /* TU-VALOR: probá translateX(-50px) */;
+    }
+    to {
+        opacity: 1;
+        transform: /* TU-VALOR: probá translateX(0) */;
+    }
+}
+
+.slide-in-left {
+    animation: /* TU-VALOR: probá slideInLeft 0.8s ease-out */;
+}
+
+/* ========== BOUNCE IN ==========
+   Entra con efecto rebote (varios pasos)
+*/
+@keyframes bounceIn {
+    0%   { opacity: 0; transform: scale(0.3); }
+    50%  { opacity: 1; transform: scale(1.1); }
+    70%  { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.bounce-in {
+    animation: /* TU-VALOR: probá bounceIn 0.9s ease-out */;
+}
+
+/* ==========================================================
+   ANIMACIONES INFINITAS
+   ========================================================== */
+.infinite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    text-align: center;
+}
+
+.infinite-item {
+    background: #131340;
+    border: 1px solid #1a1a5e;
+    border-radius: 12px;
+    padding: 30px 20px;
+}
+
+.infinite-item p {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* ========== PULSE ==========
+   Late como el corazón (escala ↑↓ infinito)
+*/
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: /* TU-VALOR: probá scale(1.15) */; }
+}
+
+.badge-pulse {
+    display: inline-block;
+    background: #f75001;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+    animation: /* TU-VALOR: probá pulse 1.5s ease-in-out infinite */;
+}
+
+/* ========== SPIN (loader) ==========
+   Rota 360° en bucle
+*/
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: /* TU-VALOR: probá rotate(360deg) */; }
+}
+
+.loader-spin {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #1a1a5e;
+    border-top-color: #f75001;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: /* TU-VALOR: probá spin 1s linear infinite */;
+}
+
+/* ========== FLOAT ==========
+   Sube y baja suavemente (como flotando)
+*/
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: /* TU-VALOR: probá translateY(-15px) */; }
+}
+
+.float-emoji {
+    font-size: 48px;
+    animation: /* TU-VALOR: probá float 2.5s ease-in-out infinite */;
+}
+
+/* ========== BLINK (cursor parpadeando) ========== */
+@keyframes blink {
+    0%, 50%   { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+    color: #f75001;
+    font-size: 36px;
+    font-weight: 900;
+    animation: /* TU-VALOR: probá blink 1s step-end infinite */;
+}
+
+/* ==========================================================
+   ANIMACIÓN ESCALONADA
+   Cada hijo entra con un delay distinto usando :nth-child
+   ========================================================== */
+.staggered-list {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+}
+
+.staggered-list li {
+    background: #131340;
+    border: 1px solid #1a1a5e;
+    border-left: 4px solid #f75001;
+    padding: 14px 20px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Cada item entra 0.1s después del anterior */
+.staggered-list li:nth-child(1) { animation-delay: /* TU-VALOR: probá 0s */; }
+.staggered-list li:nth-child(2) { animation-delay: /* TU-VALOR: probá 0.1s */; }
+.staggered-list li:nth-child(3) { animation-delay: /* TU-VALOR: probá 0.2s */; }
+.staggered-list li:nth-child(4) { animation-delay: /* TU-VALOR: probá 0.3s */; }
+.staggered-list li:nth-child(5) { animation-delay: /* TU-VALOR: probá 0.4s */; }

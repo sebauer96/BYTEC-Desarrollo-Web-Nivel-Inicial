@@ -45,8 +45,8 @@
 | 04 | Layout con Flexbox | Alinear, distribuir y ordenar elementos con flexbox | Creada |
 | 05 | Diseño Responsive | Media queries, mobile first | Creada |
 | 06 | Tipografía, Colores & Diseño Visual | Google Fonts, paletas, imágenes, fondos | Creada |
-| 07 | Proyecto Final: Maquetación | Sitio web completo desde cero | Pendiente |
-| 08 | Pulido Final & Publicación | Animaciones CSS, deploy en GitHub Pages | Pendiente |
+| 07 | Proyecto Final: Maquetación | Sitio web completo desde cero | Creada |
+| 08 | Pulido Final & Publicación | Animaciones CSS, deploy en GitHub Pages | Creada |
 
 ## Contenido de la Clase 1
 

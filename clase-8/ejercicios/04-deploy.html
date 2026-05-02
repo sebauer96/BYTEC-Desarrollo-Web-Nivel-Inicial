@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 04 - Deploy a GitHub Pages (Desafío)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="04-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 04 (DESAFÍO): Deploy a GitHub Pages
+    ============================================================
+
+    Este ejercicio es una GUÍA paso a paso para publicar tu
+    proyecto final en internet usando GitHub Pages (gratis).
+
+    Al finalizar vas a tener una URL pública tipo:
+    https://TUUSUARIO.github.io/NOMBRE-REPO/
+
+    REQUISITOS PREVIOS:
+    - Tener tu sitio web terminado (de la clase 7)
+    - Tener una cuenta de Google o un email para crear GitHub
+    - 15-20 minutos
+    ============================================================
+    -->
+
+    <main class="guide">
+
+        <header class="guide-header">
+            <span class="badge">DESAFÍO FINAL</span>
+            <h1>🚀 Publicá tu Sitio Web</h1>
+            <p>Guía paso a paso para hacer deploy en GitHub Pages</p>
+        </header>
+
+        <section class="step">
+            <span class="step-num">01</span>
+            <div class="step-body">
+                <h2>Crear cuenta en GitHub</h2>
+                <p>Andá a <a href="https://github.com" target="_blank">github.com</a> y creá una cuenta gratis.</p>
+                <ul>
+                    <li>Click en <strong>"Sign up"</strong></li>
+                    <li>Ingresá tu email, una contraseña y un nombre de usuario</li>
+                    <li>Verificá tu email (te llega un código)</li>
+                    <li>Elegí el plan <strong>Free</strong></li>
+                </ul>
+                <div class="tip">💡 Tu nombre de usuario va a aparecer en la URL pública. Elegí algo profesional, sin números raros ni símbolos.</div>
+            </div>
+        </section>
+
+        <section class="step">
+            <span class="step-num">02</span>
+            <div class="step-body">
+                <h2>Crear un nuevo repositorio</h2>
+                <p>El "repositorio" o "repo" es donde va a vivir tu código en GitHub.</p>
+                <ul>
+                    <li>Click en el ícono <strong>+</strong> arriba a la derecha → <strong>"New repository"</strong></li>
+                    <li>Ponele un nombre descriptivo (ej: <code>mi-portafolio</code>, <code>pixel-cafe</code>)</li>
+                    <li>Dejá la descripción opcional</li>
+                    <li>Visibility: <strong>Public</strong> (necesario para Pages gratis)</li>
+                    <li>NO marques "Add README", "Add .gitignore" ni nada más</li>
+                    <li>Click <strong>"Create repository"</strong></li>
+                </ul>
+                <div class="tip">⚠️ El nombre del repo va a aparecer en la URL final. <code>mi-sitio</code> es mejor que <code>proyecto-final-clase-8-final-FINAL</code>.</div>
+            </div>
+        </section>
+
+        <section class="step">
+            <span class="step-num">03</span>
+            <div class="step-body">
+                <h2>Subir tu código (opción fácil: web)</h2>
+                <p>Si nunca usaste Git, podés subir los archivos desde la web:</p>
+                <ul>
+                    <li>En tu repo recién creado, click <strong>"uploading an existing file"</strong></li>
+                    <li>Arrastrá TODOS los archivos de tu proyecto (HTML, CSS, imágenes)</li>
+                    <li>Asegurate que el archivo principal se llame <strong><code>index.html</code></strong></li>
+                    <li>Escribí un mensaje de commit (ej: "Primer subida")</li>
+                    <li>Click <strong>"Commit changes"</strong></li>
+                </ul>
+                <div class="tip">📂 Si tu proyecto usa subcarpetas (ej: <code>img/</code>), se mantienen al subir. Solo arrastrá la carpeta entera.</div>
+            </div>
+        </section>
+
+        <section class="step optional">
+            <span class="step-num">03b</span>
+            <div class="step-body">
+                <h2>Subir tu código (opción avanzada: Git)</h2>
+                <p>Si querés aprender Git desde el principio, este es el camino profesional:</p>
+                <pre class="code"><code># Abrí terminal/CMD en la carpeta de tu proyecto
+
+git init
+git add .
+git commit -m "Primer commit"
+
+# GitHub te muestra exactamente estos comandos en el repo vacío:
+git remote add origin https://github.com/TUUSUARIO/NOMBRE-REPO.git
+git branch -M main
+git push -u origin main
+
+# La próxima vez que cambies algo:
+git add .
+git commit -m "Descripción del cambio"
+git push</code></pre>
+                <div class="tip">🛠️ VS Code tiene Git integrado. Mirá el ícono <strong>Source Control</strong> (⎇) en la barra lateral.</div>
+            </div>
+        </section>
+
+        <section class="step">
+            <span class="step-num">04</span>
+            <div class="step-body">
+                <h2>Activar GitHub Pages</h2>
+                <p>Ahora que tu código está en GitHub, vamos a publicarlo:</p>
+                <ul>
+                    <li>En tu repo, click <strong>"Settings"</strong> (arriba a la derecha)</li>
+                    <li>En el menú lateral izquierdo, scrollea hasta <strong>"Pages"</strong></li>
+                    <li>En "Source" elegí <strong>"Deploy from a branch"</strong></li>
+                    <li>En "Branch" elegí <strong><code>main</code></strong> y carpeta <strong><code>/ (root)</code></strong></li>
+                    <li>Click <strong>"Save"</strong></li>
+                </ul>
+                <div class="tip">⏰ GitHub tarda 1-2 minutos en publicar. Después aparece una banda verde arriba con tu URL.</div>
+            </div>
+        </section>
+
+        <section class="step">
+            <span class="step-num">05</span>
+            <div class="step-body">
+                <h2>¡Visitar tu sitio!</h2>
+                <p>Tu URL va a tener este formato:</p>
+                <div class="url-example">
+                    https://<span class="highlight">TUUSUARIO</span>.github.io/<span class="highlight">NOMBRE-REPO</span>/
+                </div>
+                <p>Algunos ejemplos:</p>
+                <ul>
+                    <li><code>https://martinacode.github.io/mi-portafolio/</code></li>
+                    <li><code>https://juangamer.github.io/pixel-cafe/</code></li>
+                    <li><code>https://luciapix.github.io/banda-website/</code></li>
+                </ul>
+                <div class="tip celebrate">🎉 Compartí tu URL en redes sociales, agregala a tu CV, mostrasela a tus amigos. ¡Acabás de publicar tu primera web en internet!</div>
+            </div>
+        </section>
+
+        <section class="step">
+            <span class="step-num">06</span>
+            <div class="step-body">
+                <h2>Actualizar tu sitio</h2>
+                <p>Cada vez que cambies algo, repetí estos pasos:</p>
+                <ul>
+                    <li><strong>Web:</strong> ir al repo → click en el archivo → ícono lápiz → editar → commit</li>
+                    <li><strong>Git:</strong> <code>git add .</code> → <code>git commit -m "..."</code> → <code>git push</code></li>
+                </ul>
+                <p>GitHub Pages vuelve a publicar automáticamente en 1-2 minutos.</p>
+            </div>
+        </section>
+
+        <section class="bonus">
+            <h2>🎁 Bonus: Tips Profesionales</h2>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <h3>📛 Custom Domain</h3>
+                    <p>Si comprás un dominio (ej: tunombre.com), podés conectarlo a GitHub Pages gratis. En Settings → Pages → Custom domain.</p>
+                </div>
+                <div class="bonus-card">
+                    <h3>🔒 HTTPS</h3>
+                    <p>GitHub Pages te da SSL gratis. Activá la opción "Enforce HTTPS" en Settings → Pages.</p>
+                </div>
+                <div class="bonus-card">
+                    <h3>📊 Analytics</h3>
+                    <p>Agregá Google Analytics o Plausible para ver cuánta gente visita tu sitio.</p>
+                </div>
+                <div class="bonus-card">
+                    <h3>🌍 Otras opciones</h3>
+                    <p>Si querés explorar más, probá Netlify (drag & drop) o Vercel (mejor para apps modernas). Ambos gratis.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="guide-footer">
+            <h2>🎓 ¡Felicitaciones!</h2>
+            <p>Completaste el curso <strong>Introducción al Diseño Web</strong> de BYTEC.</p>
+            <p>Ahora tenés las bases para seguir aprendiendo:</p>
+            <ul class="next-steps-list">
+                <li>📜 <strong>JavaScript</strong> — para hacer tu web interactiva</li>
+                <li>⚛️ <strong>React</strong> — el framework más usado en la industria</li>
+                <li>🎨 <strong>Diseño UI/UX</strong> — Figma, principios de diseño</li>
+                <li>🛠️ <strong>Backend</strong> — Node.js, bases de datos, APIs</li>
+            </ul>
+            <p class="bytec-sign">▸ BYTEC<span class="cursor">_</span></p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

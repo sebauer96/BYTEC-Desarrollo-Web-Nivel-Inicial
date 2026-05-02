@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 8: Pulido Final & Publicación</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 20</span>
+        <div class="nav-controls">
+            <button class="nav-btn nav-btn-pdf" onclick="downloadPDF()" title="Descargar como PDF">PDF</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 08 — FINAL</div>
+                <h1 class="title-main">Pulido Final<br><span class="title-accent">& Publicación</span></h1>
+                <p class="title-sub">Animaciones · Detalles · Deploy a Internet</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">✨ CSS Animations</span>
+                    <span class="meta-item">🚀 Deploy</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Pulir tu sitio web con <strong>animaciones CSS</strong> sutiles y profesionales, y aprender a <strong>publicarlo en internet gratis</strong> usando GitHub Pages. Al terminar, vas a tener una URL real para mostrar tu proyecto al mundo.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Repaso Clase 7</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Transitions & Transforms</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 1: Animaciones</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Pulido & detalles</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Deploy a GitHub Pages</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Cierre del Curso 🎉</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: REPASO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Repaso Rápido — Clase 7</h2>
+                <p class="slide-text">En la clase anterior maquetaste un sitio web completo desde cero:</p>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>&lt;header&gt;</code> Encabezado</div>
+                    <div class="recap-item"><code>&lt;main&gt;</code> Contenido</div>
+                    <div class="recap-item"><code>&lt;section&gt;</code> Bloques</div>
+                    <div class="recap-item"><code>&lt;footer&gt;</code> Pie</div>
+                    <div class="recap-item"><code>BEM</code> Naming</div>
+                    <div class="recap-item"><code>:root</code> Variables</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 Tu sitio ya está <strong>completo y funcional</strong>. Hoy le agregamos <strong>vida</strong> con animaciones y lo <strong>publicamos</strong> para que cualquiera pueda visitarlo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: POR QUÉ ANIMAR ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">✨ ¿Por Qué Animar?</h2>
+                <p class="slide-text">Las animaciones bien hechas <strong>elevan</strong> la experiencia de tu sitio. No son decoración: son comunicación visual:</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Beneficios</h4>
+                        <ul>
+                            <li>Guían la atención del usuario</li>
+                            <li>Dan feedback al hacer click/hover</li>
+                            <li>Hacen el sitio se sienta "vivo"</li>
+                            <li>Comunican estados (loading, error)</li>
+                            <li>Mejoran la percepción de calidad</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>⚠️ Cuidado con</h4>
+                        <ul>
+                            <li>Animaciones largas (>500ms) cansan</li>
+                            <li>Demasiadas animaciones distraen</li>
+                            <li>Animar properties caras (top, left)</li>
+                            <li>Olvidar usuarios sensibles al movimiento</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🧠 <strong>Regla de oro:</strong> las mejores animaciones son las que <em>casi no notás</em>. Sutil > exagerado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: TRANSITION ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎚️ transition: La Animación Más Simple</h2>
+                <p class="slide-text"><code>transition</code> hace que el cambio entre dos estados sea <strong>suave</strong> en vez de instantáneo. Perfecto para hover effects:</p>
+                <div class="code-block">
+<pre><code>/* Sin transition: cambio instantáneo */
+.boton {
+  background: #f75001;
+}
+.boton:hover {
+  background: #04589d;
+}
+
+/* Con transition: cambio suave de 0.3s */
+.boton {
+  background: #f75001;
+  transition: background 0.3s;     /* propiedad duración */
+}
+.boton:hover {
+  background: #04589d;
+}
+
+/* Animar varias propiedades a la vez */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* O todas las que cambien */
+.card {
+  transition: all 0.3s;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>⏱️ <strong>Duraciones recomendadas:</strong> 150ms-300ms para hover, 200ms-500ms para transformaciones más grandes. Más tiempo se siente lento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: TRANSFORM ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 transform: Mover, Rotar, Escalar</h2>
+                <p class="slide-text"><code>transform</code> permite manipular elementos de formas que <code>position</code> no puede. Es <strong>performante</strong> (no causa reflow):</p>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Función</span>
+                        <span>¿Qué hace?</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>translate</code>
+                        <span>Mueve el elemento</span>
+                        <code>translate(20px, 0)</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>translateY</code>
+                        <span>Mueve solo en eje Y</span>
+                        <code>translateY(-4px)</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>scale</code>
+                        <span>Cambia el tamaño</span>
+                        <code>scale(1.05)</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>rotate</code>
+                        <span>Rota en grados</span>
+                        <code>rotate(45deg)</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>skew</code>
+                        <span>Inclina el elemento</span>
+                        <code>skew(10deg)</code>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code>/* Hover effect clásico: levantar la card */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: HOVER EFFECTS COMUNES ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Hover Effects Profesionales</h2>
+                <p class="slide-text">Estos son los efectos hover más usados en webs profesionales:</p>
+                <div class="effects-grid">
+                    <div class="effect-card">
+                        <h4>1. Lift (Levantar)</h4>
+                        <div class="code-block small">
+<pre><code>.card {
+  transition: all 0.3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="effect-card">
+                        <h4>2. Scale (Zoom)</h4>
+                        <div class="code-block small">
+<pre><code>img {
+  transition: transform 0.3s;
+}
+img:hover {
+  transform: scale(1.05);
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="effect-card">
+                        <h4>3. Glow (Brillo)</h4>
+                        <div class="code-block small">
+<pre><code>.btn {
+  transition: box-shadow 0.3s;
+}
+.btn:hover {
+  box-shadow: 0 0 20px rgba(247, 80, 1, 0.6);
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="effect-card">
+                        <h4>4. Color Shift</h4>
+                        <div class="code-block small">
+<pre><code>a {
+  color: #888;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #f75001;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: KEYFRAMES ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎬 @keyframes y animation</h2>
+                <p class="slide-text">Para animaciones más complejas (que no son hover), usás <code>@keyframes</code> + <code>animation</code>. Definís los pasos y CSS interpola:</p>
+                <div class="code-block">
+<pre><code>/* 1. Definir los pasos de la animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Aplicarla a un elemento */
+.hero-content {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Sintaxis completa de animation */
+.elemento {
+  animation: nombre duración timing-function delay iteración;
+}
+
+/* Ejemplo: pulso infinito */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
+
+.notification-dot {
+  animation: pulse 1.5s ease-in-out infinite;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Diferencia clave:</strong> <code>transition</code> = entre dos estados (hover). <code>animation</code> = secuencia de pasos definida (loops, entradas, etc.).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: ANIMACIONES ÚTILES ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">📚 Animaciones Útiles para Copiar</h2>
+                <p class="slide-text">Estas animaciones las podés usar tal cual en cualquier proyecto:</p>
+                <div class="code-block">
+<pre><code>/* Fade In desde abajo */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide desde la izquierda */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Bounce de entrada */
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: scale(0.3); }
+  50%  { opacity: 1; transform: scale(1.05); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Spinner para loading */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.loader {
+  animation: spin 1s linear infinite;
+}
+
+/* Cursor parpadeando (como el _ de BYTEC) */
+@keyframes blink {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: PRÁCTICA 1 ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 1: Agregar Animaciones</h2>
+                <p class="slide-text">Vamos a tomar tu sitio (o uno de ejemplo) y agregarle animaciones profesionales:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">🎚️ <strong>Transitions:</strong> agregar <code>transition: all 0.3s</code> a cards y botones</div>
+                    <div class="check-item">⬆️ <strong>Lift effect:</strong> <code>transform: translateY(-4px)</code> en hover de cards</div>
+                    <div class="check-item">🔍 <strong>Zoom:</strong> <code>transform: scale(1.05)</code> en imágenes al hover</div>
+                    <div class="check-item">✨ <strong>Glow:</strong> <code>box-shadow</code> con color de marca al hover de botón</div>
+                    <div class="check-item">🎬 <strong>FadeIn:</strong> animar la entrada del hero con <code>@keyframes</code></div>
+                    <div class="check-item">♻️ <strong>Pulse:</strong> hacer un badge "Nuevo" con animación infinita</div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/01-transitions.html</code> y <code>02-keyframes.html</code> para practicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: PULIDO VISUAL ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">💎 Pulido Visual: Los Detalles que Importan</h2>
+                <p class="slide-text">Esos pequeños detalles separan una web "ok" de una <strong>profesional</strong>:</p>
+                <div class="polish-grid">
+                    <div class="polish-card">
+                        <div class="polish-icon">🌑</div>
+                        <h4>box-shadow</h4>
+                        <p><code>0 4px 20px rgba(0,0,0,0.1)</code> agrega profundidad sutil a cards y botones.</p>
+                    </div>
+                    <div class="polish-card">
+                        <div class="polish-icon">⭕</div>
+                        <h4>border-radius</h4>
+                        <p><code>8-12px</code> en cards. <code>50%</code> para avatares circulares. <code>20px+</code> para botones tipo "pill".</p>
+                    </div>
+                    <div class="polish-card">
+                        <div class="polish-icon">✨</div>
+                        <h4>focus states</h4>
+                        <p>Inputs y botones deben tener un <code>:focus</code> visible para accesibilidad con teclado.</p>
+                    </div>
+                    <div class="polish-card">
+                        <div class="polish-icon">🖱️</div>
+                        <h4>cursor: pointer</h4>
+                        <p>En todo lo que sea clickeable (botones custom, cards interactivas).</p>
+                    </div>
+                    <div class="polish-card">
+                        <div class="polish-icon">📜</div>
+                        <h4>scroll-behavior</h4>
+                        <p><code>html { scroll-behavior: smooth }</code> hace que los anchor links se animen.</p>
+                    </div>
+                    <div class="polish-card">
+                        <div class="polish-icon">🎨</div>
+                        <h4>::selection</h4>
+                        <p>Personalizá el color cuando el usuario selecciona texto en tu sitio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: ¿QUÉ ES PUBLICAR? ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌐 ¿Qué es "Publicar" un Sitio?</h2>
+                <p class="slide-text"><strong>Publicar (deploy)</strong> = subir tus archivos a un servidor en internet para que cualquiera pueda visitarlos con una URL:</p>
+                <div class="deploy-flow">
+                    <div class="deploy-item">
+                        <div class="deploy-icon">💻</div>
+                        <h4>Tu compu</h4>
+                        <p>Los archivos viven en tu carpeta local.</p>
+                    </div>
+                    <div class="deploy-arrow">→</div>
+                    <div class="deploy-item">
+                        <div class="deploy-icon">📦</div>
+                        <h4>Git Push</h4>
+                        <p>Subís el código a GitHub.</p>
+                    </div>
+                    <div class="deploy-arrow">→</div>
+                    <div class="deploy-item highlight">
+                        <div class="deploy-icon">🌐</div>
+                        <h4>GitHub Pages</h4>
+                        <p>GitHub te da una URL gratis: <code>tuusuario.github.io/proyecto</code></p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🆓 <strong>GitHub Pages es 100% gratis</strong> para sitios estáticos (HTML/CSS/JS). Perfecto para tu portafolio o cualquier proyecto chico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: GIT BÁSICO ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">📦 Git: Lo Mínimo que Necesitás</h2>
+                <p class="slide-text">Git es un sistema para versionar código. GitHub es la "nube" donde lo guardás:</p>
+                <div class="code-block">
+<pre><code># Configurá Git la primera vez (solo una vez)
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+
+# En la carpeta de tu proyecto:
+git init                        # Crear el repo local
+git add .                       # Marcar todos los archivos
+git commit -m "Primer commit"   # Guardar la versión
+
+# Conectar con GitHub (después de crear el repo en github.com)
+git remote add origin https://github.com/USUARIO/PROYECTO.git
+git branch -M main
+git push -u origin main         # ¡Subir todo!</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>VS Code tiene Git integrado:</strong> ícono de "Source Control" (⎇) en la barra lateral. Podés hacer commit y push con clicks sin la terminal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: GITHUB SETUP ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🐙 Crear el Repo en GitHub</h2>
+                <p class="slide-text">Pasos para crear tu repo y subir tu proyecto:</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Andá a <strong>github.com</strong> y creá una cuenta gratis si no tenés.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Click en el "+" arriba a la derecha → <strong>"New repository"</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Ponele un nombre (ej: <code>mi-portafolio</code>), dejá <strong>Public</strong> y NO marques nada más.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>GitHub te muestra los comandos para conectar tu carpeta local con el repo remoto.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>El nombre importa</h4>
+                        <p>El nombre del repo va a aparecer en la URL final: <code>tuusuario.github.io/<strong>nombre-repo</strong></code></p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Public vs Private</h4>
+                        <p>Para usar GitHub Pages gratis, el repo tiene que ser <strong>Public</strong>. Cualquiera puede ver el código.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: GITHUB PAGES ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">🚀 Activar GitHub Pages</h2>
+                <p class="slide-text">Una vez subido el código, activar Pages toma <strong>30 segundos</strong>:</p>
+                <div class="steps-process">
+                    <div class="process-step">
+                        <span class="process-num">1</span>
+                        <h4>En tu repo</h4>
+                        <p>Andá a <strong>Settings</strong> (arriba a la derecha del repo).</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <span class="process-num">2</span>
+                        <h4>Pages</h4>
+                        <p>En el menú lateral, buscá <strong>"Pages"</strong>.</p>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <span class="process-num">3</span>
+                        <h4>Branch: main</h4>
+                        <p>En "Branch" elegí <code>main</code> y carpeta <code>/ (root)</code>. Click "Save".</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⏰ Esperá 1-2 minutos. Después tu sitio está vivo en: <code>https://TUUSUARIO.github.io/NOMBRE-REPO/</code></p>
+                </div>
+                <div class="code-block small">
+<pre><code># Ejemplos de URLs:
+https://martinacode.github.io/mi-portafolio/
+https://juangamer.github.io/pixel-cafe/
+https://luciapix.github.io/banda-website/</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: ALTERNATIVAS DEPLOY ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌍 Otras Plataformas para Deploy</h2>
+                <p class="slide-text">GitHub Pages es la más simple, pero hay otras alternativas <strong>gratis y excelentes</strong>:</p>
+                <div class="platforms-grid">
+                    <div class="platform-card">
+                        <h4>🐙 GitHub Pages</h4>
+                        <ul>
+                            <li>100% gratis</li>
+                            <li>Conectado a tu repo</li>
+                            <li>Solo HTML/CSS/JS</li>
+                            <li>URL: <code>*.github.io</code></li>
+                        </ul>
+                        <span class="platform-tag">Recomendado para principiantes</span>
+                    </div>
+                    <div class="platform-card">
+                        <h4>🪂 Netlify</h4>
+                        <ul>
+                            <li>Drag & drop (sin Git)</li>
+                            <li>Deploy automático en cada push</li>
+                            <li>SSL y CDN incluidos</li>
+                            <li>URL: <code>*.netlify.app</code></li>
+                        </ul>
+                        <span class="platform-tag">Profesional y fácil</span>
+                    </div>
+                    <div class="platform-card">
+                        <h4>▲ Vercel</h4>
+                        <ul>
+                            <li>Mejor para apps modernas</li>
+                            <li>Optimizado para frameworks</li>
+                            <li>Deploy en cada commit</li>
+                            <li>URL: <code>*.vercel.app</code></li>
+                        </ul>
+                        <span class="platform-tag">Para proyectos avanzados</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: CHECKLIST PRE-DEPLOY ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">✅ Checklist Antes de Publicar</h2>
+                <p class="slide-text">Antes de hacer deploy, repasá estos puntos para que tu sitio se vea profesional:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">📝 El archivo principal se llama <code>index.html</code> (sí o sí)</div>
+                    <div class="check-item">🔗 Todos los links internos funcionan</div>
+                    <div class="check-item">🖼️ Las imágenes tienen <code>alt=""</code> descriptivo</div>
+                    <div class="check-item">📱 Probaste en mobile, tablet y desktop</div>
+                    <div class="check-item">🎨 Los colores tienen buen contraste (WCAG AA)</div>
+                    <div class="check-item">🏷️ El <code>&lt;title&gt;</code> es claro y descriptivo</div>
+                    <div class="check-item">📋 Agregaste un <code>&lt;meta name="description"&gt;</code> en el head</div>
+                    <div class="check-item">🚫 No tenés <code>console.log</code> o código de prueba</div>
+                    <div class="check-item">⚡ Las imágenes están optimizadas (no super pesadas)</div>
+                    <div class="check-item">🌐 Probaste con Live Server en VS Code antes de subir</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: PRÁCTICA 2 ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 2: Deploy a GitHub Pages</h2>
+                <p class="slide-text">Vamos a publicar tu sitio web en internet en menos de <strong>5 minutos</strong>:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">1️⃣ Creá una cuenta en <strong>github.com</strong> (gratis)</div>
+                    <div class="check-item">2️⃣ Creá un nuevo repositorio público (ej: <code>mi-portafolio</code>)</div>
+                    <div class="check-item">3️⃣ Subí tu carpeta de proyecto al repo (con Git o desde la web)</div>
+                    <div class="check-item">4️⃣ Andá a <strong>Settings → Pages</strong></div>
+                    <div class="check-item">5️⃣ Elegí branch <code>main</code> y carpeta <code>/ (root)</code></div>
+                    <div class="check-item">6️⃣ Esperá 1-2 minutos y abrí tu URL pública 🎉</div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/04-deploy.html</code> para la guía completa paso a paso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios Finales</h2>
+                <p class="slide-text">Los últimos ejercicios del curso para pulir y publicar tu trabajo:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Transitions y Hover Effects</h4>
+                            <p>Archivos: <code>01-transitions.html</code> + CSS — Practicar transiciones suaves y hover effects.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Animaciones con @keyframes</h4>
+                            <p>Archivos: <code>02-keyframes.html</code> + CSS — Crear animaciones de entrada y loops.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Galería Pulida</h4>
+                            <p>Archivos: <code>03-galeria-pulida.html</code> + CSS — Galería con animaciones y overlays profesionales.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Deploy a GitHub Pages</h4>
+                            <p>Archivo: <code>04-deploy.html</code> — Guía completa para publicar tu proyecto online.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CIERRE DEL CURSO ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CURSO COMPLETADO 🎓</div>
+                <h2 class="slide-heading-final">¡Felicitaciones!</h2>
+                <div class="course-summary">
+                    <p class="summary-intro">En estas 8 clases recorriste todo lo que necesitás para construir webs profesionales:</p>
+                    <div class="summary-grid">
+                        <div class="summary-item">✅ Cómo funciona la web y HTML</div>
+                        <div class="summary-item">✅ Formularios e introducción a CSS</div>
+                        <div class="summary-item">✅ El Box Model</div>
+                        <div class="summary-item">✅ Layouts con Flexbox</div>
+                        <div class="summary-item">✅ Diseño Responsive</div>
+                        <div class="summary-item">✅ Tipografía y diseño visual</div>
+                        <div class="summary-item">✅ Maquetar un sitio completo</div>
+                        <div class="summary-item">✅ Animar y publicar online</div>
+                    </div>
+                </div>
+                <div class="next-steps">
+                    <h3>¿Qué sigue?</h3>
+                    <p>Aprendé <strong>JavaScript</strong> para hacer tu web interactiva. Después <strong>frameworks</strong> como React. ¡El cielo es el límite!</p>
+                </div>
+                <div class="closing-message">
+                    <p class="thanks">Gracias por confiar en BYTEC. ¡Seguí codeando!</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        <span class="hint-desktop">Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar</span>
+        <span class="hint-mobile">Deslizá hacia los lados ◂ ▸ para navegar</span>
+    </div>
+
+    <div class="swipe-toast" id="swipeToast">
+        <span class="swipe-toast-icon">👆</span>
+        <p class="swipe-toast-text">¡Deslizá para navegar!</p>
+        <p class="swipe-toast-sub">Arrastrá el dedo hacia la izquierda o derecha para cambiar de slide</p>
+        <button class="swipe-toast-dismiss" onclick="dismissToast()">ENTENDIDO</button>
+    </div>
+
+    <div class="swipe-indicator left" id="swipeLeft">◂</div>
+    <div class="swipe-indicator right" id="swipeRight">▸</div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isSwiping = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+            const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            if (diffX > diffY && diffX > 10) {
+                const indicator = (e.changedTouches[0].screenX - touchStartX) > 0
+                    ? document.getElementById('swipeLeft')
+                    : document.getElementById('swipeRight');
+                indicator.classList.add('flash');
+                setTimeout(() => indicator.classList.remove('flash'), 200);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+            document.getElementById('swipeLeft').classList.remove('flash');
+            document.getElementById('swipeRight').classList.remove('flash');
+        });
+
+        function showSwipeToast() {
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const toastKey = 'bytec-swipe-seen';
+            if (isTouchDevice && !localStorage.getItem(toastKey)) {
+                setTimeout(() => {
+                    document.getElementById('swipeToast').classList.add('visible');
+                }, 1200);
+            }
+        }
+
+        function dismissToast() {
+            document.getElementById('swipeToast').classList.remove('visible');
+            localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        function downloadPDF() {
+            window.print();
+        }
+
+        showSwipeToast();
+    </script>
+
+</body>
+</html>

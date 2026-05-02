@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Galería Pulida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="03-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 03: Galería Pulida con Efectos
+    ============================================================
+
+    CONSIGNA:
+    Construir una galería de imágenes con efectos visuales
+    profesionales:
+    - Animación de entrada escalonada
+    - Hover con overlay oscuro + texto
+    - Zoom suave en la imagen al hover
+    - Animación al hacer click (probá con :active)
+
+    PASOS:
+    1. En 03-style.css, completá los valores con "TU-VALOR"
+    2. Recargá la página para ver la entrada escalonada
+    3. Pasá el mouse sobre cada item para ver el overlay
+
+    TÉCNICAS USADAS:
+    - position: relative + absolute para el overlay
+    - opacity 0 → 1 con transition para el overlay
+    - transform: scale() para el zoom de imagen
+    - @keyframes para la entrada escalonada
+
+    BONUS:
+    - Agregá un filter: grayscale(50%) que se quite al hover
+    - Probá con backdrop-filter: blur() en el overlay
+    - Hacé que el caption suba desde abajo en vez de fade
+    ============================================================
+    -->
+
+    <header class="page-header">
+        <h1>📷 Galería Pulida</h1>
+        <p>Pasá el mouse sobre cada imagen para ver el efecto</p>
+    </header>
+
+    <main>
+        <div class="gallery">
+
+            <article class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=20" alt="Foto 1">
+                <div class="overlay">
+                    <h3>Atardecer</h3>
+                    <p>Vista de la costa al caer el sol</p>
+                </div>
+            </article>
+
+            <article class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=21" alt="Foto 2">
+                <div class="overlay">
+                    <h3>Bosque</h3>
+                    <p>Caminata por el bosque en otoño</p>
+                </div>
+            </article>
+
+            <article class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=22" alt="Foto 3">
+                <div class="overlay">
+                    <h3>Ciudad</h3>
+                    <p>Skyline urbano de noche</p>
+                </div>
+            </article>
+
+            <article class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=23" alt="Foto 4">
+                <div class="overlay">
+                    <h3>Montaña</h3>
+                    <p>Cumbres nevadas al amanecer</p>
+                </div>
+            </article>
+
+            <article class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=24" alt="Foto 5">
+                <div class="overlay">
+                    <h3>Mar</h3>
+                    <p>Olas rompiendo en la playa</p>
+                </div>
+            </article>
+
+            <article class="gallery-item">
+                <img src="https://picsum.photos/400/300?random=25" alt="Foto 6">
+                <div class="overlay">
+                    <h3>Desierto</h3>
+                    <p>Dunas infinitas en el Sahara</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+</body>
+</html>

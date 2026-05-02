@@ -1,0 +1,333 @@
+/*
+============================================================
+EJERCICIO 04: Guía de Deploy a GitHub Pages
+============================================================
+Estilo de la guía paso a paso.
+============================================================
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --orange: #f75001;
+    --blue: #04589d;
+    --bg: #060614;
+    --surface: #131340;
+    --border: #1a1a5e;
+    --text: #e8e8f0;
+    --muted: #8888aa;
+    --success: #00e676;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    padding: 40px 20px;
+}
+
+.guide {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ========== HEADER ========== */
+.guide-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--surface), var(--bg));
+    border: 2px solid var(--orange);
+    border-radius: 16px;
+    margin-bottom: 32px;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.guide-header h1 {
+    font-size: 36px;
+    color: var(--orange);
+    margin-bottom: 8px;
+}
+
+.guide-header p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* ========== STEPS ========== */
+.step {
+    display: flex;
+    gap: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.step:hover {
+    border-color: var(--orange);
+    transform: translateX(4px);
+}
+
+.step.optional {
+    border-left: 4px solid var(--blue);
+}
+
+.step-num {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: var(--orange);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 900;
+    font-family: 'Courier New', monospace;
+}
+
+.step-body {
+    flex: 1;
+}
+
+.step-body h2 {
+    color: var(--orange);
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.step-body p {
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.step-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.step-body li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    color: var(--text);
+}
+
+.step-body li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.step-body code {
+    background: var(--bg);
+    color: var(--orange);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+}
+
+.step-body a {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+/* ========== TIP BOX ========== */
+.tip {
+    background: rgba(4, 88, 157, 0.15);
+    border-left: 4px solid var(--blue);
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 16px;
+    color: var(--text);
+}
+
+.tip.celebrate {
+    background: rgba(0, 230, 118, 0.12);
+    border-left-color: var(--success);
+}
+
+/* ========== CODE BLOCK ========== */
+.code {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--orange);
+    border-radius: 6px;
+    padding: 18px;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+.code code {
+    background: none;
+    border: none;
+    color: #c8d6e5;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre;
+}
+
+/* ========== URL EXAMPLE ========== */
+.url-example {
+    background: var(--bg);
+    border: 2px dashed var(--orange);
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.url-example .highlight {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+/* ========== BONUS SECTION ========== */
+.bonus {
+    background: linear-gradient(135deg, var(--surface), var(--bg));
+    border: 2px solid var(--blue);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 32px 0;
+}
+
+.bonus h2 {
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 26px;
+}
+
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.bonus-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.bonus-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--orange);
+}
+
+.bonus-card h3 {
+    color: var(--orange);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.bonus-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ========== FOOTER ========== */
+.guide-footer {
+    text-align: center;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--orange), var(--blue));
+    border-radius: 16px;
+    margin-top: 40px;
+    color: white;
+}
+
+.guide-footer h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.guide-footer p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    opacity: 0.95;
+}
+
+.next-steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px auto;
+    max-width: 400px;
+    text-align: left;
+}
+
+.next-steps-list li {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px 18px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.bytec-sign {
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.bytec-sign .cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 50%   { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    body { padding: 20px 12px; }
+
+    .guide-header { padding: 24px 16px; }
+    .guide-header h1 { font-size: 26px; }
+
+    .step {
+        flex-direction: column;
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .step-num { width: 44px; height: 44px; font-size: 14px; }
+    .step-body h2 { font-size: 18px; }
+
+    .bonus { padding: 20px; }
+    .bonus h2 { font-size: 22px; }
+
+    .guide-footer { padding: 28px 20px; }
+    .guide-footer h2 { font-size: 24px; }
+
+    .url-example { font-size: 13px; padding: 14px; }
+}

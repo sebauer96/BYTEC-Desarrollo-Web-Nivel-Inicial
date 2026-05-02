@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Animaciones con @keyframes</title>
+    <link rel="stylesheet" href="02-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 02: Animaciones con @keyframes
+    ============================================================
+
+    CONSIGNA:
+    Crear distintas animaciones usando @keyframes y animation:
+    - Animaciones de entrada (fadeIn, slideIn, bounceIn)
+    - Animaciones infinitas (pulse, spin, float)
+    - Combinación de propiedades
+
+    PASOS:
+    1. En 02-style.css, completá los @keyframes con los pasos
+    2. Aplicá la animación al elemento con `animation: ...`
+    3. Recargá la página para ver las animaciones de entrada
+
+    SINTAXIS:
+    @keyframes nombre {
+        from { ...estado inicial... }
+        to   { ...estado final... }
+    }
+    /* O con porcentajes para múltiples pasos: */
+    @keyframes nombre {
+        0%   { ... }
+        50%  { ... }
+        100% { ... }
+    }
+
+    /* Aplicar */
+    .elemento {
+        animation: nombre DURACIÓN TIMING DELAY ITERACIÓN;
+        /* Ejemplo: */
+        animation: fadeIn 0.8s ease-out;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    BONUS:
+    - Combiná dos animaciones con coma: animation: fade 0.5s, slide 0.5s
+    - Probá animation-delay para animaciones secuenciales
+    - Investigá animation-fill-mode: forwards (mantiene el estado final)
+    ============================================================
+    -->
+
+    <header class="page-header">
+        <h1>🎬 Animaciones con @keyframes</h1>
+        <p>Recargá la página para ver las animaciones de entrada</p>
+    </header>
+
+    <main>
+        <!-- ========== ENTRADAS (al cargar la página) ========== -->
+        <section class="demo-section">
+            <h2>Animaciones de Entrada</h2>
+            <div class="demo-grid">
+                <div class="enter-card fade-in">
+                    <div class="enter-icon">🌅</div>
+                    <h3>Fade In</h3>
+                    <p>Aparece desabajo con opacidad creciente.</p>
+                </div>
+                <div class="enter-card slide-in-left">
+                    <div class="enter-icon">⬅️</div>
+                    <h3>Slide Left</h3>
+                    <p>Se desliza desde la izquierda.</p>
+                </div>
+                <div class="enter-card bounce-in">
+                    <div class="enter-icon">🏀</div>
+                    <h3>Bounce In</h3>
+                    <p>Aparece con efecto rebote.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ANIMACIONES INFINITAS ========== -->
+        <section class="demo-section">
+            <h2>Animaciones Infinitas</h2>
+            <div class="infinite-grid">
+                <div class="infinite-item">
+                    <div class="badge-pulse">NEW</div>
+                    <p>Pulse — destaca elementos nuevos</p>
+                </div>
+                <div class="infinite-item">
+                    <div class="loader-spin"></div>
+                    <p>Spin — clásico spinner de loading</p>
+                </div>
+                <div class="infinite-item">
+                    <div class="float-emoji">🚀</div>
+                    <p>Float — flota como en el espacio</p>
+                </div>
+                <div class="infinite-item">
+                    <span class="cursor-blink">_</span>
+                    <p>Blink — cursor parpadeando</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ANIMACIÓN ESCALONADA ========== -->
+        <section class="demo-section">
+            <h2>Entrada Escalonada (con delay)</h2>
+            <p class="hint">Cada item entra con un pequeño delay después del anterior</p>
+            <ul class="staggered-list">
+                <li>Primer item</li>
+                <li>Segundo item</li>
+                <li>Tercer item</li>
+                <li>Cuarto item</li>
+                <li>Quinto item</li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>
