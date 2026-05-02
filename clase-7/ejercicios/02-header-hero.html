@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Header + Hero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="02-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 02: Header + Hero del Pixel Café
+    ============================================================
+
+    CONSIGNA:
+    Estilizá el header y el hero section del sitio Pixel Café.
+    El HTML ya está armado, vos solo tenés que completar el CSS
+    en 02-style.css.
+
+    REQUISITOS:
+    1. Header mobile-first: apilado en mobile, en fila en desktop
+    2. Hero con background-image + overlay de gradiente
+    3. Título grande con clamp() para tipografía fluida
+    4. Botón CTA con hover effect
+    5. Variables CSS en :root para los colores
+
+    PISTAS:
+    - El header en mobile tiene flex-direction: column
+    - En desktop pasa a flex-direction: row con justify-content: space-between
+    - El hero usa background con linear-gradient sobre la imagen
+    - El botón usa display: inline-block con padding generoso
+
+    BONUS:
+    - Agregá una segunda fuente para el cuerpo (ej: Inter)
+    - Hacé que el header sea sticky con position: sticky; top: 0
+    - Añadí transform: translateY(-2px) en el botón al hover
+    ============================================================
+    -->
+
+    <header class="site-header">
+        <a href="#" class="logo">🎮 PIXEL CAFÉ</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">Café · Gaming · Comunidad</span>
+                <h1>Café para Gamers 🎮</h1>
+                <p>Cafetería retro donde recargás energía mientras jugás tus juegos favoritos.</p>
+                <a href="#menu" class="btn btn-primary">Ver el menú</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

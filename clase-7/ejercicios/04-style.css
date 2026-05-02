@@ -1,0 +1,63 @@
+/*
+============================================================
+EJERCICIO 04 (DESAFÍO): Sitio Pixel Café Completo
+============================================================
+
+CONSIGNA:
+Maquetá los estilos del sitio Pixel Café COMPLETO desde cero.
+Este es el ejercicio integrador final.
+
+ESTRUCTURA RECOMENDADA DEL CSS:
+
+1. RESET & VARIABLES
+   * { ... }
+   :root { --color-primario: ...; --fuente-titulo: ...; }
+
+2. BASE
+   body { font-family, color, etc. }
+   html { scroll-behavior: smooth; }
+
+3. LAYOUT
+   .site-header
+   .hero
+   .menu
+   .gallery
+   .about
+   .contact
+   .site-footer
+
+4. COMPONENTES
+   .btn, .btn-primary
+   .menu-card
+   .gallery-grid img
+   .section-title
+
+5. UTILIDADES
+   .container { max-width; margin: 0 auto; }
+
+6. RESPONSIVE
+   @media (min-width: 768px) { ... }
+   @media (min-width: 1024px) { ... }
+
+REQUISITOS MÍNIMOS:
+- Variables CSS en :root
+- Mobile first
+- Al menos 2 breakpoints
+- Hero con gradient + imagen
+- Flex-wrap en cards
+- CSS Grid en galería
+- Al menos 3 hover effects
+
+PALETA SUGERIDA (podés cambiarla):
+- Primario: #f75001
+- Secundario: #04589d
+- Fondo: #060614
+- Card: #131340
+- Texto: #e8e8f0
+- Muted: #8888aa
+
+¡A maquetar! ✨
+============================================================
+*/
+
+/* Escribí tus estilos acá */

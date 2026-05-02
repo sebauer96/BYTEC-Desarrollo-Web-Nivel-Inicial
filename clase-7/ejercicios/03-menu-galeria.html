@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Menú + Galería</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="03-style.css">
+</head>
+<body>
+
+    <!--
+    ============================================================
+    EJERCICIO 03: Sección de Menú + Galería del Pixel Café
+    ============================================================
+
+    CONSIGNA:
+    Estilizá las dos secciones centrales del sitio:
+    - MENÚ con cards de productos (3 por fila en desktop)
+    - GALERÍA con grid responsive de imágenes
+
+    REQUISITOS:
+    1. .menu-grid usa flex-wrap: wrap con gap
+    2. Cada .menu-card es flexible (flex: 1 1 280px)
+    3. .gallery-grid usa CSS Grid con auto-fit
+    4. Imágenes con object-fit: cover
+    5. Hover effects en cards e imágenes
+
+    PISTAS:
+    - flex: 1 1 280px → crece, se achica, base 280px
+    - grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
+    - object-fit: cover hace que la imagen llene el contenedor
+    - transition: transform 0.3s para animar el hover
+
+    BONUS:
+    - Hacé que las cards tengan box-shadow al hover
+    - Probá filter: brightness(0.9) en imágenes y al hover brightness(1)
+    - Agregá un overlay con info al pasar el mouse sobre cada imagen
+    ============================================================
+    -->
+
+    <main>
+        <section class="menu" id="menu">
+            <h2 class="section-title">Nuestro Menú</h2>
+            <p class="section-sub">Comida y bebida pensada para sesiones largas de juego</p>
+
+            <div class="menu-grid">
+                <article class="menu-card">
+                    <div class="card-icon">☕</div>
+                    <h3>Café</h3>
+                    <p>Espresso, latte, capuccino, mocha y nuestro famoso "Boss Battle Coffee".</p>
+                    <span class="card-price">desde $1500</span>
+                </article>
+
+                <article class="menu-card">
+                    <div class="card-icon">🥐</div>
+                    <h3>Tostados</h3>
+                    <p>Tostados artesanales con jamón crudo, queso brie, palta y otras combinaciones.</p>
+                    <span class="card-price">desde $3500</span>
+                </article>
+
+                <article class="menu-card">
+                    <div class="card-icon">🍪</div>
+                    <h3>Postres</h3>
+                    <p>Cookies, brownies y cheesecakes hechos en el día. Para endulzar tu partida.</p>
+                    <span class="card-price">desde $2200</span>
+                </article>
+
+                <article class="menu-card">
+                    <div class="card-icon">🥤</div>
+                    <h3>Bebidas</h3>
+                    <p>Smoothies, jugos naturales, gaseosas y nuestras energéticas caseras.</p>
+                    <span class="card-price">desde $1200</span>
+                </article>
+
+                <article class="menu-card">
+                    <div class="card-icon">🍕</div>
+                    <h3>Pizza</h3>
+                    <p>Pizzas individuales perfectas para compartir entre jugadores. 8 sabores.</p>
+                    <span class="card-price">desde $4500</span>
+                </article>
+
+                <article class="menu-card">
+                    <div class="card-icon">🎂</div>
+                    <h3>Combos</h3>
+                    <p>Combos de café + dulce o tostado + bebida. La opción favorita de los regulares.</p>
+                    <span class="card-price">desde $4000</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="gallery" id="galeria">
+            <h2 class="section-title">Nuestro Local</h2>
+            <p class="section-sub">Conocé el espacio antes de venir</p>
+
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Vista del local">
+                <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600" alt="Mesas con consolas retro">
+                <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600" alt="Barra de café">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600" alt="Detalle pixel art">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Café latte">
+                <img src="https://images.unsplash.com/photo-1542181961-9590d0c79dab?w=600" alt="Postres">
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

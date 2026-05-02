@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 7: Proyecto Final - Maquetación</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 20</span>
+        <div class="nav-controls">
+            <button class="nav-btn nav-btn-pdf" onclick="downloadPDF()" title="Descargar como PDF">PDF</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 07</div>
+                <h1 class="title-main">Proyecto Final<br><span class="title-accent">Maquetación</span></h1>
+                <p class="title-sub">Construí un Sitio Web Real · De Cero a Producción</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">🛠 100% Práctica</span>
+                    <span class="meta-item">🚀 Nivel: Integrador</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Construir un <strong>sitio web completo</strong> integrando TODO lo aprendido: HTML semántico, CSS, Box Model, Flexbox, Responsive y Diseño Visual. ¡Tu primer proyecto real para mostrar al mundo!</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Repaso Clase 6</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">¿Qué es maquetar?</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Estructura semántica</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Práctica 1</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Buenas prácticas</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Práctica 2 + Cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: REPASO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 Repaso Rápido — Clase 6</h2>
+                <p class="slide-text">En la clase anterior aprendimos a darle estilo profesional a una web:</p>
+                <div class="recap-grid">
+                    <div class="recap-item"><code>Google Fonts</code> Tipografías</div>
+                    <div class="recap-item"><code>Jerarquía</code> Tamaños y pesos</div>
+                    <div class="recap-item"><code>:root + var()</code> Paletas con variables</div>
+                    <div class="recap-item"><code>background-image</code> Imágenes</div>
+                    <div class="recap-item"><code>linear-gradient</code> Gradientes</div>
+                    <div class="recap-item"><code>WCAG</code> Contraste accesible</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 Tenés <strong>todas las piezas</strong> del rompecabezas. Hoy las vamos a unir para construir <strong>algo real</strong>: un sitio web profesional de principio a fin.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: QUÉ ES MAQUETAR ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏗️ ¿Qué es Maquetar?</h2>
+                <p class="slide-text"><strong>Maquetar</strong> = traducir un diseño visual a código HTML + CSS funcional. Es lo que hace un desarrollador frontend cuando recibe un mockup:</p>
+                <div class="process-flow">
+                    <div class="flow-item">
+                        <div class="flow-icon">🎨</div>
+                        <h4>Diseño</h4>
+                        <p>Figma, Photoshop o un dibujo en papel.</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item highlight">
+                        <div class="flow-icon">🛠️</div>
+                        <h4>Maquetación</h4>
+                        <p>HTML estructura + CSS estilos = web funcional.</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-item">
+                        <div class="flow-icon">🌐</div>
+                        <h4>Sitio web</h4>
+                        <p>Lo ven los usuarios en el navegador.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Tu trabajo como dev frontend:</strong> que el sitio en el navegador se vea <em>idéntico</em> al diseño, sea responsive y funcione en todos los navegadores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: ESTRUCTURA SEMÁNTICA ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏛️ Estructura Semántica de un Sitio</h2>
+                <p class="slide-text">Antes de escribir código, pensá en las <strong>secciones</strong> de tu página. HTML5 tiene etiquetas semánticas para cada zona:</p>
+                <div class="structure-diagram">
+                    <div class="struct-box header-box">
+                        &lt;header&gt; — Logo + Navegación
+                    </div>
+                    <div class="struct-box main-box">
+                        <div class="struct-inner">&lt;section class="hero"&gt; — Bienvenida</div>
+                        <div class="struct-inner">&lt;section class="services"&gt; — Servicios</div>
+                        <div class="struct-inner">&lt;section class="gallery"&gt; — Trabajos</div>
+                        <div class="struct-inner">&lt;section class="contact"&gt; — Contacto</div>
+                    </div>
+                    <div class="struct-box footer-box">
+                        &lt;footer&gt; — Copyright + Links
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📚 <strong>¿Por qué semántico?</strong> Google entiende mejor tu sitio (SEO), los lectores de pantalla ayudan a personas con discapacidad visual, y tu código queda <em>autoexplicativo</em>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: ETIQUETAS SEMÁNTICAS ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏷️ Etiquetas Semánticas Clave</h2>
+                <p class="slide-text">Estas son las etiquetas que vas a usar para estructurar cualquier sitio web:</p>
+                <div class="attributes-table">
+                    <div class="attr-row header">
+                        <span>Etiqueta</span>
+                        <span>¿Qué representa?</span>
+                        <span>Ejemplo</span>
+                    </div>
+                    <div class="attr-row">
+                        <code>&lt;header&gt;</code>
+                        <span>Encabezado del sitio (logo + nav)</span>
+                        <code>Top de la página</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>&lt;nav&gt;</code>
+                        <span>Bloque de navegación</span>
+                        <code>Menu principal</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>&lt;main&gt;</code>
+                        <span>Contenido principal único</span>
+                        <code>Una vez por página</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>&lt;section&gt;</code>
+                        <span>Sección temática del contenido</span>
+                        <code>Hero, servicios, etc.</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>&lt;article&gt;</code>
+                        <span>Pieza de contenido autónoma</span>
+                        <code>Post de blog, card</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>&lt;aside&gt;</code>
+                        <span>Contenido lateral relacionado</span>
+                        <code>Sidebar, widget</code>
+                    </div>
+                    <div class="attr-row">
+                        <code>&lt;footer&gt;</code>
+                        <span>Pie de página</span>
+                        <code>Copyright, links finales</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: EL PROYECTO ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎮 El Proyecto: Pixel Café</h2>
+                <p class="slide-text">Vamos a construir <strong>Pixel Café</strong>, una landing page para una cafetería temática gamer/pixel-art. Tiene todo lo que cualquier sitio comercial necesita:</p>
+                <div class="project-preview">
+                    <div class="preview-section preview-header">
+                        <span class="preview-label">HEADER</span>
+                        <div class="preview-content">🎮 PIXEL CAFÉ &nbsp;·&nbsp; Inicio &nbsp;Menú &nbsp;Sobre &nbsp;Contacto</div>
+                    </div>
+                    <div class="preview-section preview-hero">
+                        <span class="preview-label">HERO</span>
+                        <div class="preview-content">"Café para Gamers" + botón CTA</div>
+                    </div>
+                    <div class="preview-section preview-services">
+                        <span class="preview-label">MENÚ</span>
+                        <div class="preview-cards">
+                            <div class="preview-mini">☕ Café</div>
+                            <div class="preview-mini">🥐 Tostados</div>
+                            <div class="preview-mini">🍪 Postres</div>
+                        </div>
+                    </div>
+                    <div class="preview-section preview-gallery">
+                        <span class="preview-label">GALERÍA</span>
+                        <div class="preview-cards">
+                            <div class="preview-mini">📷</div>
+                            <div class="preview-mini">📷</div>
+                            <div class="preview-mini">📷</div>
+                            <div class="preview-mini">📷</div>
+                        </div>
+                    </div>
+                    <div class="preview-section preview-footer">
+                        <span class="preview-label">FOOTER</span>
+                        <div class="preview-content">© 2026 Pixel Café · Redes · Newsletter</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: PASO 1 - HTML SEMÁNTICO ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 Paso 1: HTML Semántico Base</h2>
+                <p class="slide-text">Empezá <strong>siempre</strong> por el HTML. Sin estilos, solo la estructura:</p>
+                <div class="code-block">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Pixel Café — Coffee for Gamers&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;header class="site-header"&gt;
+    &lt;a href="#" class="logo"&gt;🎮 PIXEL CAFÉ&lt;/a&gt;
+    &lt;nav&gt;...&lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section class="hero"&gt;...&lt;/section&gt;
+    &lt;section class="menu"&gt;...&lt;/section&gt;
+    &lt;section class="gallery"&gt;...&lt;/section&gt;
+    &lt;section class="about"&gt;...&lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="site-footer"&gt;...&lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>⭐ <strong>Regla de oro:</strong> escribí PRIMERO toda la estructura HTML, después agregás los estilos CSS. No mezcles los dos pasos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: PASO 2 - HEADER + NAV ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧭 Paso 2: Header + Navegación</h2>
+                <p class="slide-text">El header es lo primero que ve el usuario. Tiene que ser <strong>simple</strong> y dejar claro qué es el sitio:</p>
+                <div class="code-block">
+<pre><code>&lt;!-- HTML --&gt;
+&lt;header class="site-header"&gt;
+  &lt;a href="#" class="logo"&gt;🎮 PIXEL CAFÉ&lt;/a&gt;
+  &lt;nav&gt;
+    &lt;ul class="nav-links"&gt;
+      &lt;li&gt;&lt;a href="#menu"&gt;Menú&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#galeria"&gt;Galería&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#contacto"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>/* CSS — Mobile first: stacked, después flex en desktop */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background: var(--dark-surface);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 70px;
+  }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: PASO 3 - HERO ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎬 Paso 3: Hero Section</h2>
+                <p class="slide-text">El <strong>hero</strong> es la primera sección visible. Tiene que <em>enganchar</em> al usuario en 3 segundos:</p>
+                <div class="code-block">
+<pre><code>&lt;section class="hero"&gt;
+  &lt;div class="hero-content"&gt;
+    &lt;h1&gt;Café para Gamers 🎮&lt;/h1&gt;
+    &lt;p&gt;Cafetería retro donde recargás energía mientras jugás.&lt;/p&gt;
+    &lt;a href="#menu" class="btn btn-primary"&gt;Ver el menú&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background:
+    linear-gradient(135deg, rgba(247,80,1,0.5), rgba(4,88,157,0.7)),
+    url('hero.jpg') center/cover;
+  color: white;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 64px);
+  margin-bottom: 16px;
+}</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 El hero debe responder 3 preguntas: <strong>¿qué es?</strong>, <strong>¿para quién?</strong>, <strong>¿qué hago acá?</strong> (CTA).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: PASO 4 - SERVICIOS ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">📦 Paso 4: Sección de Servicios / Menú</h2>
+                <p class="slide-text">Las cards de servicios o productos son un patrón super común. Usá <strong>flex-wrap</strong> para que se adapten:</p>
+                <div class="code-block">
+<pre><code>&lt;section class="menu" id="menu"&gt;
+  &lt;h2 class="section-title"&gt;Nuestro Menú&lt;/h2&gt;
+  &lt;div class="menu-grid"&gt;
+    &lt;article class="menu-card"&gt;
+      &lt;div class="card-icon"&gt;☕&lt;/div&gt;
+      &lt;h3&gt;Café&lt;/h3&gt;
+      &lt;p&gt;Espresso, latte, capuccino y más.&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;!-- repetir para cada item --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.menu-card {
+  flex: 1 1 280px;
+  max-width: 350px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: PASO 5 - GALERÍA ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🖼️ Paso 5: Galería</h2>
+                <p class="slide-text">Una galería de imágenes responsive es ideal para mostrar trabajos, fotos de un local o productos:</p>
+                <div class="code-block">
+<pre><code>&lt;section class="gallery" id="galeria"&gt;
+  &lt;h2 class="section-title"&gt;Nuestro Local&lt;/h2&gt;
+  &lt;div class="gallery-grid"&gt;
+    &lt;img src="foto1.jpg" alt="Vista del local"&gt;
+    &lt;img src="foto2.jpg" alt="Mesas con consolas"&gt;
+    &lt;img src="foto3.jpg" alt="Barra de café"&gt;
+    &lt;img src="foto4.jpg" alt="Detalle pixel art"&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+                <div class="code-block">
+<pre><code>.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.gallery-grid img:hover { transform: scale(1.05); }</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: PASO 6 - FOOTER ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">🦶 Paso 6: Footer</h2>
+                <p class="slide-text">El footer cierra la página. Suele tener: copyright, links a redes, info de contacto y a veces un newsletter:</p>
+                <div class="code-block">
+<pre><code>&lt;footer class="site-footer"&gt;
+  &lt;div class="footer-grid"&gt;
+    &lt;div&gt;
+      &lt;h4&gt;🎮 PIXEL CAFÉ&lt;/h4&gt;
+      &lt;p&gt;Café para gamers desde 2026.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h4&gt;Links&lt;/h4&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Menú&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h4&gt;Contacto&lt;/h4&gt;
+      &lt;p&gt;hola@pixelcafe.com&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p class="copy"&gt;&copy; 2026 Pixel Café. Hecho en BYTEC.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: PRÁCTICA 1 ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 1: Estructura Semántica</h2>
+                <p class="slide-text">Vamos a construir el <strong>esqueleto HTML</strong> completo del sitio Pixel Café (sin estilos todavía):</p>
+                <div class="practice-checklist">
+                    <div class="check-item">📄 Estructura base con <code>&lt;!DOCTYPE&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> y <code>&lt;body&gt;</code></div>
+                    <div class="check-item">🧭 <code>&lt;header&gt;</code> con logo + <code>&lt;nav&gt;</code> + lista de links</div>
+                    <div class="check-item">🎬 <code>&lt;main&gt;</code> que envuelve todas las secciones</div>
+                    <div class="check-item">📦 <code>&lt;section&gt;</code> para hero, menú, galería y sobre</div>
+                    <div class="check-item">📝 <code>&lt;article&gt;</code> para cada item del menú</div>
+                    <div class="check-item">🦶 <code>&lt;footer&gt;</code> con info y copyright</div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/01-estructura-html.html</code> y completá la estructura paso a paso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: ORGANIZACIÓN CSS ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">📂 Organizar tu CSS</h2>
+                <p class="slide-text">Cuando un CSS crece, se vuelve un caos. Organizalo siempre con esta estructura:</p>
+                <div class="code-block">
+<pre><code>/* ============================================
+   1. RESET & VARIABLES
+   ============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --color-primario: #f75001; ... }
+
+/* ============================================
+   2. BASE (body, fuentes, links)
+   ============================================ */
+body { font-family: 'Inter', sans-serif; ... }
+
+/* ============================================
+   3. LAYOUT (header, footer, secciones)
+   ============================================ */
+.site-header { ... }
+.hero { ... }
+.menu { ... }
+
+/* ============================================
+   4. COMPONENTES (botones, cards, formularios)
+   ============================================ */
+.btn { ... }
+.menu-card { ... }
+
+/* ============================================
+   5. UTILIDADES (clases helper)
+   ============================================ */
+.text-center { text-align: center; }
+
+/* ============================================
+   6. RESPONSIVE (media queries al final)
+   ============================================ */
+@media (min-width: 768px) { ... }</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: BUENAS PRÁCTICAS ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">⭐ Buenas Prácticas</h2>
+                <p class="slide-text">Adoptar estas prácticas desde el día 1 hace tu código <strong>profesional</strong> y mantenible:</p>
+                <div class="practices-grid">
+                    <div class="practice-card">
+                        <div class="practice-icon">🏷️</div>
+                        <h4>Nombres descriptivos</h4>
+                        <p><code>.menu-card</code> ✅<br><code>.cosa1</code> ❌</p>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-icon">🔢</div>
+                        <h4>Mobile first</h4>
+                        <p>Empezá por celular, después agregás <code>@media (min-width)</code> para más grandes.</p>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-icon">🎨</div>
+                        <h4>Variables CSS</h4>
+                        <p>Definí colores, espacios y fuentes en <code>:root</code> y reusalos con <code>var()</code>.</p>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-icon">💬</div>
+                        <h4>Comentarios útiles</h4>
+                        <p>Agrupá secciones de CSS con comentarios. Ayuda a leer el código.</p>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-icon">🧹</div>
+                        <h4>Indentación consistente</h4>
+                        <p>Siempre 2 o 4 espacios. Mantené un solo estilo en todo el proyecto.</p>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-icon">🔍</div>
+                        <h4>Inspector siempre</h4>
+                        <p>F12 es tu mejor amigo. Inspeccioná, modificá en vivo, aprendé de webs reales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: BEM (NAMING) ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧱 BEM: Nomenclatura para Clases</h2>
+                <p class="slide-text"><strong>BEM</strong> (Block-Element-Modifier) es una convención muy usada para nombrar clases CSS. Te ayuda a evitar conflictos:</p>
+                <div class="code-block">
+<pre><code>/* Block: el componente principal */
+.card { ... }
+
+/* Element: una parte del block (separado por __) */
+.card__title { ... }
+.card__image { ... }
+.card__button { ... }
+
+/* Modifier: variante del block o element (con --) */
+.card--featured { ... }       /* Una card destacada */
+.card__button--disabled { ... } /* Un botón deshabilitado */</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Ventajas de BEM</h4>
+                        <ul>
+                            <li>Sin conflictos entre clases</li>
+                            <li>Fácil saber a qué pertenece cada clase</li>
+                            <li>Componentes reusables y predecibles</li>
+                            <li>Sin selectores anidados complejos</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Si BEM te parece mucho</h4>
+                        <p>Para proyectos chicos podés usar nombres simples como <code>.menu-card</code> o <code>.btn-primary</code>. Lo importante es <strong>ser consistente</strong> en todo el proyecto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: PRÁCTICA 2 ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Práctica 2: Maquetar el Header + Hero</h2>
+                <p class="slide-text">Ahora que tenés la estructura, vas a darle <strong>estilos</strong> al header y al hero del Pixel Café:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">🎨 Variables CSS en <code>:root</code> con tu paleta</div>
+                    <div class="check-item">🌐 Importá Google Fonts (Press Start 2P para títulos)</div>
+                    <div class="check-item">🧭 <strong>Header:</strong> logo + nav, mobile first (apilado → fila)</div>
+                    <div class="check-item">🎬 <strong>Hero:</strong> background con gradiente + imagen, título grande, CTA</div>
+                    <div class="check-item">📱 Media queries para tablet y desktop</div>
+                    <div class="check-item">⚡ Hover effects en links y botones</div>
+                </div>
+                <div class="highlight-box">
+                    <p>👉 Abrí <code>ejercicios/02-header-hero.html</code> y maquetá la parte superior del sitio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar</h2>
+                <p class="slide-text">Cuatro ejercicios que en conjunto construyen el <strong>sitio Pixel Café completo</strong>:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Estructura HTML Semántica</h4>
+                            <p>Archivo: <code>01-estructura-html.html</code> — Armar el esqueleto del sitio con todas las secciones.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Header + Hero</h4>
+                            <p>Archivos: <code>02-header-hero.html</code> + CSS — Estilizar la parte superior del sitio.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Menú + Galería</h4>
+                            <p>Archivos: <code>03-menu-galeria.html</code> + CSS — Sección central con cards y galería responsive.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Desafío: Sitio Completo</h4>
+                            <p>Archivos: <code>04-sitio-completo.html</code> + CSS — Maquetá todo el sitio Pixel Café.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CIERRE ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Tu Sitio Web Personal Completo</h3>
+                    <p>En vez de Pixel Café, creá tu <strong>propio sitio web</strong> con tu temática. Puede ser sobre vos, un proyecto, un emprendimiento, una banda, lo que quieras. Requisitos:</p>
+                    <ul>
+                        <li><strong>Header</strong> con logo y navegación</li>
+                        <li><strong>Hero</strong> con título grande, subtítulo y CTA</li>
+                        <li>Al menos <strong>3 secciones</strong> de contenido (servicios, galería, sobre, etc.)</li>
+                        <li><strong>Footer</strong> completo</li>
+                        <li>Diseño <strong>responsive</strong> (mobile + desktop)</li>
+                        <li>Variables CSS en <code>:root</code> para tu paleta</li>
+                        <li>Tipografía de Google Fonts</li>
+                        <li>Al menos <strong>1 imagen</strong> con overlay/gradiente</li>
+                        <li>Hover effects en botones y links</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 07 COMPLETADA</div>
+                    <p>¡Construiste un sitio web real desde cero! En la próxima clase lo pulimos y lo publicamos al mundo.</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        <span class="hint-desktop">Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar</span>
+        <span class="hint-mobile">Deslizá hacia los lados ◂ ▸ para navegar</span>
+    </div>
+
+    <div class="swipe-toast" id="swipeToast">
+        <span class="swipe-toast-icon">👆</span>
+        <p class="swipe-toast-text">¡Deslizá para navegar!</p>
+        <p class="swipe-toast-sub">Arrastrá el dedo hacia la izquierda o derecha para cambiar de slide</p>
+        <button class="swipe-toast-dismiss" onclick="dismissToast()">ENTENDIDO</button>
+    </div>
+
+    <div class="swipe-indicator left" id="swipeLeft">◂</div>
+    <div class="swipe-indicator right" id="swipeRight">▸</div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isSwiping = true;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+            const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+            if (diffX > diffY && diffX > 10) {
+                const indicator = (e.changedTouches[0].screenX - touchStartX) > 0
+                    ? document.getElementById('swipeLeft')
+                    : document.getElementById('swipeRight');
+                indicator.classList.add('flash');
+                setTimeout(() => indicator.classList.remove('flash'), 200);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+            document.getElementById('swipeLeft').classList.remove('flash');
+            document.getElementById('swipeRight').classList.remove('flash');
+        });
+
+        function showSwipeToast() {
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const toastKey = 'bytec-swipe-seen';
+            if (isTouchDevice && !localStorage.getItem(toastKey)) {
+                setTimeout(() => {
+                    document.getElementById('swipeToast').classList.add('visible');
+                }, 1200);
+            }
+        }
+
+        function dismissToast() {
+            document.getElementById('swipeToast').classList.remove('visible');
+            localStorage.setItem('bytec-swipe-seen', 'true');
+        }
+
+        function downloadPDF() {
+            window.print();
+        }
+
+        showSwipeToast();
+    </script>
+
+</body>
+</html>

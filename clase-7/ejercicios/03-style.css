@@ -1,0 +1,146 @@
+/*
+============================================================
+EJERCICIO 03: Menú + Galería del Pixel Café
+============================================================
+
+CONSIGNA:
+Completá los valores "TU-VALOR" para que las cards se acomoden
+en grid responsive y la galería use CSS Grid.
+
+CLAVE:
+- flex-wrap: wrap → permite que los hijos salten de línea
+- flex: 1 1 280px → cada card flexible con base de 280px
+- grid auto-fit + minmax → grid responsive sin media queries
+============================================================
+*/
+
+:root {
+    --color-primario: #f75001;
+    --color-secundario: #04589d;
+    --color-fondo: #060614;
+    --color-superficie: #0d0d2b;
+    --color-card: #131340;
+    --color-borde: #1a1a5e;
+    --color-texto: #e8e8f0;
+    --color-muted: #8888aa;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* ========== TÍTULOS DE SECCIÓN ========== */
+.section-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 22px;
+    color: var(--color-primario);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.section-sub {
+    color: var(--color-muted);
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 15px;
+}
+
+/* ========== SECCIÓN MENÚ ========== */
+.menu {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ========== GRID DE CARDS ==========
+   Las cards se acomodan en fila y saltan a otra cuando no entran
+*/
+.menu-grid {
+    display: /* TU-VALOR: probá flex */;
+    flex-wrap: /* TU-VALOR: probá wrap (clave para responsive) */;
+    gap: /* TU-VALOR: probá 24px */;
+    justify-content: center;
+}
+
+.menu-card {
+    flex: /* TU-VALOR: probá 1 1 280px (crece, achica, base 280) */;
+    max-width: 350px;
+    background: var(--color-card);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.menu-card:hover {
+    border-color: var(--color-primario);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(247, 80, 1, 0.2);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.menu-card h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--color-primario);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.menu-card p {
+    color: var(--color-muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.card-price {
+    display: inline-block;
+    background: rgba(247, 80, 1, 0.15);
+    color: var(--color-primario);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ========== SECCIÓN GALERÍA ========== */
+.gallery {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ========== GRID DE IMÁGENES ==========
+   CSS Grid con auto-fit es perfecto para galerías responsive
+*/
+.gallery-grid {
+    display: /* TU-VALOR: probá grid */;
+    grid-template-columns: /* TU-VALOR: probá repeat(auto-fit, minmax(220px, 1fr)) */;
+    gap: 12px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: /* TU-VALOR: probá 220px (alto fijo) */;
+    object-fit: /* TU-VALOR: probá cover (rellena sin distorsionar) */;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    transition: transform 0.3s, filter 0.3s;
+    filter: brightness(0.85);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.04);
+    filter: brightness(1);
+}
